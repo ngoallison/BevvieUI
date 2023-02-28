@@ -15,6 +15,7 @@ struct SettingsView: View {
     @Binding var isSignedUp: Bool
     
     
+    @State var editPresent: Bool = false
     @State var privacyPresent: Bool = false
     @State var termsPresent: Bool = false
     
@@ -32,12 +33,19 @@ struct SettingsView: View {
         termsPresent = true
     }
     
+    func edit() {
+        editPresent = true
+    }
+    
     var body: some View {
         if privacyPresent {
             PrivacyView(privacyPresent: $privacyPresent)
         }
         else if termsPresent {
             TermsView(termsPresent: $termsPresent)
+        }
+        else if editPresent {
+            
         }
         else {
         ZStack(alignment: .center)  {

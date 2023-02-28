@@ -11,8 +11,6 @@
 		9814594728E6B66200F66347 /* CustomSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814594628E6B66200F66347 /* CustomSettingsButton.swift */; };
 		9816FCAB2968081C00ED20ED /* FirebaseFirestoreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9816FCAA2968081C00ED20ED /* FirebaseFirestoreSwift.framework */; };
 		9816FCAF2968081E00ED20ED /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9816FCAE2968081E00ED20ED /* FirebaseFirestore.framework */; };
-		9816FCB3296808A000ED20ED /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9816FCB2296808A000ED20ED /* FirebaseAuth */; };
-		9816FCB5296808A000ED20ED /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9816FCB4296808A000ED20ED /* FirebaseFirestore */; };
 		981806B62967F499008DF5D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9835EC1328E80B2000CB66A3 /* GoogleService-Info.plist */; };
 		9826038428E2306C00290E15 /* Kiona.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9826038328E2306C00290E15 /* Kiona.ttf */; };
 		9826038628E24B1A00290E15 /* AltoneTrial-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9826038528E24B1A00290E15 /* AltoneTrial-Regular.ttf */; };
@@ -51,9 +49,9 @@
 		9863C9DA28DB8FAC00E951FB /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863C9D928DB8FAC00E951FB /* DateValue.swift */; };
 		9863C9DC28DB9F3700E951FB /* BreakdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863C9DB28DB9F3700E951FB /* BreakdownView.swift */; };
 		9863C9DE28DBAA6400E951FB /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863C9DD28DBAA6400E951FB /* ColorModel.swift */; };
+		987D44C029AE9CE6002067FB /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987D44BF29AE9CE6002067FB /* EditView.swift */; };
 		98C1A9692964D3CC00CB82E9 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1A9682964D3CC00CB82E9 /* TermsView.swift */; };
 		98C1A96B2964D6DB00CB82E9 /* UserAnalyticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1A96A2964D6DB00CB82E9 /* UserAnalyticsModel.swift */; };
-		98C1A96D296554C800CB82E9 /* UserAnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1A96C296554C700CB82E9 /* UserAnalyticsViewModel.swift */; };
 		98C1A96F29661FC700CB82E9 /* BikoRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98C1A96E29661FC700CB82E9 /* BikoRegular.otf */; };
 		98C5A54629490D7400263CA3 /* BevModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C5A54529490D7400263CA3 /* BevModel.swift */; };
 		98D5EFA6295F8F0200E6D967 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D5EFA5295F8F0200E6D967 /* IconView.swift */; };
@@ -61,14 +59,16 @@
 		98D5EFAA295FC57700E6D967 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D5EFA9295FC57700E6D967 /* PrivacyView.swift */; };
 		98DB26F328DBCCB000411DD9 /* ConstModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB26F228DBCCAF00411DD9 /* ConstModel.swift */; };
 		98DB26F528DBD54000411DD9 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB26F428DBD54000411DD9 /* AnalyticsView.swift */; };
-		FA0BBC2856728C3370423CAD /* Pods_BevvieUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43647F794CE592C9F4CA8FC /* Pods_BevvieUI.framework */; };
+		F0C71CC3C17CE50F6C118CA0 /* Pods_BevvieUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E739FB8BFD010A945CB4611 /* Pods_BevvieUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6B1DD608A6263A477911E299 /* Pods-BevvieUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BevvieUI.debug.xcconfig"; path = "Target Support Files/Pods-BevvieUI/Pods-BevvieUI.debug.xcconfig"; sourceTree = "<group>"; };
-		926895ABD5630FFC60705C3D /* Pods-BevvieUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BevvieUI.release.xcconfig"; path = "Target Support Files/Pods-BevvieUI/Pods-BevvieUI.release.xcconfig"; sourceTree = "<group>"; };
+		217A1B698FCECB6D3E279C90 /* Pods-BevvieUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BevvieUI.debug.xcconfig"; path = "Target Support Files/Pods-BevvieUI/Pods-BevvieUI.debug.xcconfig"; sourceTree = "<group>"; };
+		2BBFEB6D3ED8636F594D64D7 /* Pods-BevvieUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BevvieUI.release.xcconfig"; path = "Target Support Files/Pods-BevvieUI/Pods-BevvieUI.release.xcconfig"; sourceTree = "<group>"; };
+		7E739FB8BFD010A945CB4611 /* Pods_BevvieUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BevvieUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9814594428E6B0A700F66347 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9814594628E6B66200F66347 /* CustomSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingsButton.swift; sourceTree = "<group>"; };
+		981567DF2968213D00531CFD /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9816FCAA2968081C00ED20ED /* FirebaseFirestoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestoreSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9816FCAE2968081E00ED20ED /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9826038328E2306C00290E15 /* Kiona.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kiona.ttf; sourceTree = "<group>"; };
@@ -112,17 +112,18 @@
 		9863C9D928DB8FAC00E951FB /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		9863C9DB28DB9F3700E951FB /* BreakdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakdownView.swift; sourceTree = "<group>"; };
 		9863C9DD28DBAA6400E951FB /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
+		987D44BF29AE9CE6002067FB /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		98C1A9682964D3CC00CB82E9 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		98C1A96A2964D6DB00CB82E9 /* UserAnalyticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnalyticsModel.swift; sourceTree = "<group>"; };
-		98C1A96C296554C700CB82E9 /* UserAnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnalyticsViewModel.swift; sourceTree = "<group>"; };
 		98C1A96E29661FC700CB82E9 /* BikoRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BikoRegular.otf; sourceTree = "<group>"; };
 		98C5A54529490D7400263CA3 /* BevModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BevModel.swift; sourceTree = "<group>"; };
+		98D4EC432968224C001740CE /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98D5EFA5295F8F0200E6D967 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		98D5EFA7295FBE1500E6D967 /* BevViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BevViewModel.swift; sourceTree = "<group>"; };
 		98D5EFA9295FC57700E6D967 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		98DB26F228DBCCAF00411DD9 /* ConstModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstModel.swift; sourceTree = "<group>"; };
 		98DB26F428DBD54000411DD9 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
-		F43647F794CE592C9F4CA8FC /* Pods_BevvieUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BevvieUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E398AC296822A600D4FB3D /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,10 +132,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9816FCAB2968081C00ED20ED /* FirebaseFirestoreSwift.framework in Frameworks */,
-				FA0BBC2856728C3370423CAD /* Pods_BevvieUI.framework in Frameworks */,
 				9816FCAF2968081E00ED20ED /* FirebaseFirestore.framework in Frameworks */,
-				9816FCB5296808A000ED20ED /* FirebaseFirestore in Frameworks */,
-				9816FCB3296808A000ED20ED /* FirebaseAuth in Frameworks */,
+				F0C71CC3C17CE50F6C118CA0 /* Pods_BevvieUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +143,8 @@
 		17306CF1DCB98E1C8BD0D229 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6B1DD608A6263A477911E299 /* Pods-BevvieUI.debug.xcconfig */,
-				926895ABD5630FFC60705C3D /* Pods-BevvieUI.release.xcconfig */,
+				217A1B698FCECB6D3E279C90 /* Pods-BevvieUI.debug.xcconfig */,
+				2BBFEB6D3ED8636F594D64D7 /* Pods-BevvieUI.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -153,10 +152,13 @@
 		73ED34A44593DAEDE518A6D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				98E398AC296822A600D4FB3D /* FirebaseAuth.framework */,
+				98D4EC432968224C001740CE /* FirebaseAuth.framework */,
+				981567DF2968213D00531CFD /* FirebaseAuth.framework */,
 				9816FCAE2968081E00ED20ED /* FirebaseFirestore.framework */,
 				9816FCAA2968081C00ED20ED /* FirebaseFirestoreSwift.framework */,
 				98261CBB2968076B002CA79D /* FirebaseFirestore.framework */,
-				F43647F794CE592C9F4CA8FC /* Pods_BevvieUI.framework */,
+				7E739FB8BFD010A945CB4611 /* Pods_BevvieUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,7 +172,6 @@
 				983250AE294BCABB00BD4C9C /* UserModel.swift */,
 				983250B0294BD85F00BD4C9C /* UserViewModel.swift */,
 				98C1A96A2964D6DB00CB82E9 /* UserAnalyticsModel.swift */,
-				98C1A96C296554C700CB82E9 /* UserAnalyticsViewModel.swift */,
 				98D5EFA7295FBE1500E6D967 /* BevViewModel.swift */,
 				985EED61295A40B900868493 /* NewUserViewModel.swift */,
 			);
@@ -304,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				98D5EFA9295FC57700E6D967 /* PrivacyView.swift */,
+				987D44BF29AE9CE6002067FB /* EditView.swift */,
 				98C1A9682964D3CC00CB82E9 /* TermsView.swift */,
 			);
 			path = settings;
@@ -316,11 +318,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9849D23F28D83D4E00D8A9FA /* Build configuration list for PBXNativeTarget "BevvieUI" */;
 			buildPhases = (
-				35BF3FC79BC9EFFC341FF6B1 /* [CP] Check Pods Manifest.lock */,
+				F55BE89CE130D9517CBED02A /* [CP] Check Pods Manifest.lock */,
 				9849D22D28D83D4D00D8A9FA /* Sources */,
 				9849D22E28D83D4D00D8A9FA /* Frameworks */,
 				9849D22F28D83D4D00D8A9FA /* Resources */,
-				B3AC396ED9499EC60CAB435E /* [CP] Embed Pods Frameworks */,
+				681F4AD63EB2312C0FEBE2B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -328,8 +330,6 @@
 			);
 			name = BevvieUI;
 			packageProductDependencies = (
-				9816FCB2296808A000ED20ED /* FirebaseAuth */,
-				9816FCB4296808A000ED20ED /* FirebaseFirestore */,
 			);
 			productName = BevvieUI;
 			productReference = 9849D23128D83D4D00D8A9FA /* BevvieUI.app */;
@@ -360,8 +360,6 @@
 			);
 			mainGroup = 9849D22828D83D4D00D8A9FA;
 			packageReferences = (
-				983927462968009F003AB6C1 /* XCRemoteSwiftPackageReference "Charts" */,
-				9816FCB1296808A000ED20ED /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 9849D23228D83D4D00D8A9FA /* Products */;
 			projectDirPath = "";
@@ -398,7 +396,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		35BF3FC79BC9EFFC341FF6B1 /* [CP] Check Pods Manifest.lock */ = {
+		681F4AD63EB2312C0FEBE2B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BevvieUI/Pods-BevvieUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BevvieUI/Pods-BevvieUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BevvieUI/Pods-BevvieUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F55BE89CE130D9517CBED02A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -420,23 +435,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B3AC396ED9499EC60CAB435E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BevvieUI/Pods-BevvieUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BevvieUI/Pods-BevvieUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BevvieUI/Pods-BevvieUI-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -446,7 +444,6 @@
 			files = (
 				9849D25928D9110000D8A9FA /* CustomSecureField.swift in Sources */,
 				9863C9CE28DAB4FC00E951FB /* MainView.swift in Sources */,
-				98C1A96D296554C800CB82E9 /* UserAnalyticsViewModel.swift in Sources */,
 				9850C19B2942831F00F54043 /* ContentView.swift in Sources */,
 				9863C9D028DACEA200E951FB /* AchievementView.swift in Sources */,
 				9849D23728D83D4D00D8A9FA /* LogInView.swift in Sources */,
@@ -456,6 +453,7 @@
 				9863C9D428DB751D00E951FB /* RoundedCorners.swift in Sources */,
 				9814594528E6B0A700F66347 /* SettingsView.swift in Sources */,
 				98C1A9692964D3CC00CB82E9 /* TermsView.swift in Sources */,
+				987D44C029AE9CE6002067FB /* EditView.swift in Sources */,
 				9849D25F28DA510600D8A9FA /* MasterView.swift in Sources */,
 				98D5EFA8295FBE1600E6D967 /* BevViewModel.swift in Sources */,
 				9863C9DC28DB9F3700E951FB /* BreakdownView.swift in Sources */,
@@ -538,7 +536,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -592,6 +590,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -601,7 +600,7 @@
 		};
 		9849D24028D83D4E00D8A9FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B1DD608A6263A477911E299 /* Pods-BevvieUI.debug.xcconfig */;
+			baseConfigurationReference = 217A1B698FCECB6D3E279C90 /* Pods-BevvieUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -642,7 +641,7 @@
 		};
 		9849D24128D83D4E00D8A9FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 926895ABD5630FFC60705C3D /* Pods-BevvieUI.release.xcconfig */;
+			baseConfigurationReference = 2BBFEB6D3ED8636F594D64D7 /* Pods-BevvieUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -703,38 +702,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9816FCB1296808A000ED20ED /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-		983927462968009F003AB6C1 /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9816FCB2296808A000ED20ED /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9816FCB1296808A000ED20ED /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		9816FCB4296808A000ED20ED /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9816FCB1296808A000ED20ED /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9849D22928D83D4D00D8A9FA /* Project object */;
 }

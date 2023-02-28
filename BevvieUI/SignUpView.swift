@@ -8,14 +8,14 @@
 import SwiftUI
 import FirebaseFirestore
 import FirebaseAuth
-//import Firebase
 
 struct SignUpView: View {
     
     @Binding var isSignedUp: Bool
     @Binding var isLoggedIn: Bool
-//    @Binding var chooseIcon: Bool
     @State var choosingIcon: Bool
+    
+    @State private var isLoading = false
     
     @State var isPresenting = false /// 1.
     @State var username: String = ""
@@ -83,51 +83,61 @@ struct SignUpView: View {
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         
                 }
-                VStack(alignment: .center, spacing: 5
-                ) {
-                    VStack(alignment: .leading, spacing: 15) {
-                    Text("Sign Up").font(Font.custom("Kiona", size: 30))
+                VStack(alignment: .center, spacing: 0) {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Sign Up").font(Font.custom("Kiona", size: 30))
                         VStack(spacing: 30.0) {
-                        VStack(spacing: 25.0) {
-                        VStack(alignment: .leading, spacing: 0.0) {
-                            Text(forgotUser).foregroundColor(.red).font(Font.custom("CaviarDreams", size: 14)).padding(.leading)
-                            VStack(alignment: .leading) {
-                            
+                            VStack(spacing: 5) {
+                                VStack(alignment: .leading, spacing: 5.0) {
+                                    Text(forgotUser).foregroundColor(.red).font(Font.custom("CaviarDreams", size: 14)).padding(.leading)
+                                    VStack(alignment: .leading, spacing: 10) {
+                                    
+                                        CustomTextfield(placeholder: Text("Email Address"), fontName: "Kiona", fontSize: 17, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $email)
 
-                               CustomTextfield(placeholder: Text("Email Address"), fontName: "CaviarDreams", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $email)
-                                CustomTextfield(placeholder: Text("Username"), fontName: "CaviarDreams", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $username)
-                                CustomSecurefield(placeholder: Text("Password"), fontName: "CaviarDreams", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, password: $password)
-                                
-                            }
-                        }
-                    
-                }
- 
-                Button("Sign Up") {
-                    checkInfo()
-                }.padding(.all)
-                    .frame(width: 150, height: 40)
-                    .background(ColorModel().mediumGreen)
-                    .foregroundColor(.white)
-                    .cornerRadius(18.0)
-                    .font(Font.custom("Cardium A Regular", size: 17))
-                    
-                    HStack {
-                        Text("Already have an account?")
-                        .font(Font.custom("Cardium A Regular", size: 13))
+                                        
+                                        CustomTextfield(placeholder: Text("Username"), fontName: "Kiona", fontSize: 17, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $username)
+                                        
+                                        CustomSecurefield(placeholder: Text("Password"), fontName: "Kiona", fontSize: 17, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, password: $password)
+                                        
+                                    }
+                                }
                         
-                        Button(action: {
-                            goToLogin()
-                        }, label: {
-                            Text("Log in here!")
+                            }
+                            
+                            Button(action: {
+                                        isLoading = true
+                                        checkInfo()
+                                    }) {
+                                        if isLoading {
+                                            ProgressView()
+                                                .foregroundColor(.white)
+                                        } else {
+                                            Text("Sign Up")
+                                                .padding(.all)
+                                                .frame(width: 150, height: 40)
+                                                .background(ColorModel().mediumGreen)
+                                                .foregroundColor(.white)
+                                                .cornerRadius(18.0)
+                                                .font(Font.custom("Cardium A Regular", size: 17))
+                                        }
+                                    }
+                                    .disabled(isLoading)
+
+                            HStack {
+                                Text("Already have an account?")
                                 .font(Font.custom("Cardium A Regular", size: 13))
-                                .fontWeight(.medium)
-                                .foregroundColor(.black)
-                            })
+                                
+                                Button(action: {
+                                    goToLogin()
+                                }, label: {
+                                    Text("Log in here!")
+                                        .font(Font.custom("Cardium A Regular", size: 13))
+                                        .fontWeight(.medium)
+                                        .foregroundColor(.black)
+                                })
                         }
-                    }
-                }
-                .frame(width: ConstModel().deviceWidth - 100, height: 475.0)
+                    }.frame(width: ConstModel().deviceWidth - 100, height: 300)
+                }.frame(width: ConstModel().deviceWidth - 100, height: 475)
                     
             
             }

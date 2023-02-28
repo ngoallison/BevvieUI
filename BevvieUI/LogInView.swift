@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-import FirebaseAuth
-
+import Firebase
 struct LogInView: View {
     
     @Binding var isSignedUp: Bool
@@ -17,6 +16,7 @@ struct LogInView: View {
     @State var password: String = ""
     @State var isModal: Bool = false
     
+    @State var isLoading = false
     @State var forgotPass = ""
     @State var forgotUser = ""
 
@@ -74,7 +74,7 @@ struct LogInView: View {
 
                            CustomTextfield(placeholder: Text("Email"), fontName: "Kiona", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $email)
                             Text("forgot email?").font(Font.custom("Cardium A Regular", size: 14)).padding(.leading)
-                        }
+                            }
                         }
                         
                         VStack(alignment: .leading) {
@@ -85,15 +85,34 @@ struct LogInView: View {
                         
                     
                 }
+                            
+                Button(action: {
+                            isLoading = true
+                            checkInfo()
+                        }) {
+                            if isLoading {
+                                ProgressView()
+                                    .foregroundColor(.white)
+                            } else {
+                                Text("Log In")
+                                    .padding(.all)
+                                    .frame(width: 150, height: 40)
+                                    .background(ColorModel().mediumGreen)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(18.0)
+                                    .font(Font.custom("Cardium A Regular", size: 17))
+                            }
+                        }
+                        .disabled(isLoading)
  
-                Button("Log In") {
-                    checkInfo()
-                }.padding(.all)
-                    .frame(width: 150, height: 40)
-                    .background(ColorModel().mediumGreen)
-                    .foregroundColor(.white)
-                    .cornerRadius(18.0)
-                    .font(Font.custom("CaviarDreams", size: 17))
+//                Button("Log In") {
+//                    checkInfo()
+//                }.padding(.all)
+//                    .frame(width: 150, height: 40)
+//                    .background(ColorModel().mediumGreen)
+//                    .foregroundColor(.white)
+//                    .cornerRadius(18.0)
+//                    .font(Font.custom("CaviarDreams", size: 17))
                 
                 //NavigationLink(destination: HomeView(), isActive: $isPresenting) { FirstView() }
                 

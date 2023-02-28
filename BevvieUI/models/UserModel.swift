@@ -12,8 +12,8 @@ import FirebaseAuth
 
 struct UserModel {
 
-    var username: String? = "boobs"
-    var email: String? = "boobs@gmail.com"
+    var username: String? = ""
+    var email: String? = ""
     var uid: String? = "0"
     var level: Int? = 0
     var exp: Int? = 0

@@ -17,7 +17,7 @@ struct AnalyticsView: View {
     @State private var selectedStatus = 0
     
     @ObservedObject private var viewModel = UserViewModel()
-    @ObservedObject private var analyticsModel = UserAnalyticsViewModel()
+   // @ObservedObject private var analyticsModel = UserAnalyticsViewModel()
 
 //    init() {
 //        icons = ["hot-coffee", "heart", "ice-cubes", "boba", "skull", "money", "trash", "therapy", "seven", "stop"]
@@ -119,7 +119,7 @@ struct AnalyticsView: View {
                     VStack {
                         VStack {
                             Text("number of bevs:  \(viewModel.user.numbevs!)")
-                            Text("total spent: \(analyticsModel.analytics.spent)")
+//                            Text("total spent: \(analyticsModel.analytics.spent)")
                             ScrollView {
                                 VStack(alignment: .leading, spacing: 20.0) {
                                     ForEach(ConstModel().analyticNames, id: \.self) { item in

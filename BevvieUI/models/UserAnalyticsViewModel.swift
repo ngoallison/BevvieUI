@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import FirebaseFirestore
+//import FirebaseFirestore
 import FirebaseAuth
 
 class UserAnalyticsViewModel: ObservableObject {
