@@ -15,3 +15,7 @@ Upcoming features:
 - Calculate values to display on analytics page
 
 # Figma Protoypes
+
+![Log In Page](/screenshots/1a.png)
+![Home Page](/screenshots/1b.png)
+![Calendar Page](/screenshots/1c.png)
