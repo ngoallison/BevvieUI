@@ -16,6 +16,9 @@ Upcoming features:
 
 # Figma Protoypes
 
-![Log In Page](/screenshots/1a.png)
+<!-- ![Log In Page](/screenshots/1a.png)
 ![Home Page](/screenshots/1b.png)
-![Calendar Page](/screenshots/1c.png)
+![Calendar Page](/screenshots/1c.png) -->
+
+<img src="https://github.com/ngoallison/BevvieUI/blob/%2C/screenshots/1a.png" height="300"> <img src="https://github.com/ngoallison/BevvieUI/blob/%2C/screenshots/1b.png" height="300"> <img src="https://github.com/ngoallison/BevvieUI/blob/%2C/screenshots/1c.png" height="300">
+
