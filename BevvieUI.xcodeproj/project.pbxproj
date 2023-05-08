@@ -50,6 +50,7 @@
 		9863C9DC28DB9F3700E951FB /* BreakdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863C9DB28DB9F3700E951FB /* BreakdownView.swift */; };
 		9863C9DE28DBAA6400E951FB /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863C9DD28DBAA6400E951FB /* ColorModel.swift */; };
 		987D44C029AE9CE6002067FB /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987D44BF29AE9CE6002067FB /* EditView.swift */; };
+		98A7D3D82A098073009823A6 /* AchievementIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7D3D72A098073009823A6 /* AchievementIcons.swift */; };
 		98C1A9692964D3CC00CB82E9 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1A9682964D3CC00CB82E9 /* TermsView.swift */; };
 		98C1A96B2964D6DB00CB82E9 /* UserAnalyticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1A96A2964D6DB00CB82E9 /* UserAnalyticsModel.swift */; };
 		98C1A96F29661FC700CB82E9 /* BikoRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98C1A96E29661FC700CB82E9 /* BikoRegular.otf */; };
@@ -113,6 +114,7 @@
 		9863C9DB28DB9F3700E951FB /* BreakdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakdownView.swift; sourceTree = "<group>"; };
 		9863C9DD28DBAA6400E951FB /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
 		987D44BF29AE9CE6002067FB /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		98A7D3D72A098073009823A6 /* AchievementIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementIcons.swift; sourceTree = "<group>"; };
 		98C1A9682964D3CC00CB82E9 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		98C1A96A2964D6DB00CB82E9 /* UserAnalyticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnalyticsModel.swift; sourceTree = "<group>"; };
 		98C1A96E29661FC700CB82E9 /* BikoRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BikoRegular.otf; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				9863C9D128DADA4500E951FB /* AchievementDetails.swift */,
+				98A7D3D72A098073009823A6 /* AchievementIcons.swift */,
 				9863C9CF28DACEA200E951FB /* AchievementView.swift */,
 			);
 			path = achievements;
@@ -460,6 +463,7 @@
 				98DB26F328DBCCB000411DD9 /* ConstModel.swift in Sources */,
 				9863C9D628DB89CD00E951FB /* CalendarView.swift in Sources */,
 				9849D23528D83D4D00D8A9FA /* BevvieUIApp.swift in Sources */,
+				98A7D3D82A098073009823A6 /* AchievementIcons.swift in Sources */,
 				9849D26128DA734700D8A9FA /* AddView.swift in Sources */,
 				9863C9DA28DB8FAC00E951FB /* DateValue.swift in Sources */,
 				985EED62295A40BA00868493 /* NewUserViewModel.swift in Sources */,

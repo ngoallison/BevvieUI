@@ -26,8 +26,9 @@ class NewUserViewModel: ObservableObject {
             let numbevs: Int = 0
             let uid: String = Auth.auth().currentUser!.uid
             let icon: String = user_icon
+            let money: Double = 0
                         
-            db.collection("user").addDocument(data: ["username": username, "email": email, "uid": uid, "level": level, "experience": experience, "achievements": achievements, "numbevs": numbevs, "icon": icon])
+            db.collection("user").addDocument(data: ["username": username, "email": email, "uid": uid, "level": level, "experience": experience, "achievements": achievements, "numbevs": numbevs, "icon": icon, "money": money])
             { (error) in
                 if error != nil {
                     print("there was an error!")

@@ -17,20 +17,6 @@ struct AnalyticsView: View {
     @State private var selectedStatus = 0
     
     @ObservedObject private var viewModel = UserViewModel()
-   // @ObservedObject private var analyticsModel = UserAnalyticsViewModel()
-
-//    init() {
-//        icons = ["hot-coffee", "heart", "ice-cubes", "boba", "skull", "money", "trash", "therapy", "seven", "stop"]
-//        names = ["HOT CROSS BUNS", "LOVER BOY", "ICE ICE BABY", "BOBADDICTION", "SIPPING SHORTAGE", "BROKE A**", "TRASH TOWN", "BETTER HELP", "7 BEVVIES IN HEAVEN", "CHANGE UP"]
-//
-//        lines = (icons.count)/2
-//        allItems = []
-//        lineItems = [:]
-//        groupItems()
-//
-//        //allItems = groupItems()
-//
-//    }
     
     func loadDB() {
         var bevs: [BevModel] = []
@@ -47,60 +33,13 @@ struct AnalyticsView: View {
             }
         }
     }
-    
-//    mutating func increaseIndex() {
-//        self.index += 1
-//    }
-//
-//    mutating func groupItems() {
-//
-////        var tempGroup: [[String:String]]
-////        tempGroup = [[:]]
-////        var tempDict: [String:String]
-////        tempDict = [:]
-//
-//        var tempIcons: [String] = []
-//        var tempNames: [String] = []
-//
-//        var num = 0
-//
-//        for _ in 0..<lines {
-//            for _ in 0..<2 {
-//                if num == icons.count {
-//                    break
-//                }
-//                tempIcons.append(icons[num])
-//                tempNames.append(names[num])
-//                num += 1
-//            }
-//            iconGroups.append(tempIcons)
-//            nameGroups.append(tempNames)
-//            tempIcons = []
-//            tempNames = []
-//            //tempDict = [:]
-//        }
-//        print(nameGroups)
-//
-//
-//
-//    }
+
     
     var body: some View {
         ZStack(alignment: .center)  {
             ColorModel().orangeBrown.edgesIgnoringSafeArea(.all)
             VStack {
                 ZStack (alignment: .center) {
-//                    VStack {
-//                        Text("ANALYTICS")
-//                            .font(Font.custom("Kiona", size: 30))
-//                            .fontWeight(.regular)
-//                            .foregroundColor(.white)
-//                            .tracking(5)
-//                            .multilineTextAlignment(.center)
-//                            .frame(maxWidth: .infinity)
-//                            .padding(.top, 10.0)
-
-                            //.padding(.top, 50)
                           
                     VStack {
                         Text("ANALYTICS")
@@ -119,6 +58,7 @@ struct AnalyticsView: View {
                     VStack {
                         VStack {
                             Text("number of bevs:  \(viewModel.user.numbevs!)")
+                            Text("money spent:  \(String(format: "%.2f", viewModel.user.money!))")
 //                            Text("total spent: \(analyticsModel.analytics.spent)")
                             ScrollView {
                                 VStack(alignment: .leading, spacing: 20.0) {

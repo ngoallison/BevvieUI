@@ -36,8 +36,9 @@ class UserViewModel: ObservableObject {
                 let achievements = data["achievements"] as! [String]
                 let numbevs = data["numbevs"] as! Int
                 let icon = data["icon"] as! String
+                let money = data["money"] as! Double
                 
-                self.user = UserModel(username: username, email: email, uid: uid, level: level, exp: exp, achievements: achievements, numbevs: numbevs, icon: icon)
+            self.user = UserModel(username: username, email: email, uid: uid, level: level, exp: exp, achievements: achievements, numbevs: numbevs, icon: icon, money: money)
 
 
                 }

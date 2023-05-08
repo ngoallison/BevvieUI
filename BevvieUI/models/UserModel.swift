@@ -20,5 +20,6 @@ struct UserModel {
     var achievements: [String]? = []
     var numbevs: Int? = 0
     var icon: String? = "girl-icon"
+    var money: Double? = 0
     
 }

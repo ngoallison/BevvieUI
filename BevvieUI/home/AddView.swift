@@ -74,6 +74,7 @@ struct AddView: View {
                         
                         let new_numbevs = document!.data()["numbevs"] as! Int + 1
                         let new_exp = document!.data()["experience"] as! Int + 1
+                        let new_money = document!.data()["money"] as! Double + price
                         
                         if (new_exp % 10 == 0) {
                             let new_level = document!.data()["level"] as! Int + 1
@@ -85,25 +86,10 @@ struct AddView: View {
                         document!.reference.updateData([
                             "numbevs": new_numbevs,
                             "experience": new_exp,
+                            "money": new_money
                         ])
                         return
                     }
-//        guard let documents = snapshot?.documents else {
-//                print("No Documents")
-//                return
-//            }
-//
-//            let document = documents[0]
-//            let new_numbevs = document.data()["numbevs"] as! Int + 1
-//            let new_exp = document.data()["experience"] as! Int + 10
-//
-//            print(new_numbevs)
-//
-//            documents.update({
-//                "numbevs": new_numbevs,
-//                "experience": new_exp
-//
-//            })
 
         }
         //self.showSheet.toggle()
