@@ -103,6 +103,7 @@
 		9849D26028DA734700D8A9FA /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		9850C19A2942831F00F54043 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9850C19C2947D13500F54043 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		9859D8EC2A09A433004C6878 /* branch4.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = branch4.md; sourceTree = "<group>"; };
 		985EED61295A40B900868493 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
 		9863C9CD28DAB4FC00E951FB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = ../MainView.swift; sourceTree = "<group>"; };
 		9863C9CF28DACEA200E951FB /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 				9849D25628D8E97400D8A9FA /* CustomTextField.swift */,
 				982A4F1D28E89C7600D21DA9 /* CustomEmailField.swift */,
 				9849D25828D9110000D8A9FA /* CustomSecureField.swift */,
+				9859D8EC2A09A433004C6878 /* branch4.md */,
 			);
 			path = custom;
 			sourceTree = "<group>";
