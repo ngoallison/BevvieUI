@@ -16,6 +16,7 @@ struct CustomEmailfield: View {
     var backgroundColor: Color
     var opacity: Double
     var foregroundColor: Color?
+//    var icon: String?
     
     @Binding var email: String
     var editingChanged: (Bool)->() = { _ in }
@@ -30,7 +31,7 @@ struct CustomEmailfield: View {
                 .padding(.leading, 17.0)
                 .background(Color(red:0.80, green:0.60, blue:0.49))
                 .opacity(0.3)
-                .cornerRadius(10)
+                .cornerRadius(15)
                 .foregroundColor((foregroundColor != nil) ?  foregroundColor : Color.primary)
         }
     }
