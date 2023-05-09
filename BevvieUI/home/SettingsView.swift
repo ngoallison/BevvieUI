@@ -20,6 +20,7 @@ struct SettingsView: View {
     @State var termsPresent: Bool = false
     
     @ObservedObject private var viewModel = UserViewModel()
+    @ObservedObject private var analyticsModel = UserAnalyticsViewModel()
     
     func logOut() {
         isPresenting = false
@@ -45,7 +46,7 @@ struct SettingsView: View {
             TermsView(termsPresent: $termsPresent)
         }
         else if editPresent {
-            
+            EditView(editPresent: $editPresent, username: "", isLoading: false)
         }
         else {
         ZStack(alignment: .center)  {
@@ -92,15 +93,15 @@ struct SettingsView: View {
                                     Text(viewModel.user.username!).tracking(2).fontWeight(.medium).foregroundColor(ColorModel().brown).font(Font.custom("Young", size: 23))
                                     Text("coffee connoisseur").foregroundColor(ColorModel().brown).font(Font.custom("Cardium A Regular", size: 17))
                                 
-                                    Text("lvl. \(viewModel.user.level!)").foregroundColor(ColorModel().brown).font(Font.custom("Cardium A Regular", size: 15)).padding(.top)
-                                ProgressView(value: CGFloat((viewModel.user.exp! % 10))/10).tint(ColorModel().mediumGreen)
+                                    Text("lvl. \(analyticsModel.analytics.level!)").foregroundColor(ColorModel().brown).font(Font.custom("Cardium A Regular", size: 15)).padding(.top)
+                                ProgressView(value: CGFloat((analyticsModel.analytics.exp! % 10))/10).tint(ColorModel().mediumGreen)
                                 }
                                 Spacer()
 
                             }.padding([.leading, .bottom, .trailing], 20.0).frame(width: ConstModel().deviceWidth, height: ConstModel().deviceHeight * 0.17)
                             Divider()
                             VStack(spacing: 0.0) {
-                                CustomSettingsButton(buttonName: "Edit Profile", buttonColor: .clear, clicked: logOut)
+                                CustomSettingsButton(buttonName: "Edit Profile", buttonColor: .clear, clicked: edit)
                                 CustomSettingsButton(buttonName: "Privacy Policy", buttonColor: ColorModel().darkGray.opacity(0.1), clicked: privacy)
                                 CustomSettingsButton(buttonName: "Terms and Conditions", buttonColor: .clear, clicked: terms)
                                 CustomSettingsButton(buttonName: "Theme", buttonColor: ColorModel().darkGray.opacity(0.1), clicked: logOut)

@@ -15,11 +15,7 @@ struct UserModel {
     var username: String? = ""
     var email: String? = ""
     var uid: String? = "0"
-    var level: Int? = 0
-    var exp: Int? = 0
-    var achievements: [String]? = []
-    var numbevs: Int? = 0
     var icon: String? = "girl-icon"
-    var money: Double? = 0
+    var title: String? = "coffee connoisseur"
     
 }
