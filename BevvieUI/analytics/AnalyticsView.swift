@@ -91,7 +91,7 @@ struct AnalyticsView: View {
                                         
                                         Text("TOTAL MONEY SPENT")
                                             .foregroundColor(ColorModel().darkGreen)
-                                            .font(Font.custom("Kiona", size: 17))
+                                            .font(Font.custom("Kiona", size: 20))
                                             .fontWeight(.bold)
                                             .multilineTextAlignment(.center)
 
@@ -116,7 +116,7 @@ struct AnalyticsView: View {
                                         
                                         Text("GO TO ORDER")
                                             .foregroundColor(ColorModel().darkGreen)
-                                            .font(Font.custom("Kiona", size: 17))
+                                            .font(Font.custom("Kiona", size: 20))
                                             .fontWeight(.bold)
                                             .multilineTextAlignment(.center)
 
@@ -164,24 +164,11 @@ struct AnalyticsView: View {
                                         }
                                     }.padding()
                                 }
-//                                VStack {
-//                                    VStack(alignment: .leading) {
-//
-//                                        Text("TOTAL BEVVIE PURCHASES")
-//                                        .foregroundColor(ColorModel().darkGreen)
-//                                        .font(Font.custom("Kiona", size: 20))
-//                                        .fontWeight(.bold)
-//
-//                                        Rectangle().fill(ColorModel().darkTan)
-//                                            .frame(width: ConstModel().deviceWidth/3, height: ConstModel().deviceWidth/3)
-//                                            .cornerRadius(10)
-//                                        }
-//
-//                                }
+                                Spacer()
                             }.frame(width: ConstModel().deviceWidth, height: ConstModel().deviceHeight * 0.85)
-                            
+                            Spacer()
                         }.frame(height: ConstModel().deviceHeight * 0.85)
-                    }.frame(maxHeight: .infinity)
+                    }.frame(height: ConstModel().deviceHeight * 0.85)
                         
                 }
                 

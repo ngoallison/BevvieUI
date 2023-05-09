@@ -96,4 +96,22 @@ class BevViewModel: ObservableObject {
         }
         return type
     }
+    
+    func getDates() -> [Date] {
+        
+        var dates: [Date] = []
+        for doc in self.data {
+            let string = doc["date"] as! String
+            // Create Date Formatter
+            let dateFormatter = DateFormatter()
+
+            // Set Date Format
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+
+            // Convert String to Date
+            let date = dateFormatter.date(from: string)!
+            dates.append(date)
+        }
+        return dates;
+    }
 }

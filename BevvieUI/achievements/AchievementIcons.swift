@@ -51,7 +51,7 @@ struct AchievementIcons: View {
                                 }
                         Text(ConstModel().names[index])
                             .multilineTextAlignment(.center)
-                            .font(Font.custom("CaviarDreams", size: 18))
+                            .font(Font.custom("Young", size: 18))
                             .fontWeight(.bold)
                             .foregroundColor(ColorModel().darkGreen)
                         Spacer()
