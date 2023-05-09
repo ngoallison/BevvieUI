@@ -31,27 +31,23 @@ struct AddView: View {
     @State private var bevDate = Date()
 
     
-    func addDB() {
+    func updateBev() {
         
         // adds item to bevs document
         if name != "" {
             
-            print(name)
-
-            //let user = "slay"
             let user = Auth.auth().currentUser
-            
             let formatter = DateFormatter()
+            
             formatter.dateFormat = "MM/dd/yyyy"
+            
             let result = formatter.string(from: bevDate)
 
-            
             db.collection("bevs").addDocument(data: ["name": name, "location": location, "type": type, "size": size, "price": price, "temp": temp[selectedTemp], "date": result, "satisfaction": faces[selectedIndex], "uid": user!.uid])
             { (error) in
                 if error != nil {
                     print("there was an error!")
                 } else {
-                    print("success!")
                     self.showSheet.toggle()
                     updateUser()
                 }
@@ -61,8 +57,8 @@ struct AddView: View {
     }
     
     func updateUser() {
-        print("in update function")
-        db.collection("user").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments() { (snapshot, error) in
+        
+        db.collection("analytics").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments() { (snapshot, error) in
             
             if error != nil {
                         print("there was an error!")
@@ -73,7 +69,7 @@ struct AddView: View {
                         let document = snapshot!.documents.first
                         
                         let new_numbevs = document!.data()["numbevs"] as! Int + 1
-                        let new_exp = document!.data()["experience"] as! Int + 1
+                        let new_exp = document!.data()["exp"] as! Int + 1
                         let new_money = document!.data()["money"] as! Double + price
                         
                         if (new_exp % 10 == 0) {
@@ -85,14 +81,13 @@ struct AddView: View {
                         
                         document!.reference.updateData([
                             "numbevs": new_numbevs,
-                            "experience": new_exp,
+                            "exp": new_exp,
                             "money": new_money
                         ])
                         return
                     }
 
         }
-        //self.showSheet.toggle()
     }
     
     var body: some View {
@@ -226,7 +221,7 @@ struct AddView: View {
                             .font(Font.custom("Young", size: 20))
                     })
                     Button(action: {
-                        addDB()
+                        updateBev()
                     }, label: {
                         Text("ADD")
                             .fontWeight(.bold)

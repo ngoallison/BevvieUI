@@ -120,10 +120,11 @@ struct AchievementView: View {
                                         }
 
                                     }.padding(10)
-                                    AchievementIcons(achievementName: "", achievementIcon: "", achievementGoal: "")
+                                    AchievementIcons(achievementName: "", achievementIcon: "", achievementGoal: "").frame(height: ConstModel().deviceHeight * 0.73)
+                                    Spacer()
                                     // she was here before
                                 }.edgesIgnoringSafeArea(.all).frame(height: ConstModel().deviceHeight * 0.85)
-
+                                
                             }
                             
                         }

@@ -16,6 +16,7 @@ class BevViewModel: ObservableObject {
     @Published var bevCount: Int = 0
     
     private var db = Firestore.firestore()
+    private var data: [QueryDocumentSnapshot] = []
     
     init () {
             db.collection("bevs").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener { (snapshot, error) in
@@ -25,10 +26,12 @@ class BevViewModel: ObservableObject {
                 }
                 
                 self.bevCount = documents.count
-                print(documents.count)
+                //print(documents.count)
                 
                 let doc = documents[0]
-                let data = doc.data()
+                self.data = documents
+                
+                //let data = doc.data()
                 
 //                let doc = documents[0]
 //                let data = doc.data()
@@ -49,4 +52,48 @@ class BevViewModel: ObservableObject {
 
                 }
         }
+    
+    func getFavorite() -> String {
+        
+        var dictionary: [String:Int] = [:]
+        for doc in self.data {
+            if let count = dictionary[doc["name"] as! String] {
+                dictionary[doc["name"] as! String] = count + 1
+                } else {
+                    dictionary[doc["name"] as! String] = 1
+                }
+        }
+        
+        var maxFrequency = 0
+        var favorite = ""
+        for (name, frequency) in dictionary {
+            if frequency > maxFrequency {
+                maxFrequency = frequency
+                favorite = name
+            }
+        }
+        return favorite
+    }
+    
+    func getType() -> String {
+        
+        var dictionary: [String:Int] = [:]
+        for doc in self.data {
+            if let count = dictionary[doc["type"] as! String] {
+                dictionary[doc["type"] as! String] = count + 1
+                } else {
+                    dictionary[doc["type"] as! String] = 1
+                }
+        }
+        
+        var maxFrequency = 0
+        var type = ""
+        for (name, frequency) in dictionary {
+            if frequency > maxFrequency {
+                maxFrequency = frequency
+                type = name
+            }
+        }
+        return type
+    }
 }

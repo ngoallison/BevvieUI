@@ -19,6 +19,8 @@ struct HomeView: View {
     
     let db = Firestore.firestore()
     @ObservedObject private var viewModel = UserViewModel()
+    @ObservedObject private var analyticsModel = UserAnalyticsViewModel()
+
 
     var body: some View {
         ZStack(alignment: .center)  {
@@ -65,7 +67,7 @@ struct HomeView: View {
                                 }
                             HStack(spacing: 5.0) {
                                 
-                                Text("Haven’t had a bevvie today? Treat yourself!").fontWeight(.medium).foregroundColor(Color(red:0.66, green:0.49, blue:0.39)).font(Font.custom("Cardium A Regular", size: 23)).lineLimit(15)
+                                Text("Haven’t had a bevvie today? Treat yourself!").fontWeight(.medium).foregroundColor(Color(red:0.66, green:0.49, blue:0.39)).font(Font.custom("Cardium A Regular", size: 17)).lineLimit(15)
                                     Spacer()
                                     Image("coffee-mug").resizable().frame(width: 150, height: 150)
                                 }
@@ -87,12 +89,12 @@ struct HomeView: View {
                                 }
                                 VStack {
                                     HStack {
-                                        Text("level \(viewModel.user.level!)").font(Font.custom("Cardium A Regular", size: 25)).foregroundColor(ColorModel().brown)
+                                        Text("level \(analyticsModel.analytics.level!)").font(Font.custom("Cardium A Regular", size: 25)).foregroundColor(ColorModel().brown)
                                         Spacer()
-                                        Text("\((10 - (viewModel.user.exp! % 10))) more bevvies to level up!").font(Font.custom("Cardium A Regular", size: 15)).foregroundColor(ColorModel().brown)
+                                        Text("\((10 - (analyticsModel.analytics.exp! % 10))) more bevvies to level up!").font(Font.custom("Cardium A Regular", size: 15)).foregroundColor(ColorModel().brown)
                                     }
                                     
-                                    ProgressView(value: CGFloat((viewModel.user.exp! % 10))/10).tint(ColorModel().mediumGreen)
+                                    ProgressView(value: CGFloat((analyticsModel.analytics.exp! % 10))/10).tint(ColorModel().mediumGreen)
                                     }
                                 Spacer()
                                 }
