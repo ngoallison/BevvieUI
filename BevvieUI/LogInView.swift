@@ -72,13 +72,13 @@ struct LogInView: View {
                             VStack(alignment: .leading) {
                             
 
-                           CustomTextfield(placeholder: Text("Email"), fontName: "Kiona", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $email)
+                                CustomTextfield(placeholder: Text("Email"), fontName: "Kiona", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, icon: "envelope", username: $email)
                             Text("forgot email?").font(Font.custom("Cardium A Regular", size: 14)).padding(.leading)
                             }
                         }
                         
                         VStack(alignment: .leading) {
-                            CustomSecurefield(placeholder: Text("Password"), fontName: "Kiona", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, password: $password)
+                            CustomSecurefield(placeholder: Text("Password"), fontName: "Kiona", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, icon: "lock", password: $password)
                                 
                                 Text("forgot password?").font(Font.custom("Cardium A Regular", size: 14)).padding(.leading)
                         }

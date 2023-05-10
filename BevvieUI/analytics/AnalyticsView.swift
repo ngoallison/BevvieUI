@@ -91,7 +91,7 @@ struct AnalyticsView: View {
                                         
                                         Text("TOTAL MONEY SPENT")
                                             .foregroundColor(ColorModel().darkGreen)
-                                            .font(Font.custom("Kiona", size: 17))
+                                            .font(Font.custom("Kiona", size: 20))
                                             .fontWeight(.bold)
                                             .multilineTextAlignment(.center)
 
@@ -116,7 +116,7 @@ struct AnalyticsView: View {
                                         
                                         Text("GO TO ORDER")
                                             .foregroundColor(ColorModel().darkGreen)
-                                            .font(Font.custom("Kiona", size: 17))
+                                            .font(Font.custom("Kiona", size: 20))
                                             .fontWeight(.bold)
                                             .multilineTextAlignment(.center)
 
@@ -164,24 +164,11 @@ struct AnalyticsView: View {
                                         }
                                     }.padding()
                                 }
-//                                VStack {
-//                                    VStack(alignment: .leading) {
-//
-//                                        Text("TOTAL BEVVIE PURCHASES")
-//                                        .foregroundColor(ColorModel().darkGreen)
-//                                        .font(Font.custom("Kiona", size: 20))
-//                                        .fontWeight(.bold)
-//
-//                                        Rectangle().fill(ColorModel().darkTan)
-//                                            .frame(width: ConstModel().deviceWidth/3, height: ConstModel().deviceWidth/3)
-//                                            .cornerRadius(10)
-//                                        }
-//
-//                                }
+                                Spacer()
                             }.frame(width: ConstModel().deviceWidth, height: ConstModel().deviceHeight * 0.85)
-                            
+                            Spacer()
                         }.frame(height: ConstModel().deviceHeight * 0.85)
-                    }.frame(maxHeight: .infinity)
+                    }.frame(height: ConstModel().deviceHeight * 0.85)
                         
                 }
                 
@@ -201,27 +188,3 @@ extension View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
 }
-
-//Text("number of bevs:  \(analyticsModel.analytics.numbevs!)")
-//Text("money spent:  \(String(format: "%.2f", analyticsModel.analytics.money!))")
-//                            Text("total spent: \(analyticsModel.analytics.spent)")
-//                            ScrollView {
-//                                VStack(alignment: .leading, spacing: 20.0) {
-//                                    ForEach(ConstModel().analyticNames, id: \.self) { item in
-//                                        VStack(alignment: .leading) {
-//                                            Text(item)
-//                                            .foregroundColor(ColorModel().darkGreen)
-//                                            .font(Font.custom("CaviarDreams", size: 20))
-//                                            .fontWeight(.bold)
-//                                            Rectangle().fill(ColorModel().darkTan)
-//                                                .frame(width: ConstModel().deviceWidth - 50, height: 50)
-//                                                .cornerRadius(10)
-//                                        }
-//
-//                                    }
-//                                }
-//                                .frame(maxWidth: ConstModel().deviceWidth)
-//
-//                                Spacer()
-//                                    .padding(.bottom)
-//                            }.padding(.top).frame(height: ConstModel().deviceHeight * (0.80) - 20 - (ConstModel().deviceHeight * 0.07))

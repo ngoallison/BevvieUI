@@ -31,8 +31,10 @@ struct CustomDatePicker: View {
                     Spacer()
 
                     VStack(alignment: .center, spacing: 0) {
-                        Text(extraDate()[1].uppercased()).fontWeight(.medium).font(Font.custom("Kiona", size: 25)).foregroundColor(.white)
-                        Text(extraDate()[0]).fontWeight(.medium).font(Font.custom("Kiona", size: 17)).foregroundColor(.white)
+                    Text("CALENDAR").fontWeight(.medium).font(Font.custom("Kiona", size: 25)).foregroundColor(.white)
+                        
+//                        Text(extraDate()[1].uppercased()).fontWeight(.medium).font(Font.custom("Kiona", size: 25)).foregroundColor(.white)
+//                        Text(extraDate()[0]).fontWeight(.medium).font(Font.custom("Kiona", size: 17)).foregroundColor(.white)
                         
                         
                     }
@@ -48,14 +50,14 @@ struct CustomDatePicker: View {
                 }.padding(.horizontal)
                 
                 
-                VStack(spacing: 10.0) {
+                VStack(spacing: 0.0) {
                     HStack(spacing: 0) {
                     ForEach(days, id: \.self) { day in
                         Spacer()
                         Text(day)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
-                            .font(Font.custom("Kiona", size: 18))
+                            .font(Font.custom("Kiona", size: 16))
                         Spacer()
                     }
                 }
@@ -64,31 +66,23 @@ struct CustomDatePicker: View {
                 // Dates
                     VStack(spacing: 20.0) {
                         ZStack {
-                            Rectangle().fill(ColorModel().lightTan).frame(width: ConstModel().deviceWidth, height: ConstModel().deviceHeight  * 0.75).cornerRadius(15)
+                            Rectangle().fill(ColorModel().lightTan).frame(width: ConstModel().deviceWidth, height: ConstModel().deviceHeight  * 0.85).cornerRadius(15)
                             let columns = Array(repeating: GridItem(.flexible()), count: 7)
                             VStack {
                                 LazyVGrid(columns: columns, spacing: 10) {
                                     ForEach(extractDate()) { value in
                                         CardView(value: value)
-
-
-                    //                    Text("\(value.day)")
-                    //                        .font(Font.custom("CaviarDreams", size: 20))
-                    //                        .fontWeight(.bold)
-                    //                        .foregroundColor(.white)
                                     }
                                 }
                                 Spacer()
 
-                            }//.frame(width: ConstModel().deviceWidth, height: ConstModel().deviceHeight  * 0.80)
-                            
+                            }
                         }
                         
                         
                     }
                 }
-                //.padding(.horizontal).ignoresSafeArea()
-            //Spacer()
+                
             }.onChange(of: currentMonth) { newValue in
                 currentDate = getCurrentMonth()
             }

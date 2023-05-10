@@ -128,7 +128,7 @@ struct AchievementView: View {
                             }
                             
                         }
-                    }.frame(height: ConstModel().deviceHeight * (0.82))
+                    }.frame(height: ConstModel().deviceHeight * (0.85))
                     
                 }
             }

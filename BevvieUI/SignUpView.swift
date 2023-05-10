@@ -92,12 +92,12 @@ struct SignUpView: View {
                                     Text(forgotUser).foregroundColor(.red).font(Font.custom("CaviarDreams", size: 14)).padding(.leading)
                                     VStack(alignment: .leading, spacing: 10) {
                                     
-                                        CustomTextfield(placeholder: Text("Email Address"), fontName: "Kiona", fontSize: 17, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $email)
+                                        CustomTextfield(placeholder: Text("Email Address"), fontName: "Kiona", fontSize: 17, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, icon: "envelope", username: $email)
 
                                         
-                                        CustomTextfield(placeholder: Text("Username"), fontName: "Kiona", fontSize: 17, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $username)
+                                        CustomTextfield(placeholder: Text("Username"), fontName: "Kiona", fontSize: 17, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, icon: "person", username: $username)
                                         
-                                        CustomSecurefield(placeholder: Text("Password"), fontName: "Kiona", fontSize: 17, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, password: $password)
+                                        CustomSecurefield(placeholder: Text("Password"), fontName: "Kiona", fontSize: 17, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, icon: "lock", password: $password)
                                         
                                     }
                                 }
