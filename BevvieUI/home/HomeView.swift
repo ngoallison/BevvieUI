@@ -19,7 +19,7 @@ struct HomeView: View {
     
     let db = Firestore.firestore()
     @EnvironmentObject var userModel: UserModel
-    @EnvironmentObject var anaModel: UserAnalyticsViewModel
+    @EnvironmentObject var anaModel: AnalyticsModel
 
     var body: some View {
         ZStack(alignment: .center)  {
@@ -29,7 +29,7 @@ struct HomeView: View {
                     VStack {
                         Spacer()
                         Rectangle().fill(ColorModel().lightTan)
-                            .edgesIgnoringSafeArea(.all).frame(height: ConstModel().deviceHeight * (0.70))
+                            .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * (0.70))
                     }.frame(maxHeight: .infinity)
                     VStack(spacing: 0.0) {
                         Spacer()
@@ -76,7 +76,7 @@ struct HomeView: View {
                                     Text("Log your Bevvie")
                                         .fontWeight(.medium)
                                         .padding(.all)
-                                        .frame(maxWidth: ConstModel().deviceWidth, maxHeight: 50)
+                                        .frame(maxWidth: ConstModel().width, maxHeight: 50)
                                         .background(ColorModel().mediumGreen)
                                         .foregroundColor(.white)
                                         .cornerRadius(12)
@@ -101,7 +101,7 @@ struct HomeView: View {
                         Spacer()
                         
                         
-                    }.frame(maxWidth: ConstModel().deviceWidth - 60, maxHeight: .infinity)
+                    }.frame(maxWidth: ConstModel().width - 60, maxHeight: .infinity)
                 }
             }
             VStack(alignment: .leading) {
@@ -116,7 +116,7 @@ struct HomeView: View {
                     Spacer()
                 }
                 Spacer()
-            }.frame(width: ConstModel().deviceWidth)
+            }.frame(width: ConstModel().width)
         }
     }
 }
@@ -125,6 +125,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(isPresenting: .constant(false), isLoggedIn: .constant(true)).previewDevice(PreviewDevice(rawValue: "iPhone 12")).previewInterfaceOrientation(.portrait)
+        HomeView(isPresenting: .constant(false), isLoggedIn: .constant(true)).previewDevice(PreviewDevice(rawValue: "iPhone 12")).previewInterfaceOrientation(.portrait).environmentObject(UserModel())
+            .environmentObject(AnalyticsModel())
     }
 }

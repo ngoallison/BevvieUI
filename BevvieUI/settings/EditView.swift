@@ -80,24 +80,24 @@ struct EditView: View {
                         .padding(.vertical)
                         .foregroundColor(ColorModel().darkGray)
                         .font(Font.custom("Young", size: 27))
-                        .frame(width: ConstModel().deviceWidth-50, alignment: .leading)
+                        .frame(width: ConstModel().width-50, alignment: .leading)
                     
                     VStack(alignment: .leading) {
                         VStack(alignment: .leading) {
                             Text("Change Username").font(Font.custom("Cardium A Regular", size: 14))
-                            CustomTextfield(placeholder: Text("Jayson Marie Catsby"), fontName: "Kiona", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $username)
+                            CustomTextfield(placeholder: Text("Jayson Marie Catsby"), username: $username)
                         }.padding(.bottom)
                         
                         Text("Change Title").font(Font.custom("Cardium A Regular", size: 14))
-                        CustomTextfield(placeholder: Text("coffee connoisseur"), fontName: "Kiona", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $title)
-                    }.frame(width: ConstModel().deviceWidth - 50)
+                        CustomTextfield(placeholder: Text("coffee connoisseur"), username: $title)
+                    }.frame(width: ConstModel().width - 50)
                         
                     HStack {
                         Text("Change Icon").font(Font.custom("Cardium A Regular", size: 15))
                         Spacer()
-                    }.frame(width:ConstModel().deviceWidth - 50)
+                    }.frame(width:ConstModel().width - 50)
                     LazyVGrid(columns: [
-                        GridItem(.adaptive(minimum: (ConstModel().deviceWidth)/4))
+                        GridItem(.adaptive(minimum: (ConstModel().width)/4))
                     ]) {
                         ForEach(icons.indices, id: \.self) { index in
                             Button(action: {

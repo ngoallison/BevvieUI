@@ -10,11 +10,10 @@ import SwiftUI
 struct CustomTextfield: View {
     //MARK:- PROPERTIES
     var placeholder: Text
-    var fontName: String
-    var fontSize: CGFloat
-    var fontColor: Color
-    var backgroundColor: Color
-    var opacity: Double
+    var fontName: String? = ConstModel().textFont
+    var fontSize: CGFloat? = 17
+    var backgroundColor: Color? = ColorModel().orangeBrown
+    var opacity: Double? = 0.3
     var foregroundColor: Color?
     var icon: String?
     
@@ -32,24 +31,23 @@ struct CustomTextfield: View {
                         .frame(width: 17, height: nil, alignment: .center)
                         .foregroundColor(ColorModel().darkGray)
                         .padding(.trailing, 5)
-                    //Spacer()
                 }
                 ZStack {
                     if username.isEmpty {
                         placeholder.foregroundColor(.gray)
-                            .font(Font.custom("Cardium A Regular", size: 17))
+                            .font(Font.custom(fontName!, size: fontSize!))
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     TextField("", text: $username,  onEditingChanged: editingChanged, onCommit: commit)
-                        .font(Font.custom("Cardium A Regular", size: 17))
+                        .font(Font.custom(fontName!, size: fontSize!))
                         .foregroundColor((foregroundColor != nil) ?  foregroundColor : Color.primary)
                         .padding(.trailing, 17.0)
                 }
             }
             .frame(height: 40.0)
             .padding(.leading, 17.0)
-            .background(Color(red:0.80, green:0.60, blue:0.49))
-            .opacity(0.3)
+            .background(backgroundColor!)
+            .opacity(opacity!)
             .cornerRadius(15)
         }
     }

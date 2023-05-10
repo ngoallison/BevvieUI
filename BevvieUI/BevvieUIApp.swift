@@ -14,8 +14,8 @@ import FirebaseFirestore
 class AppDelegate: NSObject, UIApplicationDelegate {
     
     var userModel: UserModel?
-    var anaModel: UserAnalyticsViewModel?
-    var bevModel: BevViewModel?
+    var anaModel: AnalyticsModel?
+    var bevModel: BevModel?
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -26,8 +26,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
             // other app initialization code
             userModel = UserModel()
-            anaModel = UserAnalyticsViewModel()
-            bevModel = BevViewModel()
+            anaModel = AnalyticsModel()
+            bevModel = BevModel()
 
             return true
         }
@@ -42,8 +42,8 @@ struct BevvieUIApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     @StateObject var userModel = UserModel()
-    @StateObject var anaModel = UserAnalyticsViewModel()
-    @StateObject var bevModel = BevViewModel()
+    @StateObject var anaModel = AnalyticsModel()
+    @StateObject var bevModel = BevModel()
 
 
 

@@ -18,8 +18,8 @@ struct AnalyticsView: View {
     @State private var selectedStatus = 0
     
     
-    @EnvironmentObject var bevModel: BevViewModel
-    @EnvironmentObject var anaModel: UserAnalyticsViewModel
+    @EnvironmentObject var bevModel: BevModel
+    @EnvironmentObject var anaModel: AnalyticsModel
     
     var body: some View {
         ZStack(alignment: .center)  {
@@ -40,12 +40,12 @@ struct AnalyticsView: View {
                         ZStack {
                             Rectangle().fill(ColorModel().lightTan)
                                 .cornerRadius2(25, corners: [.topLeft, .topRight])
-                                .edgesIgnoringSafeArea(.all).frame(height: ConstModel().deviceHeight * (0.85))
+                                .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * (0.85))
                             VStack {
                                 Spacer()
 
                                 LazyVGrid(columns: [
-                                    GridItem(.adaptive(minimum: (ConstModel().deviceWidth)/3))
+                                    GridItem(.adaptive(minimum: (ConstModel().width)/3))
                                 ]) {
                                     AnalyticsBox(title: "TOTAL BEVVIE PURCHASES", header: "\(anaModel.analytics.numbevs!)", sub: "BEVVIES")
                                     AnalyticsBox(title: "TOTAL MONEY SPENT", header: "$\(String(format: "%.2f", anaModel.analytics.money!))", sub: "SPENT")
@@ -60,10 +60,10 @@ struct AnalyticsView: View {
 
                                 }
                                 Spacer()
-                            }.frame(width: ConstModel().deviceWidth, height: ConstModel().deviceHeight * 0.85)
+                            }.frame(width: ConstModel().width, height: ConstModel().height * 0.85)
                             Spacer()
-                        }.frame(height: ConstModel().deviceHeight * 0.85)
-                    }.frame(height: ConstModel().deviceHeight * 0.85)
+                        }.frame(height: ConstModel().height * 0.85)
+                    }.frame(height: ConstModel().height * 0.85)
                         
                 }
                 
@@ -75,8 +75,8 @@ struct AnalyticsView: View {
 struct AnalyticsView_Previews: PreviewProvider {
     static var previews: some View {
             AnalyticsView()
-            .environmentObject(UserAnalyticsViewModel())
-            .environmentObject(BevViewModel())
+            .environmentObject(AnalyticsModel())
+            .environmentObject(BevModel())
     }
 }
 

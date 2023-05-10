@@ -31,7 +31,7 @@ struct PrivacyView: View {
                     .padding()
                     .foregroundColor(ColorModel().darkGray)
                     .font(Font.custom("Young", size: 27))
-                    .frame(width: ConstModel().deviceWidth, alignment: .leading)
+                    .frame(width: ConstModel().width, alignment: .leading)
                 VStack(spacing: 30) {
                     Text(ConstModel().policy1)
                     .fontWeight(.bold)
@@ -39,13 +39,13 @@ struct PrivacyView: View {
                     .font(Font.custom("Young", size: 16))
                     .lineSpacing(7)
 
-                    .frame(width: ConstModel().deviceWidth * 0.90, alignment: .leading)
+                    .frame(width: ConstModel().width * 0.90, alignment: .leading)
                     Text(ConstModel().policy2)
                     .fontWeight(.bold)
                     .foregroundColor(ColorModel().darkGray)
                     .font(Font.custom("Young", size: 16))
                     .lineSpacing(7)
-                    .frame(width: ConstModel().deviceWidth * 0.90, alignment: .leading)
+                    .frame(width: ConstModel().width * 0.90, alignment: .leading)
                 }
                 Spacer()
                 Text("BEVVIE @ 2022").font(Font.custom("Kiona", size: 20)).foregroundColor(ColorModel().darkGray)

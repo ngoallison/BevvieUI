@@ -103,26 +103,26 @@ struct AddView: View {
                         .foregroundColor(.white)
                         .font(Font.custom("Kiona", size: 27))
                         .padding(.all)
-                        .frame(width: ConstModel().deviceWidth, height: ConstModel().deviceWidth * 0.15, alignment: .bottom)
+                        .frame(width: ConstModel().width, height: ConstModel().width * 0.15, alignment: .bottom)
                         .background(ColorModel().lightGreen)
                 }
                 ZStack {
                     Rectangle().fill(Color(red:0.99, green:0.99, blue:0.99))
-                    VStack(alignment: .leading, spacing: ConstModel().deviceWidth * 0.07) {
+                    VStack(alignment: .leading, spacing: ConstModel().width * 0.07) {
                         Group {
                             VStack(alignment: .leading, spacing: 8.0) {
                                 Text("NAME")
                                 .fontWeight(.heavy)
                                 .foregroundColor(ColorModel().darkGreen)
                                 .font(Font.custom("Kiona", size: 20))
-                            CustomTextfield(placeholder: Text("Wintermelon Milk Tea..."), fontName: "Kiona", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $name)
+                            CustomTextfield(placeholder: Text("Wintermelon Milk Tea..."), username: $name)
                             }
                             VStack(alignment: .leading, spacing: 5.0) {
                                 Text("LOCATION")
                                     .fontWeight(.heavy)
                                     .foregroundColor(ColorModel().darkGreen)
                                     .font(Font.custom("Kiona", size: 20))
-                                CustomTextfield(placeholder: Text("OMOMO..."), fontName: "Kiona", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $location)
+                                CustomTextfield(placeholder: Text("OMOMO..."), username: $location)
                             }
                         }
                         HStack {
@@ -165,14 +165,14 @@ struct AddView: View {
                                 .fontWeight(.heavy)
                                 .foregroundColor(ColorModel().darkGreen)
                                 .font(Font.custom("Kiona", size: 20))
-                                CustomTextfield(placeholder: Text("Boba..."), fontName: "CaviarDreams", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $type)
+                                CustomTextfield(placeholder: Text("Boba..."), username: $type)
                             }
                                 VStack(alignment: .leading, spacing: 5.0) {
                                 Text("SIZE")
                                     .fontWeight(.heavy)
                                     .foregroundColor(ColorModel().darkGreen)
                                     .font(Font.custom("Kiona", size: 20))
-                                CustomTextfield(placeholder: Text("Regular..."), fontName: "CaviarDreams", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $size)
+                                CustomTextfield(placeholder: Text("Regular..."), username: $size)
                             }
                         }
                         HStack(spacing: 5.0) {
@@ -184,7 +184,6 @@ struct AddView: View {
                             DatePicker("", selection: $bevDate, displayedComponents: .date)
                                 .accentColor(ColorModel().mediumGreen)
                                 .datePickerStyle(CompactDatePickerStyle())
-//                            CustomTextfield(placeholder: Text("September 20, 2022..."), fontName: "CaviarDreams", fontSize: 15, fontColor: Color.gray, backgroundColor: Color(red:0.80, green:0.60, blue:0.49), opacity: 0.3, username: $type)
                             }
                         }
                         
@@ -215,7 +214,7 @@ struct AddView: View {
                         Text("BACK")
                             .fontWeight(.bold)
                             .padding(.top)
-                            .frame(width: ConstModel().deviceWidth/2, height: ConstModel().deviceHeight * 0.05)
+                            .frame(width: ConstModel().width/2, height: ConstModel().height * 0.05)
                             .background(ColorModel().mediumGreen)
                             .foregroundColor(.white)
                             .font(Font.custom("Young", size: 20))
@@ -226,7 +225,7 @@ struct AddView: View {
                         Text("ADD")
                             .fontWeight(.bold)
                             .padding(.top)
-                            .frame(width: ConstModel().deviceWidth/2, height: ConstModel().deviceHeight * 0.05)
+                            .frame(width: ConstModel().width/2, height: ConstModel().height * 0.05)
                             .background(ColorModel().lightGreen)
                             .foregroundColor(.white)
                             .font(Font.custom("Young", size: 21))

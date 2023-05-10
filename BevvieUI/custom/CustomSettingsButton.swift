@@ -30,7 +30,7 @@ struct CustomSettingsButton: View {
                     
                 }
                 .padding(.horizontal)
-                Rectangle().fill(buttonColor).frame(width: ConstModel().deviceWidth, height: ConstModel().deviceHeight * 0.08)
+                Rectangle().fill(buttonColor).frame(width: ConstModel().width, height: ConstModel().height * 0.08)
                     
             }
         }

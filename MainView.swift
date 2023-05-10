@@ -77,7 +77,7 @@ struct MainView: View {
 
                             Spacer()
                         }
-                    }.frame(height: ConstModel().deviceHeight * 0.07).background(.white)
+                    }.frame(height: ConstModel().height * 0.07).background(.white)
 
                 }
             }

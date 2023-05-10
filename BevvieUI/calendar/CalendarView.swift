@@ -35,7 +35,7 @@ struct CalendarView: View {
                         ZStack {
                             Rectangle().fill(ColorModel().lightTan)
                                 .cornerRadius2(25, corners: [.topLeft, .topRight])
-                                .edgesIgnoringSafeArea(.all).frame(height: ConstModel().deviceHeight * 0.85)
+                                .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.85)
                             VStack {
                                 VStack (spacing: 0) {
                                     let cols = Array(repeating: GridItem(.flexible()), count: 7)
@@ -50,12 +50,12 @@ struct CalendarView: View {
                                     }.padding(.horizontal, 20)
                                     Divider()
                                     ScrollCalendar()
-                                }.edgesIgnoringSafeArea(.all).frame(height: ConstModel().deviceHeight * 0.85)
+                                }.edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.85)
                                 
                             }
                             
                         }
-                    }.frame(height: ConstModel().deviceHeight * (0.85))
+                    }.frame(height: ConstModel().height * (0.85))
                     
                 }
             }
@@ -76,7 +76,7 @@ struct CalendarView: View {
 //                ZStack {
 //                    Rectangle().fill(ColorModel().lightTan)
 //                        .cornerRadius2(25, corners: [.topLeft, .topRight])
-//                        .edgesIgnoringSafeArea(.all).frame(height: ConstModel().deviceHeight * 0.85)
+//                        .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.85)
 //                    VStack {
 //                        let cols = Array(repeating: GridItem(.flexible()), count: 7)
 //                        LazyVGrid(columns: cols, spacing: 10) {
@@ -95,7 +95,7 @@ struct CalendarView: View {
 //            }
 //            VStack {
 //
-//            }.frame(height: ConstModel().deviceHeight*0.80).padding(.top, 100)
+//            }.frame(height: ConstModel().height*0.80).padding(.top, 100)
 //        }
     }
     

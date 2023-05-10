@@ -10,7 +10,7 @@ import SwiftUI
 import FirebaseFirestore
 import FirebaseAuth
 
-struct UserAnalyticsModel {
+struct Analytics {
         
     var uid: String? = "0"
     var level: Int? = 0

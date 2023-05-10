@@ -56,7 +56,7 @@ struct AnalyticsBox: View {
 struct AnalyticsBox_Preview: PreviewProvider {
     static var previews: some View {
             AnalyticsView()
-            .environmentObject(UserAnalyticsViewModel())
-            .environmentObject(BevViewModel())
+            .environmentObject(AnalyticsModel())
+            .environmentObject(BevModel())
     }
 }

@@ -20,7 +20,7 @@ struct BreakdownView: View {
                 ZStack {
                     Rectangle()
                         .fill(ColorModel().lightTan)
-                        .frame(width: ConstModel().deviceWidth, height: ConstModel().deviceHeight-120)
+                        .frame(width: ConstModel().width, height: ConstModel().height-120)
                     VStack {
                         Text("Today's bevvie breakdown: ")
                             .foregroundColor(ColorModel().darkGreen)

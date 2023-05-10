@@ -66,7 +66,7 @@ struct CustomDatePicker: View {
                 // Dates
                     VStack(spacing: 20.0) {
                         ZStack {
-                            Rectangle().fill(ColorModel().lightTan).frame(width: ConstModel().deviceWidth, height: ConstModel().deviceHeight  * 0.85).cornerRadius(15)
+                            Rectangle().fill(ColorModel().lightTan).frame(width: ConstModel().width, height: ConstModel().height  * 0.85).cornerRadius(15)
                             let columns = Array(repeating: GridItem(.flexible()), count: 7)
                             VStack {
                                 LazyVGrid(columns: columns, spacing: 10) {

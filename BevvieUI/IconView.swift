@@ -79,7 +79,7 @@ struct IconView: View {
                               }
                           }
 
-                        }.frame(width: ConstModel().deviceWidth * 0.7)
+                        }.frame(width: ConstModel().width * 0.7)
                             .padding(10)
 
 
@@ -120,15 +120,15 @@ struct IconView: View {
                               }
                           }
 
-                    }.frame(width: ConstModel().deviceWidth * 0.7)
+                    }.frame(width: ConstModel().width * 0.7)
                         .padding(10)
 
-                }.frame(height: ConstModel().deviceHeight * 0.5)
+                }.frame(height: ConstModel().height * 0.5)
                 
                 Button("CONTINUE") {
                     createUser()
                 }.padding(.all)
-                    .frame(width: ConstModel().deviceWidth * 0.7, height: ConstModel().deviceHeight * 0.07)
+                    .frame(width: ConstModel().width * 0.7, height: ConstModel().height * 0.07)
                     .background(ColorModel().mediumGreen)
                     .foregroundColor(.white)
                     .cornerRadius(25)
