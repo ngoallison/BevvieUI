@@ -18,9 +18,8 @@ struct HomeView: View {
     //@State var name: String
     
     let db = Firestore.firestore()
-    @ObservedObject private var viewModel = UserViewModel()
-    @ObservedObject private var analyticsModel = UserAnalyticsViewModel()
-
+    @EnvironmentObject var userModel: UserViewModel
+    @EnvironmentObject var anaModel: UserAnalyticsViewModel
 
     var body: some View {
         ZStack(alignment: .center)  {
@@ -49,7 +48,7 @@ struct HomeView: View {
                                         VStack(alignment: .center, spacing: 15.0) {
                                             ZStack(alignment: .bottom) {
                                                 ColorModel().brown.opacity(0.5).frame(width: 110, height: 110).clipShape(Circle())
-                                                Image(viewModel.user.icon!)
+                                                Image(userModel.user.icon!)
                                                     .resizable()
                                                     .aspectRatio(contentMode: .fit)
                                                     .frame(width: 100, height: 100)
@@ -57,10 +56,10 @@ struct HomeView: View {
                                                     .clipShape(Circle())
                                             }
                                             VStack(spacing: 0) {
-                                                Text(viewModel.user.username!
+                                                Text(userModel.user.username!
                                                 ).tracking(2).fontWeight(.medium).foregroundColor(ColorModel().brown).font(Font.custom("Young", size: 23))
 
-                                                Text("coffee connoisseur").foregroundColor(ColorModel().brown).font(Font.custom("Cardium A Regular", size: 17))
+                                                Text(userModel.user.title!).foregroundColor(ColorModel().brown).font(Font.custom("Cardium A Regular", size: 17))
                                             }.onAppear()
                                         }
                                     }
@@ -89,12 +88,12 @@ struct HomeView: View {
                                 }
                                 VStack {
                                     HStack {
-                                        Text("level \(analyticsModel.analytics.level!)").font(Font.custom("Cardium A Regular", size: 25)).foregroundColor(ColorModel().brown)
+                                        Text("level \(anaModel.analytics.level!)").font(Font.custom("Cardium A Regular", size: 25)).foregroundColor(ColorModel().brown)
                                         Spacer()
-                                        Text("\((10 - (analyticsModel.analytics.exp! % 10))) more bevvies to level up!").font(Font.custom("Cardium A Regular", size: 15)).foregroundColor(ColorModel().brown)
+                                        Text("\((10 - (anaModel.analytics.exp! % 10))) more bevvies to level up!").font(Font.custom("Cardium A Regular", size: 15)).foregroundColor(ColorModel().brown)
                                     }
                                     
-                                    ProgressView(value: CGFloat((analyticsModel.analytics.exp! % 10))/10).tint(ColorModel().mediumGreen)
+                                    ProgressView(value: CGFloat((anaModel.analytics.exp! % 10))/10).tint(ColorModel().mediumGreen)
                                     }
                                 Spacer()
                                 }

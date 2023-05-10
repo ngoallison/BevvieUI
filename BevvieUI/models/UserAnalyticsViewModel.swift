@@ -49,32 +49,6 @@ class UserAnalyticsViewModel: ObservableObject {
             self.analytics = UserAnalyticsModel(uid: uid, level: level, exp: exp, achievements: achievements, numbevs: numbevs, money: money)
     }
     
-    
-//    func getSatisfaction() {
-//        
-//        // get all bevs belonging to current user
-//        
-//        var satisfied = 0
-//        var unsatisfied = 0
-//        
-//        db.collection("bevs").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener { (snapshot, error) in
-//        guard let documents = snapshot?.documents else {
-//                print("No Documents")
-//                return
-//            }
-//            
-//            for document in documents {
-//                let data = document.data()
-//                if data["satisfaction"] as! String == "happy-face" || data["satisfaction"] as! String == "cheery-face" {
-//                    satisfied += 1
-//                }
-//                else {
-//                    unsatisfied += 1
-//                }
-//            }
-//            
-//            print("satisfied:  \(satisfied/(satisfied + unsatisfied))")
-//        }
             
     
     }

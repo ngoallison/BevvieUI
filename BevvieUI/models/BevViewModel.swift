@@ -1,5 +1,5 @@
 //
-//  UserViewModel.swift
+//  BevViewModel.swift
 //  BevvieUI
 //
 //  Created by Allison Ngo on 12/30/22.

@@ -18,8 +18,7 @@ struct AnalyticsView: View {
     
     
     @ObservedObject private var bevModel = BevViewModel()
-    @ObservedObject private var analyticsModel = UserAnalyticsViewModel()
-
+    @EnvironmentObject var anaModel: UserAnalyticsViewModel
     
 //    func loadDB() {
 //        var bevs: [BevModel] = []
@@ -76,7 +75,7 @@ struct AnalyticsView: View {
                                                 .frame(height:150)
                                                 .cornerRadius(10)
                                             VStack {
-                                                Text("\(analyticsModel.analytics.numbevs ?? 0)")
+                                                Text("\(anaModel.analytics.numbevs ?? 0)")
                                                     .foregroundColor(ColorModel().darkGreen)
                                                     .font(Font.custom("Kiona", size: 40))
                                                     .fontWeight(.bold)
@@ -101,7 +100,7 @@ struct AnalyticsView: View {
                                                 .frame(height:150)
                                                 .cornerRadius(10)
                                             VStack {
-                                                Text("$\(String(format: "%.2f", analyticsModel.analytics.money!))")
+                                                Text("$\(String(format: "%.2f", anaModel.analytics.money!))")
                                                     .foregroundColor(ColorModel().darkGreen)
                                                     .font(Font.custom("Kiona", size: 40))
                                                     .fontWeight(.bold)

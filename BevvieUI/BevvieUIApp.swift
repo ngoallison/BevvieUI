@@ -12,17 +12,25 @@ import FirebaseFirestore
 //
 //
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-      FirebaseConfiguration.shared.setLoggerLevel(FirebaseLoggerLevel.min)
-      FirebaseApp.configure()
-      let db = Firestore.firestore()
-      print(db)
-    //let db = Firestore.firestore()
+    
+    var userModel: UserViewModel?
+    var anaModel: UserAnalyticsViewModel?
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+            // Initialize Firebase
+            FirebaseConfiguration.shared.setLoggerLevel(FirebaseLoggerLevel.min)
+            FirebaseApp.configure()
 
+            // other app initialization code
+            userModel = UserViewModel()
+            anaModel = UserAnalyticsViewModel()
 
-    return true
-  }
+            return true
+        }
+
+    
+    
 }
 
 @main
@@ -30,9 +38,15 @@ struct BevvieUIApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
+    @StateObject var userModel = UserViewModel()
+    @StateObject var anaModel = UserAnalyticsViewModel()
+
+
     var body: some Scene {
         WindowGroup {
             MasterView(username: .constant(""), email: .constant(""))
+                .environmentObject(userModel)
+                .environmentObject(anaModel)
         }
     }
 }
