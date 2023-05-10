@@ -41,6 +41,8 @@
 		9850C19D2947D13600F54043 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850C19C2947D13500F54043 /* EmptyView.swift */; };
 		9859D8EF2A09B7FC004C6878 /* UserAnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8EE2A09B7FC004C6878 /* UserAnalyticsViewModel.swift */; };
 		9859D8F12A0B2927004C6878 /* ScrollCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F02A0B2927004C6878 /* ScrollCalendar.swift */; };
+		9859D8F32A0B423E004C6878 /* EditModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F22A0B423E004C6878 /* EditModel.swift */; };
+		9859D8F52A0B6778004C6878 /* FirestoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F42A0B6778004C6878 /* FirestoreModel.swift */; };
 		985EED62295A40BA00868493 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985EED61295A40B900868493 /* NewUserViewModel.swift */; };
 		9863C9CE28DAB4FC00E951FB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863C9CD28DAB4FC00E951FB /* MainView.swift */; };
 		9863C9D028DACEA200E951FB /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863C9CF28DACEA200E951FB /* AchievementView.swift */; };
@@ -108,6 +110,8 @@
 		9859D8ED2A09A97E004C6878 /* lastbranch.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = lastbranch.md; sourceTree = "<group>"; };
 		9859D8EE2A09B7FC004C6878 /* UserAnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnalyticsViewModel.swift; sourceTree = "<group>"; };
 		9859D8F02A0B2927004C6878 /* ScrollCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCalendar.swift; sourceTree = "<group>"; };
+		9859D8F22A0B423E004C6878 /* EditModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModel.swift; sourceTree = "<group>"; };
+		9859D8F42A0B6778004C6878 /* FirestoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreModel.swift; sourceTree = "<group>"; };
 		985EED61295A40B900868493 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
 		9863C9CD28DAB4FC00E951FB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = ../MainView.swift; sourceTree = "<group>"; };
 		9863C9CF28DACEA200E951FB /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				98DB26F228DBCCAF00411DD9 /* ConstModel.swift */,
 				983250AE294BCABB00BD4C9C /* UserModel.swift */,
 				983250B0294BD85F00BD4C9C /* UserViewModel.swift */,
+				9859D8F42A0B6778004C6878 /* FirestoreModel.swift */,
 				98C1A96A2964D6DB00CB82E9 /* UserAnalyticsModel.swift */,
 				9859D8EE2A09B7FC004C6878 /* UserAnalyticsViewModel.swift */,
 				98D5EFA7295FBE1500E6D967 /* BevViewModel.swift */,
@@ -317,6 +322,7 @@
 			children = (
 				98D5EFA9295FC57700E6D967 /* PrivacyView.swift */,
 				987D44BF29AE9CE6002067FB /* EditView.swift */,
+				9859D8F22A0B423E004C6878 /* EditModel.swift */,
 				98C1A9682964D3CC00CB82E9 /* TermsView.swift */,
 			);
 			path = settings;
@@ -465,6 +471,7 @@
 				9814594528E6B0A700F66347 /* SettingsView.swift in Sources */,
 				98C1A9692964D3CC00CB82E9 /* TermsView.swift in Sources */,
 				987D44C029AE9CE6002067FB /* EditView.swift in Sources */,
+				9859D8F32A0B423E004C6878 /* EditModel.swift in Sources */,
 				9849D25F28DA510600D8A9FA /* MasterView.swift in Sources */,
 				98D5EFA8295FBE1600E6D967 /* BevViewModel.swift in Sources */,
 				9863C9DC28DB9F3700E951FB /* BreakdownView.swift in Sources */,
@@ -479,6 +486,7 @@
 				9849D25B28DA506100D8A9FA /* HomeView.swift in Sources */,
 				98C1A96B2964D6DB00CB82E9 /* UserAnalyticsModel.swift in Sources */,
 				9849D25D28DA50D900D8A9FA /* NaviView.swift in Sources */,
+				9859D8F52A0B6778004C6878 /* FirestoreModel.swift in Sources */,
 				983250AF294BCABB00BD4C9C /* UserModel.swift in Sources */,
 				9849D25728D8E97400D8A9FA /* CustomTextField.swift in Sources */,
 				9835EC2328E80CE100CB66A3 /* SignUpView.swift in Sources */,

@@ -19,8 +19,8 @@ struct SettingsView: View {
     @State var privacyPresent: Bool = false
     @State var termsPresent: Bool = false
     
-    @ObservedObject private var viewModel = UserViewModel()
-    @ObservedObject private var analyticsModel = UserAnalyticsViewModel()
+    @EnvironmentObject var userModel: UserViewModel
+    @EnvironmentObject var anaModel: UserAnalyticsViewModel
     
     func logOut() {
         isPresenting = false
@@ -80,7 +80,7 @@ struct SettingsView: View {
                             HStack(alignment: .center) {
                                 ZStack(alignment: .bottom) {
                                     ColorModel().brown.opacity(0.5).frame(width: 120, height: 120).clipShape(Circle())
-                                    Image(viewModel.user.icon!)
+                                    Image(userModel.user.icon!)
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 110, height: 110)
@@ -90,11 +90,11 @@ struct SettingsView: View {
                                 .padding(.trailing)
                                 
                                 VStack(alignment: .leading, spacing: 0) {
-                                    Text(viewModel.user.username!).tracking(2).fontWeight(.medium).foregroundColor(ColorModel().brown).font(Font.custom("Young", size: 23))
-                                    Text("coffee connoisseur").foregroundColor(ColorModel().brown).font(Font.custom("Cardium A Regular", size: 17))
+                                    Text(userModel.user.username!).tracking(2).fontWeight(.medium).foregroundColor(ColorModel().brown).font(Font.custom("Young", size: 23))
+                                    Text(userModel.user.title!).foregroundColor(ColorModel().brown).font(Font.custom("Cardium A Regular", size: 17))
                                 
-                                    Text("lvl. \(analyticsModel.analytics.level!)").foregroundColor(ColorModel().brown).font(Font.custom("Cardium A Regular", size: 15)).padding(.top)
-                                ProgressView(value: CGFloat((analyticsModel.analytics.exp! % 10))/10).tint(ColorModel().mediumGreen)
+                                    Text("lvl. \(anaModel.analytics.level!)").foregroundColor(ColorModel().brown).font(Font.custom("Cardium A Regular", size: 15)).padding(.top)
+                                ProgressView(value: CGFloat((anaModel.analytics.exp! % 10))/10).tint(ColorModel().mediumGreen)
                                 }
                                 Spacer()
 
