@@ -40,6 +40,7 @@
 		9850C19B2942831F00F54043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850C19A2942831F00F54043 /* ContentView.swift */; };
 		9850C19D2947D13600F54043 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850C19C2947D13500F54043 /* EmptyView.swift */; };
 		9859D8EF2A09B7FC004C6878 /* UserAnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8EE2A09B7FC004C6878 /* UserAnalyticsViewModel.swift */; };
+		9859D8F12A0B2927004C6878 /* ScrollCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F02A0B2927004C6878 /* ScrollCalendar.swift */; };
 		985EED62295A40BA00868493 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985EED61295A40B900868493 /* NewUserViewModel.swift */; };
 		9863C9CE28DAB4FC00E951FB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863C9CD28DAB4FC00E951FB /* MainView.swift */; };
 		9863C9D028DACEA200E951FB /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863C9CF28DACEA200E951FB /* AchievementView.swift */; };
@@ -106,6 +107,7 @@
 		9850C19C2947D13500F54043 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		9859D8ED2A09A97E004C6878 /* lastbranch.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = lastbranch.md; sourceTree = "<group>"; };
 		9859D8EE2A09B7FC004C6878 /* UserAnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnalyticsViewModel.swift; sourceTree = "<group>"; };
+		9859D8F02A0B2927004C6878 /* ScrollCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCalendar.swift; sourceTree = "<group>"; };
 		985EED61295A40B900868493 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
 		9863C9CD28DAB4FC00E951FB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = ../MainView.swift; sourceTree = "<group>"; };
 		9863C9CF28DACEA200E951FB /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				9863C9DB28DB9F3700E951FB /* BreakdownView.swift */,
 				9863C9D528DB89CD00E951FB /* CalendarView.swift */,
+				9859D8F02A0B2927004C6878 /* ScrollCalendar.swift */,
 				9863C9D728DB8A9600E951FB /* CustomDatePicker.swift */,
 				9863C9D928DB8FAC00E951FB /* DateValue.swift */,
 			);
@@ -470,6 +473,7 @@
 				9849D23528D83D4D00D8A9FA /* BevvieUIApp.swift in Sources */,
 				98A7D3D82A098073009823A6 /* AchievementIcons.swift in Sources */,
 				9849D26128DA734700D8A9FA /* AddView.swift in Sources */,
+				9859D8F12A0B2927004C6878 /* ScrollCalendar.swift in Sources */,
 				9863C9DA28DB8FAC00E951FB /* DateValue.swift in Sources */,
 				985EED62295A40BA00868493 /* NewUserViewModel.swift in Sources */,
 				9849D25B28DA506100D8A9FA /* HomeView.swift in Sources */,

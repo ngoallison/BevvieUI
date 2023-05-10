@@ -40,14 +40,6 @@ struct AchievementIcons: View {
                                         achievementIcon: $achievementIcon,
                                         achievementGoal: $achievementGoal
                                     )
-                                    
-                                    
-//                                    AchievementDetails(showAchievement: self.$showAchievement, achievementName: .constant(ConstModel().names[index]),
-//                                    achievementIcon: .constant(ConstModel().icons[index]),
-//                                    achievementGoal:
-//                                            .constant(ConstModel().goal[index]))
-                                    
-                                    
                                 }
                         Text(ConstModel().names[index])
                             .multilineTextAlignment(.center)
