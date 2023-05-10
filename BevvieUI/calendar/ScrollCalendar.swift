@@ -11,7 +11,7 @@ struct ScrollCalendar: View {
     
     @State private var selectedDate = Date()
     @State private var showSheet: Bool = false;
-    @ObservedObject private var bevModel = BevViewModel()
+    @EnvironmentObject var bevModel: BevViewModel
     
     private let calendar = Calendar.current
     

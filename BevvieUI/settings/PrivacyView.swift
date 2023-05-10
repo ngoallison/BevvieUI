@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct PrivacyView: View {
     
@@ -61,3 +62,4 @@ struct PrivacyView_Previews: PreviewProvider {
         PrivacyView(privacyPresent: .constant(true))
     }
 }
+

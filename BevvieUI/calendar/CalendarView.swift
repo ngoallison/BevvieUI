@@ -27,7 +27,7 @@ struct CalendarView: View {
                             .font(Font.custom("Kiona", size: 30))
                             .fontWeight(.regular)
                             .foregroundColor(.white)
-                            .tracking(5)
+                            .tracking(2)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: .infinity)
                         

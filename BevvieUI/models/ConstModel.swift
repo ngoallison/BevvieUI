@@ -21,5 +21,6 @@ struct ConstModel {
     var icons: [String] = ["hot-coffee", "heart", "ice-cubes", "boba", "skull", "money", "trash", "therapy", "seven", "stop"]
     var names: [String] = ["HOT CROSS BUNS", "LOVER BOY", "ICE ICE BABY", "BOBADDICTION", "SIPPING SHORTAGE", "BROKE A**", "TRASH TOWN", "BETTER HELP", "7 BEVVIES IN HEAVEN", "CHANGE UP"]
     var goal: [String] = ["Order 10 hot bevvies!", "Enjoy 15 bevvies!", "Order 10 iced bevvies", "Order over 50 bevvies", "Go 7 days without ordering a bevvie :(", "Spend over $200 on bevvies!", "Dislike 15 drinks :(", "Spend enough money on bevvies equivalent to a session of therapy", "Order a bevvie 7 days in a row!", "Try at least 20 new drinks!"]
-
+    
+    var titleFont: String = "Kiona"
 }

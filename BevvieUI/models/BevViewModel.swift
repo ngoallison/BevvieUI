@@ -10,45 +10,36 @@ import SwiftUI
 import FirebaseFirestore
 import FirebaseAuth
 
+/*
+ var uid: String? = ""
+ var name: String? = ""
+ var location: String? = ""
+ var temp: String? = ""
+ var price: Float? = 0
+ var type: String? = ""
+ var size: String? = ""
+ var date: Date? = Date()
+ var satisfaction: String? = "happy-face"
+ */
+
 class BevViewModel: ObservableObject {
     
     @Published var bev: BevModel = BevModel()
+    var temp: BevModel = BevModel(uid: "0", name: "Wintermelon Milk Tea", location: "OMOMO", temp: "ICED", price: 5.00, type: "Boba", size: "Large", date: Date(), satisfaction: "happy-face")
     @Published var bevCount: Int = 0
     
     private var db = Firestore.firestore()
     private var data: [QueryDocumentSnapshot] = []
     
     init () {
-            db.collection("bevs").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener { (snapshot, error) in
+            db.collection("bevs").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid).addSnapshotListener { (snapshot, error) in
             guard let documents = snapshot?.documents else {
                     print("No Documents")
                     return
                 }
                 
-                self.bevCount = documents.count
-                //print(documents.count)
-                
-                let doc = documents[0]
+                self.bevCount = documents.count                
                 self.data = documents
-                
-                //let data = doc.data()
-                
-//                let doc = documents[0]
-//                let data = doc.data()
-//
-//                let uid = data["uid"] as! String
-//                let name = data["name"]  as! String
-//                let location = data["location"]  as! String
-//                let temp = data["temp"] as! String
-//                let price = data["price"] as! Float
-//                let type = data["type"] as! String
-//                let size = data["size"] as! String
-//                //let date = data["date"] as! String
-//                let satisfaction = data["satisfaction"] as! String
-//
-//
-//                self.bev = BevModel(uid: uid, name: name, location: location, temp: temp, price: price, type: type, size: size, satisfaction: satisfaction)
-
 
                 }
         }
@@ -95,6 +86,28 @@ class BevViewModel: ObservableObject {
             }
         }
         return type
+    }
+    
+    func getLocation() -> String {
+        
+        var dictionary: [String:Int] = [:]
+        for doc in self.data {
+            if let count = dictionary[doc["location"] as! String] {
+                dictionary[doc["location"] as! String] = count + 1
+                } else {
+                    dictionary[doc["location"] as! String] = 1
+                }
+        }
+        
+        var maxFrequency = 0
+        var location = ""
+        for (name, frequency) in dictionary {
+            if frequency > maxFrequency {
+                maxFrequency = frequency
+                location = name
+            }
+        }
+        return location
     }
     
     func getDates() -> [Date] {

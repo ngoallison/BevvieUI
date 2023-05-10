@@ -13,8 +13,10 @@ import FirebaseFirestore
 //
 class AppDelegate: NSObject, UIApplicationDelegate {
     
-    var userModel: UserViewModel?
+    var userModel: UserModel?
     var anaModel: UserAnalyticsViewModel?
+    var bevModel: BevViewModel?
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -23,8 +25,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             FirebaseApp.configure()
 
             // other app initialization code
-            userModel = UserViewModel()
+            userModel = UserModel()
             anaModel = UserAnalyticsViewModel()
+            bevModel = BevViewModel()
 
             return true
         }
@@ -38,8 +41,10 @@ struct BevvieUIApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
-    @StateObject var userModel = UserViewModel()
+    @StateObject var userModel = UserModel()
     @StateObject var anaModel = UserAnalyticsViewModel()
+    @StateObject var bevModel = BevViewModel()
+
 
 
     var body: some Scene {
@@ -47,6 +52,7 @@ struct BevvieUIApp: App {
             MasterView(username: .constant(""), email: .constant(""))
                 .environmentObject(userModel)
                 .environmentObject(anaModel)
+                .environmentObject(bevModel)
         }
     }
 }

@@ -17,7 +17,7 @@ import Foundation
 import SwiftUI
 
 struct AchievementView: View {
-    //@State private var showAchievement = false
+
     @State private var theName = ""
     @State private var theIcon = ""
     
@@ -94,7 +94,7 @@ struct AchievementView: View {
                             .font(Font.custom("Kiona", size: 30))
                             .fontWeight(.regular)
                             .foregroundColor(.white)
-                            .tracking(5)
+                            .tracking(2)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: .infinity)
                             //.padding(.top, 10.0)
@@ -112,7 +112,7 @@ struct AchievementView: View {
                                             Spacer()
                                             Button(action: {
                                                 self.selectedStatus = number
-                                            }, label: { Text(status[number]).font(Font.custom("CaviarDreams", size: 18))
+                                            }, label: { Text(status[number]).font(Font.custom("Cardium A Regular", size: 18))
                                                 .fontWeight(.bold)
                                                 .foregroundColor(self.selectedStatus == number ? ColorModel().darkGreen : ColorModel().darkGreen.opacity(0.5))
                                             })
@@ -152,65 +152,3 @@ extension View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
 }
-
-//                            ScrollView(.vertical) {
-//
-//                                if self.selectedStatus == 1 {
-//                                    VStack(spacing: 20) {
-//                                        ForEach(0..<lines, id: \.self) { number in
-//                                            Spacer()
-//                                            HStack {
-//                                                ForEach(0..<2, id: \.self) { num in
-//                                                    Spacer()
-//                                                    VStack {
-//                                                        Button(action: {
-//                                                            self.theName = nameGroups[number][num]
-//                                                            self.theIcon = iconGroups[number][num]
-//                                                            self.showAchievement.toggle()
-//                                                          }) {
-//                                                              Image(iconGroups[number][num]).resizable().frame(width: 90, height: 90)
-//                                                          }.buttonStyle(PlainButtonStyle())
-//                                                                .sheet(isPresented: (self.$showAchievement)) {
-//                                                                    AchievementDetails(showAchievement: self.$showAchievement, achievementName: $theName,
-//                                                                    achievementIcon: $theIcon)
-//                                                                }
-//                                                        Text(nameGroups[number][num]).font(Font.custom("CaviarDreams", size: 18))
-//                                                            .fontWeight(.bold)
-//                                                            .foregroundColor(ColorModel().darkGreen)
-//                                                    }
-//
-//                                                    Spacer()
-//                                                }
-//                                            }
-//                                        }
-//
-//                                        Spacer()
-//
-//                                    }.frame(maxWidth: ConstModel().deviceWidth, maxHeight: .infinity, alignment: .top).background(ColorModel().darkTan)
-//                                } else {
-//                                    Spacer()
-//                                    VStack(spacing: 20) {
-//                                        Button(action: {
-//                                            self.theName = "HOT CROSS BUNS"
-//                                            self.theIcon = "hot-coffee"
-//                                            self.showAchievement.toggle()
-//                                          }) {
-//                                        Image("hot-coffee").resizable().frame(width: 90, height: 90)
-//                                        }.buttonStyle(PlainButtonStyle())
-//                                              .sheet(isPresented: (self.$showAchievement)) {
-//                                                  AchievementDetails(showAchievement: self.$showAchievement, achievementName: $theName,
-//                                                  achievementIcon: $theIcon)
-//                                              }
-//                                      Text("HOT CROSS BUNS").font(Font.custom("CaviarDreams", size: 18))
-//                                          .fontWeight(.bold)
-//                                          .foregroundColor(ColorModel().darkGreen)
-//
-//                                        }.frame(maxWidth: ConstModel().deviceWidth, maxHeight: .infinity, alignment: .top).background(ColorModel().darkTan)
-//                                    Spacer()
-//                                }
-//
-//
-//
-//
-//
-//                            }.frame(height: ConstModel().deviceHeight * (0.80) - 20 - (ConstModel().deviceHeight * 0.07))

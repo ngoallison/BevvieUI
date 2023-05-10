@@ -18,7 +18,7 @@ struct HomeView: View {
     //@State var name: String
     
     let db = Firestore.firestore()
-    @EnvironmentObject var userModel: UserViewModel
+    @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var anaModel: UserAnalyticsViewModel
 
     var body: some View {
@@ -68,7 +68,7 @@ struct HomeView: View {
                                 
                                 Text("Haven’t had a bevvie today? Treat yourself!").fontWeight(.medium).foregroundColor(Color(red:0.66, green:0.49, blue:0.39)).font(Font.custom("Cardium A Regular", size: 17)).lineLimit(15)
                                     Spacer()
-                                    Image("coffee-mug").resizable().frame(width: 150, height: 150)
+                                    Image("matcha-tea").resizable().frame(width: 120, height: 120)
                                 }
                                 Button(action: {
                                     self.showSheet.toggle()

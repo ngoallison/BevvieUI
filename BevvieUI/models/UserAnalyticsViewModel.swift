@@ -23,19 +23,24 @@ class UserAnalyticsViewModel: ObservableObject {
     
 
     @Published var analytics: UserAnalyticsModel = UserAnalyticsModel()
+    var temp: UserAnalyticsModel = UserAnalyticsModel(uid: "0", level: 0, exp: 0, achievements: [""], numbevs: 0, money: 0.0)
     private var db = Firestore.firestore()
     
     
     
     init () {
         print("getting analytics")
-        db.collection("analytics").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener { (snapshot, error) in
-        guard let documents = snapshot?.documents else {
+        db.collection("analytics").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid as Any).addSnapshotListener { (snapshot, error) in
+            guard let documents = snapshot?.documents else {
                 print("No Documents")
                 return
             }
             
             print("creating analytics model")
+            if (documents.count == 0) {
+                return
+            }
+            
             let doc = documents[0]
             let data = doc.data()
             

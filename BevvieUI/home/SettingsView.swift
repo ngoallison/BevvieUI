@@ -19,7 +19,7 @@ struct SettingsView: View {
     @State var privacyPresent: Bool = false
     @State var termsPresent: Bool = false
     
-    @EnvironmentObject var userModel: UserViewModel
+    @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var anaModel: UserAnalyticsViewModel
     
     func logOut() {
