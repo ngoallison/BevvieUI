@@ -14,7 +14,6 @@ struct SettingsView: View {
     @Binding var isPresenting: Bool
     @Binding var isSignedUp: Bool
     
-    
     @State var editPresent: Bool = false
     @State var privacyPresent: Bool = false
     @State var termsPresent: Bool = false
@@ -23,6 +22,13 @@ struct SettingsView: View {
     @EnvironmentObject var anaModel: AnalyticsModel
     
     func logOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+        isLoggedIn = false
+        isSignedUp = false
         isPresenting = false
     }
   
@@ -104,8 +110,7 @@ struct SettingsView: View {
                                 CustomSettingsButton(buttonName: "Edit Profile", buttonColor: .clear, clicked: edit)
                                 CustomSettingsButton(buttonName: "Privacy Policy", buttonColor: ColorModel().darkGray.opacity(0.1), clicked: privacy)
                                 CustomSettingsButton(buttonName: "Terms and Conditions", buttonColor: .clear, clicked: terms)
-                                CustomSettingsButton(buttonName: "Theme", buttonColor: ColorModel().darkGray.opacity(0.1), clicked: logOut)
-                                CustomSettingsButton(buttonName: "Log Out", buttonColor: .clear, clicked: logOut)
+                                CustomSettingsButton(buttonName: "Log Out", buttonColor: ColorModel().darkGray.opacity(0.1), clicked: logOut)
                                 
                             }
                             Spacer()
