@@ -28,17 +28,17 @@ struct MainView: View {
                             
                             switch selectedIndex {
                             case 0:
-                                HomeView(isPresenting: $isPresenting, isLoggedIn: .constant(true))
+                                HomeView(showSheet: $showSheet, isPresenting: $isPresenting, isLoggedIn: .constant(true))
                             case 1:
                                 AchievementView()
                             case 2:
-                                HomeView(isPresenting: $isPresenting, isLoggedIn: .constant(true))
+                                HomeView(showSheet: $showSheet, isPresenting: $isPresenting, isLoggedIn: .constant(true))
                             case 3:
                                 CalendarView(selectedDate: Date())
                             case 4:
                                 AnalyticsView()
                             default:
-                                HomeView(isPresenting: $isPresenting, isLoggedIn: .constant(true))
+                                HomeView(showSheet: $showSheet, isPresenting: $isPresenting, isLoggedIn: .constant(true))
                             }
                         }
                     }
@@ -50,7 +50,12 @@ struct MainView: View {
                                 Spacer()
                                 Button(action: {
                                     if number == 2 {
-                                        self.showSheet = true
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                            withAnimation(.spring()) {
+                                                showSheet = true
+                                            }
+                                        }
+                                        //self.showSheet = true
                                     }
                                     else {
                                         self.selectedIndex = number
@@ -80,8 +85,16 @@ struct MainView: View {
                         }.frame(height: ConstModel().height * 0.07).background(.white)
                         
                     }
+                }.blur(radius: showSheet ? 5 : 0)
+                Color(.black)
+                    .opacity(showSheet ? 0.4 : 0)
+                    .ignoresSafeArea()
+                if showSheet {
+                    AddViewModal(showSheet: $showSheet)
+                        .transition(.move(edge: .top))
+                        .zIndex(1)
+
                 }
-                AddViewModal(showSheet: $showSheet)
             }
         }
     }

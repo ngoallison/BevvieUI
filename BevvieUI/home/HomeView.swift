@@ -12,7 +12,7 @@ import FirebaseAuth
 
 struct HomeView: View {
     
-    @State private var showSheet = false
+    @Binding var showSheet: Bool
     @Binding var isPresenting: Bool
     @Binding var isLoggedIn: Bool
     //@State var name: String
@@ -71,7 +71,11 @@ struct HomeView: View {
                                     Image("matcha-tea").resizable().frame(width: 120, height: 120)
                                 }
                                 Button(action: {
-                                    self.showSheet.toggle()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                        withAnimation(.spring()) {
+                                            showSheet = true
+                                        }
+                                    }
                                 }, label: {
                                     Text("Log your Bevvie")
                                         .fontWeight(.medium)
@@ -82,11 +86,6 @@ struct HomeView: View {
                                         .cornerRadius(12)
                                         .font(Font.custom("AltoneTrial-Regular", size: 20))
                                 })
-//                                .buttonStyle(PlainButtonStyle())
-//                                .sheet(isPresented: (self.$showSheet)) {
-//                                AddView(showSheet: self.$showSheet)
-//                                }
-
                                 VStack {
                                     HStack {
                                         Text("level \(anaModel.analytics.level!)").font(Font.custom("Cardium A Regular", size: 25)).foregroundColor(ColorModel().brown)
@@ -118,7 +117,10 @@ struct HomeView: View {
                 }
                 Spacer()
             }.frame(width: ConstModel().width)
-            AddViewModal(showSheet: $showSheet)
+//            if showSheet {
+//                AddViewModal(showSheet: $showSheet).transition(.move(edge: .top))
+//            }
+            //AddViewModal(showSheet: $showSheet)
         }
     }
 }
@@ -127,7 +129,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(isPresenting: .constant(false), isLoggedIn: .constant(true)).previewDevice(PreviewDevice(rawValue: "iPhone 12")).previewInterfaceOrientation(.portrait).environmentObject(UserModel())
+        HomeView(showSheet: .constant(false), isPresenting: .constant(false), isLoggedIn: .constant(true)).previewDevice(PreviewDevice(rawValue: "iPhone 12")).previewInterfaceOrientation(.portrait).environmentObject(UserModel())
             .environmentObject(AnalyticsModel())
     }
 }
