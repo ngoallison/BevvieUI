@@ -20,6 +20,11 @@ struct LogInView: View {
     @State var forgotPass = ""
     @State var forgotUser = ""
     
+    @EnvironmentObject var userModel: UserModel
+    @EnvironmentObject var anaModel: AnalyticsModel
+    @EnvironmentObject var bevModel: BevModel
+
+    
     func goToSignUp() {
         isSignedUp = false
     }
@@ -35,8 +40,12 @@ struct LogInView: View {
                 print(e)
             }
             else {
+                print("logged in, now fetching info")
                 isSignedUp = true
                 isLoggedIn = true
+                userModel.getUser()
+                anaModel.getAnalytics()
+                bevModel.getBev()
             }
         }
     }
@@ -74,12 +83,12 @@ struct LogInView: View {
                         VStack(spacing: 10) {
                             VStack(alignment: .leading) {
                                 CustomTextfield(placeholder: Text("Email"), icon: "envelope", username: $email)
-                                Text("forgot email?").font(Font.custom("Cardium A Regular", size: 14)).padding(.leading)
+                                Text("forgot email?").font(Font.custom(ConstModel().textFont, size: 14)).padding(.leading)
                             }
                             
                             VStack(alignment: .leading) {
                                 CustomSecurefield(placeholder: Text("Password"), icon: "exclamationmark.lock", password: $password)
-                                Text("forgot password?").font(Font.custom("Cardium A Regular", size: 14)).padding(.leading)
+                                Text("forgot password?").font(Font.custom(ConstModel().textFont, size: 14)).padding(.leading)
                             }
                         }.frame(width: ConstModel().width-100, height: ConstModel().height*0.20)
                         VStack (spacing: 30){
@@ -103,13 +112,13 @@ struct LogInView: View {
                             .disabled(isLoading)
                             HStack {
                                 Text("Already have an account?")
-                                    .font(Font.custom("Cardium A Regular", size: 13))
+                                    .font(Font.custom(ConstModel().textFont, size: 13))
                                 
                                 Button(action: {
                                     self.isSignedUp.toggle()
                                 }, label: {
                                     Text("Log in here!")
-                                        .font(Font.custom("Cardium A Regular", size: 13))
+                                        .font(Font.custom(ConstModel().textFont, size: 13))
                                         .fontWeight(.medium)
                                         .foregroundColor(.black)
                                 })

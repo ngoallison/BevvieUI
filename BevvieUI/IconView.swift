@@ -17,6 +17,9 @@ struct IconView: View {
     var icons = ["girl-icon", "boy-icon", "old-lady-icon", "old-man-icon"]
     @State var buttonsTapped = [false, false, false, false]
     @State private var selectedIndex = -1
+    
+    @EnvironmentObject var userModel: UserModel
+
 
     var iconGroups: [[String]] = []
     var nameGroups: [[String]] = []
@@ -27,6 +30,7 @@ struct IconView: View {
         print(email)
         print(selectedIcon)
         NewUserViewModel.createNewUser(username: username, email: email, user_icon: selectedIcon)
+        userModel.getUser()
         isSignedUp = true
         isLoggedIn = true
     }

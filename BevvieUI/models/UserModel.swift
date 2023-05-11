@@ -13,34 +13,37 @@ import FirebaseAuth
 class UserModel: ObservableObject {
     
     @Published var user: User = User()
-    var temp: User = User(username: "", email: "", uid: "0", icon: "girl-icon", title: "coffee connoisseur")
     private var db = Firestore.firestore()
     
-    init () {
-
+    func getUser () {
+        
         print("getting user info")
+        print(Auth.auth().currentUser?.uid)
         db.collection("user").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid as Any).addSnapshotListener { (snapshot, error) in
             guard let documents = snapshot?.documents else {
-                    print("No Documents")
-                    return
-                }
-                
-                if (documents.count == 0) {
-                    return
-                }
+                print("No Documents")
+                return
+            }
             
-                let doc = documents[0]
-                let data = doc.data()
+            if (documents.count == 0) {
+                return
+            }
             
-
-                let username = data["username"] as! String
-                let email = data["email"]  as! String
-                let uid = data["uid"]  as! String
-                let icon = data["icon"] as! String
-                let title = data["title"] as! String
+            let doc = documents[0]
+            let data = doc.data()
+            
+            
+            let username = data["username"] as! String
+            let email = data["email"]  as! String
+            let uid = data["uid"]  as! String
+            let icon = data["icon"] as! String
+            let title = data["title"] as! String
+            
+            print(username)
+            
             self.user = User(username: username, email: email, uid: uid, icon: icon, title: title)
-
-
-                }
+            
+            
         }
+    }
 }

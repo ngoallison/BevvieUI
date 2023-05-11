@@ -14,10 +14,11 @@ struct Bev {
     var name: String? = ""
     var location: String? = ""
     var temp: String? = ""
-    var price: Float? = 0
+    var price: Double? = 0
     var type: String? = ""
     var size: String? = ""
-    var date: Date? = Date()
+    var date: String? = "01/01/2023"
+    //var date: Date? = Date()
     var satisfaction: String? = "happy-face"
     
 }

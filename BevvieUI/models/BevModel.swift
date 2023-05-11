@@ -25,24 +25,52 @@ import FirebaseAuth
 class BevModel: ObservableObject {
     
     @Published var bev: Bev = Bev()
-    var temp: Bev = Bev(uid: "0", name: "Wintermelon Milk Tea", location: "OMOMO", temp: "ICED", price: 5.00, type: "Boba", size: "Large", date: Date(), satisfaction: "happy-face")
     @Published var bevCount: Int = 0
     
     private var db = Firestore.firestore()
     private var data: [QueryDocumentSnapshot] = []
     
-    init () {
+    func getBev () {
+        
+            print("getting bevs")
+            //print(Auth.auth().currentUser?.uid)
             db.collection("bevs").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid).addSnapshotListener { (snapshot, error) in
             guard let documents = snapshot?.documents else {
                     print("No Documents")
                     return
                 }
+                if documents.count == 0 {
+                    return
+                }
                 
-                self.bevCount = documents.count                
+                print("got bevs")
+                print(documents.count)
+                self.bevCount = documents.count
                 self.data = documents
-
+                print(self.data.count)
                 }
         }
+    
+    func getBevFromDate(bevDate: String) -> Bev {
+        
+        print(self.data.count)
+        print(bevDate)
+        var item: Bev = Bev()
+        for doc in self.data {
+            print("hi")
+            print(doc["date"])
+            if doc["date"] as! String == bevDate {
+                item.name = (doc["name"] as! String)
+                item.location = (doc["location"] as! String)
+                item.temp = (doc["temp"] as! String)
+                item.price = (doc["price"] as! Double)
+                item.type = (doc["type"] as! String)
+                item.date = (doc["date"] as! String)
+            }
+        }
+        return item
+        //formatter.string(from: bevDate)
+    }
     
     func getFavorite() -> String {
         
@@ -106,6 +134,9 @@ class BevModel: ObservableObject {
                 maxFrequency = frequency
                 location = name
             }
+        }
+        if location == "" {
+            location = "N/A"
         }
         return location
     }

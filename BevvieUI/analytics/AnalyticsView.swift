@@ -42,7 +42,7 @@ struct AnalyticsView: View {
                                 .cornerRadius2(25, corners: [.topLeft, .topRight])
                                 .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * (0.85))
                             VStack {
-                                Spacer()
+                                //Spacer()
 
                                 LazyVGrid(columns: [
                                     GridItem(.adaptive(minimum: (ConstModel().width)/3))
@@ -52,13 +52,14 @@ struct AnalyticsView: View {
                                     AnalyticsBox(title: "GO TO ORDER", sub: bevModel.getFavorite(), image: "breakdown-boba")
                                     AnalyticsBox(title: "FAVORITE TYPE",  sub: bevModel.getType(), image: "boba")
                                     
-                                    let avg = anaModel.analytics.money! / Double(anaModel.analytics.numbevs!)
+                                    let bevs = Double(anaModel.analytics.numbevs!)
+                                    let avg = bevs > 0 ? anaModel.analytics.money! / bevs : 0
                                     AnalyticsBox(title: "AVERAGE BEVVIE PRICE", header: "$\(String(format: "%.2f", avg))", sub: "PER BEVVIE")
                                     
                                     AnalyticsBox(title: "MOST VISITED LOCATION", header: bevModel.getLocation())
                                     
 
-                                }
+                                }.padding(.top, 10)
                                 Spacer()
                             }.frame(width: ConstModel().width, height: ConstModel().height * 0.85)
                             Spacer()

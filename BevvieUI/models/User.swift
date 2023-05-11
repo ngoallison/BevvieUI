@@ -12,7 +12,7 @@ import FirebaseAuth
 
 struct User {
 
-    var username: String? = "Jayson Marie Fatsby"
+    var username: String? = "Jayson Marie Catsby"
     var email: String? = ""
     var uid: String? = "0"
     var icon: String? = "girl-icon"

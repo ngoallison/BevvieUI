@@ -149,7 +149,10 @@ struct CustomDatePicker: View {
 
 struct CustomDatePicker_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView()
+        ZStack {
+            
+        }
+        //CalendarView(selectedDate: <#T##Binding<Date>#>)
     }
 }
 

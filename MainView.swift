@@ -34,7 +34,7 @@ struct MainView: View {
                             case 2:
                                 HomeView(isPresenting: $isPresenting, isLoggedIn: .constant(true))
                             case 3:
-                                CalendarView()
+                                CalendarView(selectedDate: Date())
                             case 4:
                                 AnalyticsView()
                             default:

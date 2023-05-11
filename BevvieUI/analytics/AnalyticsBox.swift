@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AnalyticsBox: View {
     
-    var size: CGFloat? = 140
+    var size: CGFloat? = 130
     var title: String
     var header: String?
     var sub: String?
@@ -44,8 +44,9 @@ struct AnalyticsBox: View {
                     if sub != nil {
                         Text(sub!)
                             .foregroundColor(ColorModel().darkGreen)
-                            .font(Font.custom("Kiona", size: 20))
+                            .font(Font.custom("Kiona", size: 18))
                             .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
                     }
                 }
             }

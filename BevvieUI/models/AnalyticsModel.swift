@@ -28,7 +28,7 @@ class AnalyticsModel: ObservableObject {
     
     
     
-    init () {
+    func getAnalytics () {
         print("getting analytics")
         db.collection("analytics").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid as Any).addSnapshotListener { (snapshot, error) in
             guard let documents = snapshot?.documents else {

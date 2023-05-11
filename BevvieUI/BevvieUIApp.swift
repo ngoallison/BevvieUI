@@ -46,7 +46,6 @@ struct BevvieUIApp: App {
     @StateObject var bevModel = BevModel()
 
 
-
     var body: some Scene {
         WindowGroup {
             MasterView(username: .constant(""), email: .constant(""))

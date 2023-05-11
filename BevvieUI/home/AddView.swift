@@ -29,6 +29,7 @@ struct AddView: View {
     @State var price: Double = 0
     
     @State private var bevDate = Date()
+    @EnvironmentObject var bevModel: BevModel
 
     
     func updateBev() {
@@ -50,6 +51,7 @@ struct AddView: View {
                 } else {
                     self.showSheet.toggle()
                     updateUser()
+                    bevModel.getBev()
                 }
             }
             

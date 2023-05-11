@@ -92,13 +92,13 @@ struct SignUpView: View {
                             .disabled(isLoading)
                             HStack {
                                 Text("Already have an account?")
-                                    .font(Font.custom("Cardium A Regular", size: 13))
+                                    .font(Font.custom(ConstModel().textFont, size: 13))
                                 
                                 Button(action: {
                                     self.isSignedUp.toggle()
                                 }, label: {
                                     Text("Log in here!")
-                                        .font(Font.custom("Cardium A Regular", size: 13))
+                                        .font(Font.custom(ConstModel().textFont, size: 13))
                                         .fontWeight(.medium)
                                         .foregroundColor(.black)
                                 })
