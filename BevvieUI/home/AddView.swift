@@ -15,22 +15,23 @@ struct AddView: View {
     let db = Firestore.firestore()
     
     @Binding var showSheet: Bool
-
+    
     var faces = ["cheery-face", "happy-face", "meh-face", "sad-face"]
     var temp = ["ICED", "HOT"]
-
+    let options = ["Boba", "Coffee", "Tea", "Smoothie", "Other"]
     @State var name = ""
     @State var location = ""
     @State var type = ""
     @State var size = ""
     @State var selectedIndex = 1
     @State var selectedTemp = 0
-
+    @State private var selection = "Boba"
+    
     @State var price: Double = 0
     
     @State private var bevDate = Date()
     @EnvironmentObject var bevModel: BevModel
-
+    
     
     func updateBev() {
         
@@ -43,7 +44,7 @@ struct AddView: View {
             formatter.dateFormat = "MM/dd/yyyy"
             
             let result = formatter.string(from: bevDate)
-
+            
             db.collection("bevs").addDocument(data: ["name": name, "location": location, "type": type, "size": size, "price": price, "temp": temp[selectedTemp], "date": result, "satisfaction": faces[selectedIndex], "uid": user!.uid])
             { (error) in
                 if error != nil {
@@ -63,32 +64,32 @@ struct AddView: View {
         db.collection("analytics").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments() { (snapshot, error) in
             
             if error != nil {
-                        print("there was an error!")
-                        // Some error occured
-                    } else if snapshot!.documents.count != 1 {
-                        // Perhaps this is an error for you?
-                    } else {
-                        let document = snapshot!.documents.first
-                        
-                        let new_numbevs = document!.data()["numbevs"] as! Int + 1
-                        let new_exp = document!.data()["exp"] as! Int + 1
-                        let new_money = document!.data()["money"] as! Double + price
-                        
-                        if (new_exp % 10 == 0) {
-                            let new_level = document!.data()["level"] as! Int + 1
-                            document!.reference.updateData([
-                                "level": new_level
-                            ])
-                        }
-                        
-                        document!.reference.updateData([
-                            "numbevs": new_numbevs,
-                            "exp": new_exp,
-                            "money": new_money
-                        ])
-                        return
-                    }
-
+                print("there was an error!")
+                // Some error occured
+            } else if snapshot!.documents.count != 1 {
+                // Perhaps this is an error for you?
+            } else {
+                let document = snapshot!.documents.first
+                
+                let new_numbevs = document!.data()["numbevs"] as! Int + 1
+                let new_exp = document!.data()["exp"] as! Int + 1
+                let new_money = document!.data()["money"] as! Double + price
+                
+                if (new_exp % 10 == 0) {
+                    let new_level = document!.data()["level"] as! Int + 1
+                    document!.reference.updateData([
+                        "level": new_level
+                    ])
+                }
+                
+                document!.reference.updateData([
+                    "numbevs": new_numbevs,
+                    "exp": new_exp,
+                    "money": new_money
+                ])
+                return
+            }
+            
         }
     }
     
@@ -97,9 +98,6 @@ struct AddView: View {
             Color(red:0.95, green:0.91, blue:0.89).ignoresSafeArea(.all)
             VStack(spacing: 0.0) {
                 ZStack {
-//                    Rectangle()
-//                    .fill(Color(red:0.76, green:0.79, blue:0.74))
-//                    .frame(height: 80)
                     Text("ADD A BEVVIE")
                         .fontWeight(.medium)
                         .foregroundColor(.white)
@@ -114,10 +112,10 @@ struct AddView: View {
                         Group {
                             VStack(alignment: .leading, spacing: 8.0) {
                                 Text("NAME")
-                                .fontWeight(.heavy)
-                                .foregroundColor(ColorModel().darkGreen)
-                                .font(Font.custom("Kiona", size: 20))
-                            CustomTextfield(placeholder: Text("Wintermelon Milk Tea..."), username: $name)
+                                    .fontWeight(.heavy)
+                                    .foregroundColor(ColorModel().darkGreen)
+                                    .font(Font.custom("Kiona", size: 20))
+                                CustomTextfield(placeholder: Text("Wintermelon Milk Tea..."), username: $name)
                             }
                             VStack(alignment: .leading, spacing: 5.0) {
                                 Text("LOCATION")
@@ -129,9 +127,9 @@ struct AddView: View {
                         }
                         HStack {
                             Text("PRICE")
-                            .fontWeight(.heavy)
-                            .foregroundColor(ColorModel().darkGreen)
-                            .font(Font.custom("Kiona", size: 20))
+                                .fontWeight(.heavy)
+                                .foregroundColor(ColorModel().darkGreen)
+                                .font(Font.custom("Kiona", size: 20))
                             Spacer()
                             Text("$\(price, specifier: "%.2f")")
                                 .foregroundColor(ColorModel().darkGreen)
@@ -142,50 +140,82 @@ struct AddView: View {
                         
                         HStack {
                             ForEach(0..<2, id: \.self) { number in
-                                //Spacer()
                                 Button(action: {
                                     self.selectedTemp = number
-                                    print(temp[number])
                                 }, label: {
-                                    Text(temp[number])
-                                        .fontWeight(.medium)
-                                        .padding(.all, 30.0)
-                                        .frame(height: 40)
-                                        .background(selectedTemp == number ? ColorModel().mediumGreen : ColorModel().mediumGreen.opacity(0.5))
-                                        .foregroundColor(.white)
-                                        .cornerRadius(10)
-                                        .font(Font.custom("Young", size: 17))
+                                    ZStack {
+                                        Rectangle()
+                                            .fill(selectedTemp == number ? ColorModel().mediumGreen : ColorModel().mediumGreen.opacity(0.5))
+                                            .frame(height: 40)
+                                            .cornerRadius(10)
+
+                                        Text(temp[number])
+                                            .fontWeight(.medium)
+                                            .foregroundColor(.white)
+                                            .font(Font.custom("Young", size: 17))
+                                    }
                                 })
-                                //Spacer()
                             }
                         }
-                        .padding(.vertical, 5.0)
                         Group {
                             HStack(spacing: 20.0) {
                                 VStack(alignment: .leading, spacing: 5.0) {
-                                Text("TYPE")
-                                .fontWeight(.heavy)
-                                .foregroundColor(ColorModel().darkGreen)
-                                .font(Font.custom("Kiona", size: 20))
-                                CustomTextfield(placeholder: Text("Boba..."), username: $type)
-                            }
+                                    Text("TYPE")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(ColorModel().darkGreen)
+                                        .font(Font.custom("Kiona", size: 20))
+                                    
+                                    ZStack {
+                                        Rectangle()
+                                            .fill(ColorModel().darkTan)
+                                            .cornerRadius(15)
+                                            .frame(height: 40)
+                                        HStack {
+                                            Menu {
+                                                Picker(selection: $selection) {
+                                                    ForEach(options, id: \.self) {
+                                                        Text($0)
+                                                            .font(Font.custom("Cardium A Regular", size: 17))
+                                                        
+                                                    }
+                                                } label: {}
+                                            } label: {
+                                                Text("Boba...")
+                                                    .font(Font.custom("Cardium A Regular", size: 17))
+                                                    .padding(.leading, 5)
+                                                    .foregroundColor(ColorModel().darkGreen)
+                                                    .opacity(0.5)
+                                            }
+                                            Spacer()
+                                        }.padding(.leading, 5)
+                                    }
+                                    
+                                    //                                    CustomTextfield(placeholder: Text("Boba..."), username: $type)
+                                }
                                 VStack(alignment: .leading, spacing: 5.0) {
-                                Text("SIZE")
-                                    .fontWeight(.heavy)
-                                    .foregroundColor(ColorModel().darkGreen)
-                                    .font(Font.custom("Kiona", size: 20))
-                                CustomTextfield(placeholder: Text("Regular..."), username: $size)
-                            }
-                        }
-                        HStack(spacing: 5.0) {
-                            Text("DATE")
-                                .fontWeight(.heavy)
-                                .foregroundColor(ColorModel().darkGreen)
-                                .font(Font.custom("Kiona", size: 20))
-                            Spacer()
-                            DatePicker("", selection: $bevDate, displayedComponents: .date)
-                                .accentColor(ColorModel().mediumGreen)
-                                .datePickerStyle(CompactDatePickerStyle())
+                                    Text("DATE")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(ColorModel().darkGreen)
+                                        .font(Font.custom("Kiona", size: 20))
+                                    ZStack {
+                                        Rectangle()
+                                            .fill(ColorModel().darkTan)
+                                            .cornerRadius(15)
+                                            .frame(height: 40)
+                                        HStack {
+                                            
+                                            DatePicker("", selection: $bevDate, displayedComponents: .date)
+                                                .fixedSize()
+                                                .clipped()
+                                                .labelsHidden()
+                                                .accentColor(ColorModel().mediumGreen)
+                                                .datePickerStyle(CompactDatePickerStyle())
+                                            Spacer()
+                                        }.padding(.leading, 5)
+                                    }
+                                    
+                                    
+                                }
                             }
                         }
                         
@@ -203,11 +233,10 @@ struct AddView: View {
                                 }
                                 Spacer()
                             }
-                                
-                        }
+                            
+                        }.padding(.vertical, 20)
                         Spacer()
-                    }
-                    .padding([.top, .leading, .trailing], 20.0)
+                    }.padding([.top, .leading, .trailing], 30.0)
                 }
                 HStack(spacing: 0.0)  {
                     Button(action: {

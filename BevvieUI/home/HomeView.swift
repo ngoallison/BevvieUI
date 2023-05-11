@@ -82,10 +82,11 @@ struct HomeView: View {
                                         .cornerRadius(12)
                                         .font(Font.custom("AltoneTrial-Regular", size: 20))
                                 })
-                                .buttonStyle(PlainButtonStyle())
-                                .sheet(isPresented: (self.$showSheet)) {
-                                AddView(showSheet: self.$showSheet)
-                                }
+//                                .buttonStyle(PlainButtonStyle())
+//                                .sheet(isPresented: (self.$showSheet)) {
+//                                AddView(showSheet: self.$showSheet)
+//                                }
+
                                 VStack {
                                     HStack {
                                         Text("level \(anaModel.analytics.level!)").font(Font.custom("Cardium A Regular", size: 25)).foregroundColor(ColorModel().brown)
@@ -94,7 +95,7 @@ struct HomeView: View {
                                     }
                                     
                                     ProgressView(value: CGFloat((anaModel.analytics.exp! % 10))/10).tint(ColorModel().mediumGreen)
-                                    }
+                                }.padding(.vertical, 20)
                                 Spacer()
                                 }
                         
@@ -117,6 +118,7 @@ struct HomeView: View {
                 }
                 Spacer()
             }.frame(width: ConstModel().width)
+            AddViewModal(showSheet: $showSheet)
         }
     }
 }
