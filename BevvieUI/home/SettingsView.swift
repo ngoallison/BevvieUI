@@ -19,8 +19,8 @@ struct SettingsView: View {
     @State var privacyPresent: Bool = false
     @State var termsPresent: Bool = false
     
-    @EnvironmentObject var userModel: UserViewModel
-    @EnvironmentObject var anaModel: UserAnalyticsViewModel
+    @EnvironmentObject var userModel: UserModel
+    @EnvironmentObject var anaModel: AnalyticsModel
     
     func logOut() {
         isPresenting = false
@@ -69,7 +69,7 @@ struct SettingsView: View {
                       Spacer()
                         Rectangle().fill(.white)
                         .cornerRadius2(25, corners: [.topLeft, .topRight])
-                        .edgesIgnoringSafeArea(.all).frame(height: ConstModel().deviceHeight * (0.85))
+                        .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * (0.85))
                         .shadow(color: ColorModel().brown, radius: 5, x: 0, y: -5)
 
                               
@@ -98,7 +98,7 @@ struct SettingsView: View {
                                 }
                                 Spacer()
 
-                            }.padding([.leading, .bottom, .trailing], 20.0).frame(width: ConstModel().deviceWidth, height: ConstModel().deviceHeight * 0.17)
+                            }.padding([.leading, .bottom, .trailing], 20.0).frame(width: ConstModel().width, height: ConstModel().height * 0.17)
                             Divider()
                             VStack(spacing: 0.0) {
                                 CustomSettingsButton(buttonName: "Edit Profile", buttonColor: .clear, clicked: edit)
@@ -111,7 +111,7 @@ struct SettingsView: View {
                             Spacer()
                             Text("BEVVIE @ 2022").font(Font.custom("Kiona", size: 20)).foregroundColor(ColorModel().darkGray)
                             
-                        }.padding(.vertical).frame(height: ConstModel().deviceHeight * (0.85))
+                        }.padding(.vertical).frame(height: ConstModel().height * (0.85))
                     }
                 }
             
@@ -124,6 +124,8 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(isLoggedIn: .constant(true), isPresenting: .constant(false), isSignedUp: .constant(true))
+            .environmentObject(UserModel())
+            .environmentObject(AnalyticsModel())
         //SettingsView(isPresenting: .constant(true))
     }
 }

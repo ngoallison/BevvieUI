@@ -9,88 +9,90 @@ import SwiftUI
 
 struct ScrollCalendar: View {
     
-    @State private var selectedDate = Date()
-    @State private var showSheet: Bool = false;
-    @ObservedObject private var bevModel = BevViewModel()
+    @Binding var selectedDate: Date
+    @Binding var breakdown: Bool
+    @Binding var hadBev: Bool
+    
+    @EnvironmentObject var bevModel: BevModel
     
     private let calendar = Calendar.current
-    
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "d"
         return formatter
     }()
     
-        
+    
     var body: some View {
-        let bevDates: [Date] = bevModel.getDates()
-        ScrollView {
-            Spacer()
-            let columns = Array(repeating: GridItem(.flexible()), count: 7)
-            ForEach(getMonths(), id: \.self) { month in
-                VStack (spacing: 0) {
-                    HStack {
-                        Text("\(calendar.monthSymbols[calendar.component(.month, from: month)-1])".uppercased())
-                            .font(Font.custom("Young", size: 21))
-                            .fontWeight(.bold)
-                            .foregroundColor(ColorModel().darkGreen)
-                        let year = String(calendar.component(.year, from: month))
-                        Text(year)
-                            .font(Font.custom("Young", size: 24))
-                            .fontWeight(.bold)
-                            .foregroundColor(ColorModel().darkGreen)
-                        Spacer()
-                    }.padding(.leading, 20)
-                    Divider()
-                        .frame(height: 1)
-                        .overlay(ColorModel().darkGreen)
-                        .padding()
-                }
-                LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(monthDates(month: month), id: \.self) { date in
-                        if date == .distantPast {
-                            // Empty view for padding at the beginning of the month
-                            Color.clear
-                                .frame(width: 60, height: 60)
-                        } else if date == .distantFuture {
-                            // Empty view for padding at the end of the month
-                            Color.clear
-                                .frame(width: 60, height: 60)
-                        } else {
-                            ZStack {
-                                if bevDates.contains(date) {
-//                                if calendar.isDate(date, inSameDayAs: selectedDate) {
-                                    Button(action: {
-                                        self.showSheet.toggle()
-                                    }, label: {
-                                        Circle()
-                                            .fill(ColorModel().lightGreen)
-                                            .opacity(0.5)
-                                            .frame(width: 38, height: 38)
-                                        
-                                    }).buttonStyle(PlainButtonStyle())
-                                        .sheet(isPresented: (self.$showSheet)) {
-                                            BreakdownView()
+        let bevDates = bevModel.getDates()
+        ZStack {
+            ScrollView {
+                Spacer()
+                let columns = Array(repeating: GridItem(.flexible()), count: 7)
+                let months = getMonths()
+                ForEach(months, id: \.self) { month in
+                    VStack (spacing: 0) {
+                        HStack {
+                            
+                            let monthStr = calendar.monthSymbols[calendar.component(.month, from: month)-1].uppercased()
+                            Text("\(monthStr)")
+                                .font(Font.custom("Young", size: 21))
+                                .foregroundColor(ColorModel().darkGreen)
+                            
+                            let year = String(calendar.component(.year, from: month))
+                            Text("\(year)")
+                                .font(Font.custom("Young", size: 24))
+                                .foregroundColor(ColorModel().darkGreen)
+                            
+                            Spacer()
+                        }.padding(.leading, 20)
+                        Divider()
+                            .frame(height: 1)
+                            .overlay(ColorModel().darkGreen)
+                            .padding()
+                    }
+                    LazyVGrid(columns: columns, spacing: 10) {
+                        let dates = monthDates(month: month)
+                        ForEach(dates, id: \.self) { date in
+                            if date == .distantPast || date == .distantFuture {
+                                Color.clear.frame(width: 60, height: 60)
+                            } else {
+                                Button(action: {
+                                    breakdown.toggle()
+                                    self.selectedDate = date
+                                    if bevDates.contains(date) {
+                                        hadBev = true
+                                    }
+                                    else {
+                                        hadBev = false
+                                    }
+                                }, label: {
+                                    ZStack {
+                                        if bevDates.contains(date) {
+                                            Circle()
+                                                .fill(ColorModel().darkGreen)
+                                                .opacity(0.3)
+                                                .frame(width: 38, height: 38)
                                         }
                                         
+                                        Text(dateFormatter.string(from: date))
+                                            .font(Font.custom("Young", size: 22))
+                                            .foregroundColor(ColorModel().darkGreen)
                                     }
-                                    
-                                Text(dateFormatter.string(from: date))
-                                    .font(Font.custom("Young", size: 22))
-                                    .foregroundColor(ColorModel().darkGreen)
+                                    .frame(width: 60, height: 60)
+                                })
                             }
-                            .frame(width: 60, height: 60)
+                            
                         }
-                        
+                        Spacer()
                     }
-                    Spacer()
+                    .padding(.horizontal, 20)
                 }
-                .padding(.horizontal, 20)
-            }
-        }.background(ColorModel().darkTan)
+            }.background(ColorModel().darkTan)
+        }
     }
     
-    private func getMonths() -> [Date] {
+    func getMonths() -> [Date] {
         
         var months: [Date] = []
         var startDate = Date()
@@ -107,7 +109,7 @@ struct ScrollCalendar: View {
         
     }
     
-    private func monthDates(month: Date) -> [Date] {
+    func monthDates(month: Date) -> [Date] {
         
         let startOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: month))!
         let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth)!
@@ -115,7 +117,7 @@ struct ScrollCalendar: View {
         
         var dates: [Date] = []
         var currentDate = startDate
-
+        
         while currentDate <= endOfMonth {
             if calendar.isDate(currentDate, equalTo: startOfMonth, toGranularity: .month) || calendar.isDate(currentDate, equalTo: endOfMonth, toGranularity: .month) {
                 dates.append(currentDate)
@@ -135,10 +137,12 @@ struct ScrollCalendar: View {
         
         return dates
     }
+    
+    
 }
 
 struct ScrollCalendar_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollCalendar()
+        ScrollCalendar(selectedDate: .constant(Date()), breakdown: .constant(false), hadBev:.constant(false)).environmentObject(BevModel())
     }
 }

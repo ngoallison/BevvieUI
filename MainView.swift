@@ -34,7 +34,7 @@ struct MainView: View {
                             case 2:
                                 HomeView(isPresenting: $isPresenting, isLoggedIn: .constant(true))
                             case 3:
-                                CalendarView()
+                                CalendarView(selectedDate: Date())
                             case 4:
                                 AnalyticsView()
                             default:
@@ -77,7 +77,7 @@ struct MainView: View {
 
                             Spacer()
                         }
-                    }.frame(height: ConstModel().deviceHeight * 0.07).background(.white)
+                    }.frame(height: ConstModel().height * 0.07).background(.white)
 
                 }
             }

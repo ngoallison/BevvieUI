@@ -36,7 +36,7 @@ struct AchievementDetails: View {
                         .foregroundColor(ColorModel().darkGreen)
                         .font(Font.custom("Kiona", size: 25))
                         .padding(15.0)
-                        .frame(width: ConstModel().deviceWidth, height: 80, alignment: .center)
+                        .frame(width: ConstModel().width, height: 80, alignment: .center)
                         .background(ColorModel().darkTan.opacity(0.7))
                         Divider()
                         VStack {
@@ -64,7 +64,7 @@ struct AchievementDetails: View {
                         }, label: {
                             Text("BACK")
                                 .fontWeight(.bold)
-                                .frame(width: ConstModel().deviceWidth, height: 80)
+                                .frame(width: ConstModel().width, height: 80)
                                 .background(ColorModel().mediumGreen)
                                 .foregroundColor(.white)
                                 .font(Font.custom("Young", size: 24))

@@ -17,7 +17,7 @@ struct AchievementIcons: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [
-                GridItem(.adaptive(minimum: (ConstModel().deviceWidth)/3))
+                GridItem(.adaptive(minimum: (ConstModel().width)/3))
             ]) {
                 ForEach(ConstModel().icons.indices, id: \.self) { index in
                     VStack {

@@ -21,9 +21,8 @@
 		9826039028E24F7F00290E15 /* simpletix.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9826038F28E24F7F00290E15 /* simpletix.otf */; };
 		9826039228E24FEA00290E15 /* Cardium A Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9826039128E24FEA00290E15 /* Cardium A Regular.otf */; };
 		9826039428E250F700290E15 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9826039328E250F700290E15 /* Launch Screen.storyboard */; };
-		982A4F1E28E89C7600D21DA9 /* CustomEmailField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982A4F1D28E89C7600D21DA9 /* CustomEmailField.swift */; };
-		983250AF294BCABB00BD4C9C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983250AE294BCABB00BD4C9C /* UserModel.swift */; };
-		983250B1294BD85F00BD4C9C /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983250B0294BD85F00BD4C9C /* UserViewModel.swift */; };
+		983250AF294BCABB00BD4C9C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983250AE294BCABB00BD4C9C /* User.swift */; };
+		983250B1294BD85F00BD4C9C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983250B0294BD85F00BD4C9C /* UserModel.swift */; };
 		9835EC2328E80CE100CB66A3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9835EC2228E80CE100CB66A3 /* SignUpView.swift */; };
 		9849D23528D83D4D00D8A9FA /* BevvieUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9849D23428D83D4D00D8A9FA /* BevvieUIApp.swift */; };
 		9849D23728D83D4D00D8A9FA /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9849D23628D83D4D00D8A9FA /* LogInView.swift */; };
@@ -39,10 +38,11 @@
 		9849D26128DA734700D8A9FA /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9849D26028DA734700D8A9FA /* AddView.swift */; };
 		9850C19B2942831F00F54043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850C19A2942831F00F54043 /* ContentView.swift */; };
 		9850C19D2947D13600F54043 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850C19C2947D13500F54043 /* EmptyView.swift */; };
-		9859D8EF2A09B7FC004C6878 /* UserAnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8EE2A09B7FC004C6878 /* UserAnalyticsViewModel.swift */; };
+		9859D8EF2A09B7FC004C6878 /* AnalyticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8EE2A09B7FC004C6878 /* AnalyticsModel.swift */; };
 		9859D8F12A0B2927004C6878 /* ScrollCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F02A0B2927004C6878 /* ScrollCalendar.swift */; };
 		9859D8F32A0B423E004C6878 /* EditModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F22A0B423E004C6878 /* EditModel.swift */; };
 		9859D8F52A0B6778004C6878 /* FirestoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F42A0B6778004C6878 /* FirestoreModel.swift */; };
+		9859D8F72A0B94BA004C6878 /* AnalyticsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F62A0B94BA004C6878 /* AnalyticsBox.swift */; };
 		985EED62295A40BA00868493 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985EED61295A40B900868493 /* NewUserViewModel.swift */; };
 		9863C9CE28DAB4FC00E951FB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863C9CD28DAB4FC00E951FB /* MainView.swift */; };
 		9863C9D028DACEA200E951FB /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863C9CF28DACEA200E951FB /* AchievementView.swift */; };
@@ -56,11 +56,11 @@
 		987D44C029AE9CE6002067FB /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987D44BF29AE9CE6002067FB /* EditView.swift */; };
 		98A7D3D82A098073009823A6 /* AchievementIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7D3D72A098073009823A6 /* AchievementIcons.swift */; };
 		98C1A9692964D3CC00CB82E9 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1A9682964D3CC00CB82E9 /* TermsView.swift */; };
-		98C1A96B2964D6DB00CB82E9 /* UserAnalyticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1A96A2964D6DB00CB82E9 /* UserAnalyticsModel.swift */; };
+		98C1A96B2964D6DB00CB82E9 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1A96A2964D6DB00CB82E9 /* Analytics.swift */; };
 		98C1A96F29661FC700CB82E9 /* BikoRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98C1A96E29661FC700CB82E9 /* BikoRegular.otf */; };
-		98C5A54629490D7400263CA3 /* BevModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C5A54529490D7400263CA3 /* BevModel.swift */; };
+		98C5A54629490D7400263CA3 /* Bev.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C5A54529490D7400263CA3 /* Bev.swift */; };
 		98D5EFA6295F8F0200E6D967 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D5EFA5295F8F0200E6D967 /* IconView.swift */; };
-		98D5EFA8295FBE1600E6D967 /* BevViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D5EFA7295FBE1500E6D967 /* BevViewModel.swift */; };
+		98D5EFA8295FBE1600E6D967 /* BevModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D5EFA7295FBE1500E6D967 /* BevModel.swift */; };
 		98D5EFAA295FC57700E6D967 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D5EFA9295FC57700E6D967 /* PrivacyView.swift */; };
 		98DB26F328DBCCB000411DD9 /* ConstModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB26F228DBCCAF00411DD9 /* ConstModel.swift */; };
 		98DB26F528DBD54000411DD9 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB26F428DBD54000411DD9 /* AnalyticsView.swift */; };
@@ -86,9 +86,8 @@
 		9826039128E24FEA00290E15 /* Cardium A Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cardium A Regular.otf"; sourceTree = "<group>"; };
 		9826039328E250F700290E15 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		98261CBB2968076B002CA79D /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		982A4F1D28E89C7600D21DA9 /* CustomEmailField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmailField.swift; sourceTree = "<group>"; };
-		983250AE294BCABB00BD4C9C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		983250B0294BD85F00BD4C9C /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		983250AE294BCABB00BD4C9C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		983250B0294BD85F00BD4C9C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		9835EC1328E80B2000CB66A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9835EC2228E80CE100CB66A3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		9849D23128D83D4D00D8A9FA /* BevvieUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BevvieUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,10 +107,11 @@
 		9850C19A2942831F00F54043 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9850C19C2947D13500F54043 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		9859D8ED2A09A97E004C6878 /* lastbranch.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = lastbranch.md; sourceTree = "<group>"; };
-		9859D8EE2A09B7FC004C6878 /* UserAnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnalyticsViewModel.swift; sourceTree = "<group>"; };
+		9859D8EE2A09B7FC004C6878 /* AnalyticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsModel.swift; sourceTree = "<group>"; };
 		9859D8F02A0B2927004C6878 /* ScrollCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCalendar.swift; sourceTree = "<group>"; };
 		9859D8F22A0B423E004C6878 /* EditModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModel.swift; sourceTree = "<group>"; };
 		9859D8F42A0B6778004C6878 /* FirestoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreModel.swift; sourceTree = "<group>"; };
+		9859D8F62A0B94BA004C6878 /* AnalyticsBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsBox.swift; sourceTree = "<group>"; };
 		985EED61295A40B900868493 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
 		9863C9CD28DAB4FC00E951FB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = ../MainView.swift; sourceTree = "<group>"; };
 		9863C9CF28DACEA200E951FB /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
@@ -125,12 +125,12 @@
 		987D44BF29AE9CE6002067FB /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		98A7D3D72A098073009823A6 /* AchievementIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementIcons.swift; sourceTree = "<group>"; };
 		98C1A9682964D3CC00CB82E9 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
-		98C1A96A2964D6DB00CB82E9 /* UserAnalyticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnalyticsModel.swift; sourceTree = "<group>"; };
+		98C1A96A2964D6DB00CB82E9 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		98C1A96E29661FC700CB82E9 /* BikoRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BikoRegular.otf; sourceTree = "<group>"; };
-		98C5A54529490D7400263CA3 /* BevModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BevModel.swift; sourceTree = "<group>"; };
+		98C5A54529490D7400263CA3 /* Bev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bev.swift; sourceTree = "<group>"; };
 		98D4EC432968224C001740CE /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98D5EFA5295F8F0200E6D967 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
-		98D5EFA7295FBE1500E6D967 /* BevViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BevViewModel.swift; sourceTree = "<group>"; };
+		98D5EFA7295FBE1500E6D967 /* BevModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BevModel.swift; sourceTree = "<group>"; };
 		98D5EFA9295FC57700E6D967 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		98DB26F228DBCCAF00411DD9 /* ConstModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstModel.swift; sourceTree = "<group>"; };
 		98DB26F428DBD54000411DD9 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
@@ -178,14 +178,14 @@
 			isa = PBXGroup;
 			children = (
 				9863C9DD28DBAA6400E951FB /* ColorModel.swift */,
-				98C5A54529490D7400263CA3 /* BevModel.swift */,
 				98DB26F228DBCCAF00411DD9 /* ConstModel.swift */,
-				983250AE294BCABB00BD4C9C /* UserModel.swift */,
-				983250B0294BD85F00BD4C9C /* UserViewModel.swift */,
+				98C1A96A2964D6DB00CB82E9 /* Analytics.swift */,
+				9859D8EE2A09B7FC004C6878 /* AnalyticsModel.swift */,
+				98C5A54529490D7400263CA3 /* Bev.swift */,
+				98D5EFA7295FBE1500E6D967 /* BevModel.swift */,
+				983250AE294BCABB00BD4C9C /* User.swift */,
+				983250B0294BD85F00BD4C9C /* UserModel.swift */,
 				9859D8F42A0B6778004C6878 /* FirestoreModel.swift */,
-				98C1A96A2964D6DB00CB82E9 /* UserAnalyticsModel.swift */,
-				9859D8EE2A09B7FC004C6878 /* UserAnalyticsViewModel.swift */,
-				98D5EFA7295FBE1500E6D967 /* BevViewModel.swift */,
 				985EED61295A40B900868493 /* NewUserViewModel.swift */,
 			);
 			path = models;
@@ -194,9 +194,9 @@
 		9826039728E2A31900290E15 /* custom */ = {
 			isa = PBXGroup;
 			children = (
+				9814594628E6B66200F66347 /* CustomSettingsButton.swift */,
 				9863C9D328DB751D00E951FB /* RoundedCorners.swift */,
 				9849D25628D8E97400D8A9FA /* CustomTextField.swift */,
-				982A4F1D28E89C7600D21DA9 /* CustomEmailField.swift */,
 				9849D25828D9110000D8A9FA /* CustomSecureField.swift */,
 				9859D8ED2A09A97E004C6878 /* lastbranch.md */,
 			);
@@ -209,7 +209,6 @@
 				9849D26028DA734700D8A9FA /* AddView.swift */,
 				9849D25A28DA506000D8A9FA /* HomeView.swift */,
 				9814594428E6B0A700F66347 /* SettingsView.swift */,
-				9814594628E6B66200F66347 /* CustomSettingsButton.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -228,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				98DB26F428DBD54000411DD9 /* AnalyticsView.swift */,
+				9859D8F62A0B94BA004C6878 /* AnalyticsBox.swift */,
 			);
 			path = analytics;
 			sourceTree = "<group>";
@@ -277,9 +277,9 @@
 				9826039328E250F700290E15 /* Launch Screen.storyboard */,
 				9849D23428D83D4D00D8A9FA /* BevvieUIApp.swift */,
 				9849D23628D83D4D00D8A9FA /* LogInView.swift */,
+				9835EC2228E80CE100CB66A3 /* SignUpView.swift */,
 				9850C19A2942831F00F54043 /* ContentView.swift */,
 				98D5EFA5295F8F0200E6D967 /* IconView.swift */,
-				9835EC2228E80CE100CB66A3 /* SignUpView.swift */,
 				9850C19C2947D13500F54043 /* EmptyView.swift */,
 				9863C9CD28DAB4FC00E951FB /* MainView.swift */,
 				9849D25E28DA510600D8A9FA /* MasterView.swift */,
@@ -465,7 +465,7 @@
 				9863C9D028DACEA200E951FB /* AchievementView.swift in Sources */,
 				9849D23728D83D4D00D8A9FA /* LogInView.swift in Sources */,
 				98D5EFAA295FC57700E6D967 /* PrivacyView.swift in Sources */,
-				983250B1294BD85F00BD4C9C /* UserViewModel.swift in Sources */,
+				983250B1294BD85F00BD4C9C /* UserModel.swift in Sources */,
 				98D5EFA6295F8F0200E6D967 /* IconView.swift in Sources */,
 				9863C9D428DB751D00E951FB /* RoundedCorners.swift in Sources */,
 				9814594528E6B0A700F66347 /* SettingsView.swift in Sources */,
@@ -473,30 +473,30 @@
 				987D44C029AE9CE6002067FB /* EditView.swift in Sources */,
 				9859D8F32A0B423E004C6878 /* EditModel.swift in Sources */,
 				9849D25F28DA510600D8A9FA /* MasterView.swift in Sources */,
-				98D5EFA8295FBE1600E6D967 /* BevViewModel.swift in Sources */,
+				98D5EFA8295FBE1600E6D967 /* BevModel.swift in Sources */,
 				9863C9DC28DB9F3700E951FB /* BreakdownView.swift in Sources */,
 				98DB26F328DBCCB000411DD9 /* ConstModel.swift in Sources */,
 				9863C9D628DB89CD00E951FB /* CalendarView.swift in Sources */,
 				9849D23528D83D4D00D8A9FA /* BevvieUIApp.swift in Sources */,
 				98A7D3D82A098073009823A6 /* AchievementIcons.swift in Sources */,
 				9849D26128DA734700D8A9FA /* AddView.swift in Sources */,
+				9859D8F72A0B94BA004C6878 /* AnalyticsBox.swift in Sources */,
 				9859D8F12A0B2927004C6878 /* ScrollCalendar.swift in Sources */,
 				9863C9DA28DB8FAC00E951FB /* DateValue.swift in Sources */,
 				985EED62295A40BA00868493 /* NewUserViewModel.swift in Sources */,
 				9849D25B28DA506100D8A9FA /* HomeView.swift in Sources */,
-				98C1A96B2964D6DB00CB82E9 /* UserAnalyticsModel.swift in Sources */,
+				98C1A96B2964D6DB00CB82E9 /* Analytics.swift in Sources */,
 				9849D25D28DA50D900D8A9FA /* NaviView.swift in Sources */,
 				9859D8F52A0B6778004C6878 /* FirestoreModel.swift in Sources */,
-				983250AF294BCABB00BD4C9C /* UserModel.swift in Sources */,
+				983250AF294BCABB00BD4C9C /* User.swift in Sources */,
 				9849D25728D8E97400D8A9FA /* CustomTextField.swift in Sources */,
 				9835EC2328E80CE100CB66A3 /* SignUpView.swift in Sources */,
 				9863C9D828DB8A9600E951FB /* CustomDatePicker.swift in Sources */,
-				9859D8EF2A09B7FC004C6878 /* UserAnalyticsViewModel.swift in Sources */,
-				982A4F1E28E89C7600D21DA9 /* CustomEmailField.swift in Sources */,
+				9859D8EF2A09B7FC004C6878 /* AnalyticsModel.swift in Sources */,
 				98DB26F528DBD54000411DD9 /* AnalyticsView.swift in Sources */,
 				9850C19D2947D13600F54043 /* EmptyView.swift in Sources */,
 				9863C9DE28DBAA6400E951FB /* ColorModel.swift in Sources */,
-				98C5A54629490D7400263CA3 /* BevModel.swift in Sources */,
+				98C5A54629490D7400263CA3 /* Bev.swift in Sources */,
 				9863C9D228DADA4500E951FB /* AchievementDetails.swift in Sources */,
 				9814594728E6B66200F66347 /* CustomSettingsButton.swift in Sources */,
 			);

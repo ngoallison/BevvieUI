@@ -34,8 +34,7 @@ class NewUserViewModel: ObservableObject {
                 print("added new users!")
             }
             
-        }
-        
+        }        
     }
     
     static func createNewUser(username: String, email: String, user_icon: String) {

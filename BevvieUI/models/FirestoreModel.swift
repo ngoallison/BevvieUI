@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 class FirestoreModel {
-    static let db = Firestore.firestore()
+    //static let db = Firestore.firestore()
 }
 
 // FirestoreModel.db

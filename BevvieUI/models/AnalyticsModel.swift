@@ -19,23 +19,28 @@ import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
 
-class UserAnalyticsViewModel: ObservableObject {
+class AnalyticsModel: ObservableObject {
     
 
-    @Published var analytics: UserAnalyticsModel = UserAnalyticsModel()
+    @Published var analytics: Analytics = Analytics()
+    var temp: Analytics = Analytics(uid: "0", level: 0, exp: 0, achievements: [""], numbevs: 0, money: 0.0)
     private var db = Firestore.firestore()
     
     
     
-    init () {
+    func getAnalytics () {
         print("getting analytics")
-        db.collection("analytics").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener { (snapshot, error) in
-        guard let documents = snapshot?.documents else {
+        db.collection("analytics").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid as Any).addSnapshotListener { (snapshot, error) in
+            guard let documents = snapshot?.documents else {
                 print("No Documents")
                 return
             }
             
             print("creating analytics model")
+            if (documents.count == 0) {
+                return
+            }
+            
             let doc = documents[0]
             let data = doc.data()
             
@@ -46,7 +51,7 @@ class UserAnalyticsViewModel: ObservableObject {
             let numbevs = data["numbevs"] as! Int
             let money = data["money"] as! Double
             
-            self.analytics = UserAnalyticsModel(uid: uid, level: level, exp: exp, achievements: achievements, numbevs: numbevs, money: money)
+            self.analytics = Analytics(uid: uid, level: level, exp: exp, achievements: achievements, numbevs: numbevs, money: money)
     }
     
             
