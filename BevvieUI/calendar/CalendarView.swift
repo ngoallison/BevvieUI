@@ -69,7 +69,7 @@ struct CalendarView: View {
                     }.frame(height: ConstModel().height * (0.85))
                     
                 }
-            }
+            }.blur(radius: breakdown ? 5 : 0)
             BreakdownView(breakdown: $breakdown, hadBev: $hadBev, bevDate: selectedDate, bev: bevModel.getBevFromDate(bevDate: dateFormatter.string(from: selectedDate)))
         
         }

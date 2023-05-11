@@ -71,7 +71,7 @@ struct ScrollCalendar: View {
                                         if bevDates.contains(date) {
                                             Circle()
                                                 .fill(ColorModel().darkGreen)
-                                                .opacity(0.3)
+                                                .opacity(0.2)
                                                 .frame(width: 38, height: 38)
                                         }
                                         

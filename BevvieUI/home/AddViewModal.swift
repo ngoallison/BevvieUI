@@ -45,12 +45,15 @@ struct AddViewModal: View {
             
             let result = formatter.string(from: bevDate)
             
-            db.collection("bevs").addDocument(data: ["name": name, "location": location, "type": type, "size": size, "price": price, "temp": temp[selectedTemp], "date": result, "satisfaction": faces[selectedIndex], "uid": user!.uid])
+            db.collection("bevs").addDocument(data: ["name": name, "location": location, "type": selection, "size": size, "price": price, "temp": temp[selectedTemp], "date": result, "satisfaction": faces[selectedIndex], "uid": user!.uid])
             { (error) in
                 if error != nil {
                     print("there was an error!")
                 } else {
-                    self.showSheet.toggle()
+                    //                    self.showSheet.toggle()
+                    withAnimation(.spring()) {
+                        showSheet = false
+                    }
                     updateUser()
                     bevModel.getBev()
                 }
@@ -95,20 +98,20 @@ struct AddViewModal: View {
     var body: some View {
         ZStack {
             if showSheet {
-                Color.black.opacity(0.5).edgesIgnoringSafeArea(.all)
+                //Color.black.opacity(0.5).edgesIgnoringSafeArea(.all)
                 VStack {
                     ZStack {
                         Rectangle()
                             .fill(Color.white)
-                            .frame(width: ConstModel().width*0.9, height: ConstModel().height*0.7)
-                            .cornerRadius2(25, corners: .allCorners)
+                            .frame(width: ConstModel().width*0.9, height: ConstModel().height*0.68)
+                            .cornerRadius2(50, corners: .allCorners)
                         VStack {
                             ZStack {
                                 Rectangle()
                                     .fill(ColorModel().mediumGreen)
                                     .frame(height: 50)
-                                    .cornerRadius2(25, corners: [.topLeft, .topRight])
-                                Text("ADD A BEVVIE")
+                                    .cornerRadius2(50, corners: [.topLeft, .topRight])
+                                Text("LOG A BEVVIE")
                                     .font(Font.custom("Young", size: 20))
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
@@ -116,33 +119,36 @@ struct AddViewModal: View {
                             }
                             Spacer()
                             VStack (spacing: 15) {
-                                Group {
-                                    VStack(alignment: .leading, spacing: 8.0) {
+                                VStack (spacing: 25){
+                                    VStack(alignment: .leading, spacing: 4.0) {
                                         Text("NAME")
                                             .fontWeight(.heavy)
                                             .foregroundColor(ColorModel().darkGreen)
-                                            .font(Font.custom("Kiona", size: 20))
+                                            .font(Font.custom("Young", size: 18))
                                         CustomTextfield(placeholder: Text("Wintermelon Milk Tea..."), username: $name)
                                     }
-                                    VStack(alignment: .leading, spacing: 5.0) {
+                                    VStack(alignment: .leading, spacing: 4.0) {
                                         Text("LOCATION")
                                             .fontWeight(.heavy)
                                             .foregroundColor(ColorModel().darkGreen)
-                                            .font(Font.custom("Kiona", size: 20))
+                                            .font(Font.custom("Young", size: 18))
                                         CustomTextfield(placeholder: Text("OMOMO..."), username: $location)
                                     }
-                                    HStack {
-                                        Text("PRICE")
-                                            .fontWeight(.heavy)
-                                            .foregroundColor(ColorModel().darkGreen)
-                                            .font(Font.custom("Kiona", size: 20))
-                                        Spacer()
-                                        Text("$\(price, specifier: "%.2f")")
-                                            .foregroundColor(ColorModel().darkGreen)
-                                            .font(Font.custom("Kiona", size: 17))
+                                    
+                                    VStack (spacing: 5){
+                                        HStack {
+                                            Text("PRICE")
+                                                .fontWeight(.heavy)
+                                                .foregroundColor(ColorModel().darkGreen)
+                                                .font(Font.custom("Young", size: 18))
+                                            Spacer()
+                                            Text("$\(price, specifier: "%.2f")")
+                                                .foregroundColor(ColorModel().darkGreen)
+                                                .font(Font.custom("Young", size: 17))
+                                        }
+                                        Slider(value: $price, in: 0...10)
+                                            .accentColor(ColorModel().mediumGreen)
                                     }
-                                    Slider(value: $price, in: 0...10)
-                                        .accentColor(ColorModel().mediumGreen)
                                     HStack {
                                         ForEach(0..<2, id: \.self) { number in
                                             Button(action: {
@@ -164,11 +170,11 @@ struct AddViewModal: View {
                                     }
                                     Group {
                                         HStack(spacing: 20.0) {
-                                            VStack(alignment: .leading, spacing: 5.0) {
+                                            VStack(alignment: .leading, spacing: 4.0) {
                                                 Text("TYPE")
                                                     .fontWeight(.heavy)
                                                     .foregroundColor(ColorModel().darkGreen)
-                                                    .font(Font.custom("Kiona", size: 20))
+                                                    .font(Font.custom("Young", size: 18))
                                                 
                                                 ZStack {
                                                     Rectangle()
@@ -185,23 +191,31 @@ struct AddViewModal: View {
                                                                 }
                                                             } label: {}
                                                         } label: {
-                                                            Text("Boba...")
-                                                                .font(Font.custom("Cardium A Regular", size: 17))
-                                                                .padding(.leading, 5)
+                                                            HStack {
+                                                                Text(selection)
+                                                                    .font(Font.custom("Cardium A Regular", size: 17))
+                                                                    .padding(.leading, 5)
+                                                                    .foregroundColor(ColorModel().darkGreen)
+                                                                Spacer()
+                                                                Image(systemName: "arrowtriangle.down.fill"
+                                                                )
+                                                                .resizable()
+                                                                .frame(width: 8, height: 7)
+                                                                .padding(.trailing, 10)
                                                                 .foregroundColor(ColorModel().darkGreen)
-                                                                .opacity(0.5)
+                                                            }
                                                         }
                                                         Spacer()
-                                                    }.padding(.leading, 5)
+                                                    }.padding(.leading, 17)
                                                 }
                                                 
                                                 //                                    CustomTextfield(placeholder: Text("Boba..."), username: $type)
                                             }
-                                            VStack(alignment: .leading, spacing: 5.0) {
+                                            VStack(alignment: .leading, spacing: 4.0) {
                                                 Text("DATE")
                                                     .fontWeight(.heavy)
                                                     .foregroundColor(ColorModel().darkGreen)
-                                                    .font(Font.custom("Kiona", size: 20))
+                                                    .font(Font.custom("Young", size: 18))
                                                 ZStack {
                                                     Rectangle()
                                                         .fill(ColorModel().darkTan)
@@ -229,31 +243,34 @@ struct AddViewModal: View {
                                                 self.selectedIndex = number
                                             }) {
                                                 Image(faces[number]).resizable()
-                                                    .frame(width: 30, height: 30)
+                                                    .frame(width: 35, height: 35)
                                                     .opacity(selectedIndex == number ? 1.0 : 0.3)
                                                     .padding(.horizontal, 5)
                                             }
                                         }
                                         
-                                    }.padding(.vertical, 10)
+                                    }.padding(.vertical, 5)
                                 }
                                 
                             }.padding(.horizontal, 20)
                             Spacer()
                             HStack(spacing: 0.0)  {
                                 Button(action: {
-                                    self.showSheet.toggle()
+                                    withAnimation(.spring()) {
+                                        showSheet = false
+                                    }
+                                    //self.showSheet.toggle()
                                 }, label: {
                                     ZStack {
                                         Rectangle()
                                             .fill(ColorModel().mediumGreen)
                                             .frame(height: 50)
-                                            .cornerRadius2(25, corners: [.bottomLeft])
+                                            .cornerRadius2(50, corners: [.bottomLeft])
                                         
                                         Text("BACK")
                                             .fontWeight(.medium)
                                             .foregroundColor(.white)
-                                            .font(Font.custom("Young", size: 17))
+                                            .font(Font.custom("Young", size: 18))
                                     }
                                 })
                                 Button(action: {
@@ -263,12 +280,12 @@ struct AddViewModal: View {
                                         Rectangle()
                                             .fill(ColorModel().lightGreen)
                                             .frame(height: 50)
-                                            .cornerRadius2(25, corners: [.bottomRight])
+                                            .cornerRadius2(50, corners: [.bottomRight])
                                         
                                         Text("ADD")
                                             .fontWeight(.medium)
                                             .foregroundColor(.white)
-                                            .font(Font.custom("Young", size: 17))
+                                            .font(Font.custom("Young", size: 18))
                                     }
                                 })
                             }

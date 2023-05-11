@@ -33,7 +33,6 @@
 		9849D25728D8E97400D8A9FA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9849D25628D8E97400D8A9FA /* CustomTextField.swift */; };
 		9849D25928D9110000D8A9FA /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9849D25828D9110000D8A9FA /* CustomSecureField.swift */; };
 		9849D25B28DA506100D8A9FA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9849D25A28DA506000D8A9FA /* HomeView.swift */; };
-		9849D25D28DA50D900D8A9FA /* NaviView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9849D25C28DA50D900D8A9FA /* NaviView.swift */; };
 		9849D25F28DA510600D8A9FA /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9849D25E28DA510600D8A9FA /* MasterView.swift */; };
 		9849D26128DA734700D8A9FA /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9849D26028DA734700D8A9FA /* AddView.swift */; };
 		9850C19B2942831F00F54043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850C19A2942831F00F54043 /* ContentView.swift */; };
@@ -102,7 +101,6 @@
 		9849D25628D8E97400D8A9FA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		9849D25828D9110000D8A9FA /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		9849D25A28DA506000D8A9FA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		9849D25C28DA50D900D8A9FA /* NaviView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviView.swift; sourceTree = "<group>"; };
 		9849D25E28DA510600D8A9FA /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		9849D26028DA734700D8A9FA /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		9850C19A2942831F00F54043 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 				9850C19C2947D13500F54043 /* EmptyView.swift */,
 				9863C9CD28DAB4FC00E951FB /* MainView.swift */,
 				9849D25E28DA510600D8A9FA /* MasterView.swift */,
-				9849D25C28DA50D900D8A9FA /* NaviView.swift */,
 				9849D23828D83D4E00D8A9FA /* Assets.xcassets */,
 				9849D24528D83F6600D8A9FA /* fonts */,
 				9849D23A28D83D4E00D8A9FA /* Preview Content */,
@@ -489,7 +486,6 @@
 				985EED62295A40BA00868493 /* NewUserViewModel.swift in Sources */,
 				9849D25B28DA506100D8A9FA /* HomeView.swift in Sources */,
 				98C1A96B2964D6DB00CB82E9 /* Analytics.swift in Sources */,
-				9849D25D28DA50D900D8A9FA /* NaviView.swift in Sources */,
 				9859D8F52A0B6778004C6878 /* FirestoreModel.swift in Sources */,
 				983250AF294BCABB00BD4C9C /* User.swift in Sources */,
 				9849D25728D8E97400D8A9FA /* CustomTextField.swift in Sources */,
