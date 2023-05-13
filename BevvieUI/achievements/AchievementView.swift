@@ -40,7 +40,7 @@ struct AchievementView: View {
                         ZStack {
                             Rectangle().fill(ColorModel().lightTan)
                                 .cornerRadius2(25, corners: [.topLeft, .topRight])
-                                .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.85)
+                                .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.80)
                             VStack {
                                 Spacer()
                                 VStack {
@@ -57,15 +57,15 @@ struct AchievementView: View {
                                         }
                                         
                                     }.padding(10)
-                                    AchievementIcons(achievementName: "", achievementIcon: "", achievementGoal: "").frame(height: ConstModel().height * 0.73)
+                                    AchievementIcons(achievementName: "", achievementIcon: "", achievementGoal: "")
                                     Spacer()
                                     // she was here before
-                                }.edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.85)
+                                }.edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.80)
                                 
                             }
                             
                         }
-                    }.frame(height: ConstModel().height * (0.85))
+                    }.frame(height: ConstModel().height * (0.80))
                     
                 }
             }
@@ -79,7 +79,11 @@ struct AchievementView: View {
 
 struct AchievementView_Preview: PreviewProvider {
     static var previews: some View {
-        AchievementView().previewDevice(PreviewDevice(rawValue: "iPhone 12")).previewInterfaceOrientation(.portrait)
+        MainView()
+            .environmentObject(UserModel())
+            .environmentObject(AnalyticsModel())
+            .environmentObject(BevModel())
+//        AchievementView().previewDevice(PreviewDevice(rawValue: "iPhone 12")).previewInterfaceOrientation(.portrait)
     }
 }
 

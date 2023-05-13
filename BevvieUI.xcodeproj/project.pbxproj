@@ -12,6 +12,7 @@
 		9816FCAB2968081C00ED20ED /* FirebaseFirestoreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9816FCAA2968081C00ED20ED /* FirebaseFirestoreSwift.framework */; };
 		9816FCAF2968081E00ED20ED /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9816FCAE2968081E00ED20ED /* FirebaseFirestore.framework */; };
 		981806B62967F499008DF5D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9835EC1328E80B2000CB66A3 /* GoogleService-Info.plist */; };
+		981D9CDF2A0E133500614236 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 981D9CDE2A0E133500614236 /* SwiftUICharts */; };
 		9826038428E2306C00290E15 /* Kiona.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9826038328E2306C00290E15 /* Kiona.ttf */; };
 		9826038628E24B1A00290E15 /* AltoneTrial-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9826038528E24B1A00290E15 /* AltoneTrial-Regular.ttf */; };
 		9826038828E24B4700290E15 /* Coco.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9826038728E24B4600290E15 /* Coco.ttf */; };
@@ -143,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9816FCAB2968081C00ED20ED /* FirebaseFirestoreSwift.framework in Frameworks */,
+				981D9CDF2A0E133500614236 /* SwiftUICharts in Frameworks */,
 				9816FCAF2968081E00ED20ED /* FirebaseFirestore.framework in Frameworks */,
 				F0C71CC3C17CE50F6C118CA0 /* Pods_BevvieUI.framework in Frameworks */,
 			);
@@ -347,6 +349,7 @@
 			);
 			name = BevvieUI;
 			packageProductDependencies = (
+				981D9CDE2A0E133500614236 /* SwiftUICharts */,
 			);
 			productName = BevvieUI;
 			productReference = 9849D23128D83D4D00D8A9FA /* BevvieUI.app */;
@@ -377,6 +380,7 @@
 			);
 			mainGroup = 9849D22828D83D4D00D8A9FA;
 			packageReferences = (
+				9879709C2A0DF64300B9E160 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 9849D23228D83D4D00D8A9FA /* Products */;
 			projectDirPath = "";
@@ -724,6 +728,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9879709C2A0DF64300B9E160 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		981D9CDE2A0E133500614236 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9879709C2A0DF64300B9E160 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9849D22928D83D4D00D8A9FA /* Project object */;
 }

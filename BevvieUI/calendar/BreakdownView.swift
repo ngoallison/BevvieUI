@@ -131,10 +131,10 @@ struct BreakdownView: View {
                                         Divider()
                                     }
                                     HStack(spacing: 15.0) {
-                                        ForEach(0..<4, id: \.self) { number in
-                                            Image(faces[number]).resizable()
+                                        ForEach(faces, id: \.self) { face in
+                                            Image(face).resizable()
                                                 .frame(width: 30, height: 30)
-                                                .opacity(number == 0 ? 1.0 : 0.3)
+                                                .opacity(bev.satisfaction! == face ? 1.0 : 0.3)
                                             
                                             
                                         }
@@ -206,6 +206,6 @@ struct BreakdownView: View {
 
 struct BreakdownView_Previews: PreviewProvider {
     static var previews: some View {
-        BreakdownView(breakdown: .constant(true), hadBev: .constant(true), bevDate: (Calendar.current.date(byAdding: .day, value: 1, to: Date())!), bev: Bev(uid: "0", name: "Taro Milk Tea", location: "OMOMO", temp: "ICED", price: 5.00, type: "Boba", size: "Large", satisfaction: "happy-face"))
+        BreakdownView(breakdown: .constant(true), hadBev: .constant(true), bevDate: (Calendar.current.date(byAdding: .day, value: 1, to: Date())!), bev: Bev(uid: "0", name: "Taro Milk Tea", location: "OMOMO", temp: "ICED", price: 5.00, type: "Boba", size: "Large", satisfaction: "sad-face"))
     }
 }

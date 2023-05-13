@@ -46,7 +46,7 @@ struct CalendarView: View {
                         ZStack {
                             Rectangle().fill(ColorModel().lightTan)
                                 .cornerRadius2(25, corners: [.topLeft, .topRight])
-                                .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.85)
+                                .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.8)
                             VStack {
                                 VStack (spacing: 0) {
                                     let cols = Array(repeating: GridItem(.flexible()), count: 7)
@@ -61,12 +61,12 @@ struct CalendarView: View {
                                     }.padding(.horizontal, 20)
                                     Divider()
                                     ScrollCalendar(selectedDate: $selectedDate, breakdown: $breakdown, hadBev: $hadBev)
-                                }.edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.85)
+                                }.edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.8)
                                 
                             }
                             
                         }
-                    }.frame(height: ConstModel().height * (0.85))
+                    }.frame(height: ConstModel().height * (0.8))
                     
                 }
             }.blur(radius: breakdown ? 5 : 0)

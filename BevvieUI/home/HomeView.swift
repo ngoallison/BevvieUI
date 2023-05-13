@@ -29,7 +29,7 @@ struct HomeView: View {
                     VStack {
                         Spacer()
                         Rectangle().fill(ColorModel().lightTan)
-                            .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * (0.70))
+                            .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * (0.65))
                     }.frame(maxHeight: .infinity)
                     VStack(spacing: 0.0) {
                         Spacer()
