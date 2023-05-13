@@ -98,13 +98,13 @@ struct AddViewModal: View {
     var body: some View {
         ZStack {
             if showSheet {
-                //Color.black.opacity(0.5).edgesIgnoringSafeArea(.all)
+                Color.black.opacity(0.5).edgesIgnoringSafeArea(.all)
                 VStack {
                     ZStack {
                         Rectangle()
                             .fill(Color.white)
-                            .frame(width: ConstModel().width*0.9, height: ConstModel().height*0.68)
-                            .cornerRadius2(50, corners: .allCorners)
+                            .frame(width: ConstModel().width*0.9, height: ConstModel().height*0.70)
+                            .cornerRadius2(30, corners: .allCorners)
                         VStack {
                             ZStack {
                                 Rectangle()
@@ -249,7 +249,7 @@ struct AddViewModal: View {
                                             }
                                         }
                                         
-                                    }.padding(.vertical, 5)
+                                    }
                                 }
                                 
                             }.padding(.horizontal, 20)

@@ -40,31 +40,33 @@ struct AnalyticsView: View {
                         ZStack {
                             Rectangle().fill(ColorModel().lightTan)
                                 .cornerRadius2(25, corners: [.topLeft, .topRight])
-                                .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * (0.85))
+                                .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * (0.8))
                             VStack {
                                 //Spacer()
-
-                                LazyVGrid(columns: [
-                                    GridItem(.adaptive(minimum: (ConstModel().width)/3))
-                                ]) {
-                                    AnalyticsBox(title: "TOTAL BEVVIE PURCHASES", header: "\(anaModel.analytics.numbevs!)", sub: "BEVVIES")
-                                    AnalyticsBox(title: "TOTAL MONEY SPENT", header: "$\(String(format: "%.2f", anaModel.analytics.money!))", sub: "SPENT")
-                                    AnalyticsBox(title: "GO TO ORDER", sub: bevModel.getFavorite(), image: "breakdown-boba")
-                                    AnalyticsBox(title: "FAVORITE TYPE",  sub: bevModel.getType(), image: "boba")
-                                    
-                                    let bevs = Double(anaModel.analytics.numbevs!)
-                                    let avg = bevs > 0 ? anaModel.analytics.money! / bevs : 0
-                                    AnalyticsBox(title: "AVERAGE BEVVIE PRICE", header: "$\(String(format: "%.2f", avg))", sub: "PER BEVVIE")
-                                    
-                                    AnalyticsBox(title: "MOST VISITED LOCATION", header: bevModel.getLocation())
-                                    
-
-                                }.padding(.top, 10)
-                                Spacer()
-                            }.frame(width: ConstModel().width, height: ConstModel().height * 0.85)
+                                ScrollView() {
+                                    LazyVGrid(columns: [
+                                        GridItem(.adaptive(minimum: (ConstModel().width)/3))
+                                    ]) {
+                                        AnalyticsBox(title: "TOTAL BEVVIE PURCHASES", header: "\(anaModel.analytics.numbevs!)", sub: "BEVVIES")
+                                        AnalyticsBox(title: "TOTAL MONEY SPENT", header: "$\(String(format: "%.2f", anaModel.analytics.money!))", sub: "SPENT")
+                                        AnalyticsBox(title: "GO TO ORDER", sub: bevModel.getFavorite(), image: "breakdown-boba")
+                                        AnalyticsBox(title: "FAVORITE TYPE",  sub: bevModel.getType(), image: "boba")
+                                        
+                                        let bevs = Double(anaModel.analytics.numbevs!)
+                                        let avg = bevs > 0 ? anaModel.analytics.money! / bevs : 0
+                                        AnalyticsBox(title: "AVERAGE BEVVIE PRICE", header: "$\(String(format: "%.2f", avg))", sub: "PER BEVVIE")
+                                        
+                                        AnalyticsBox(title: "MOST VISITED LOCATION", header: bevModel.getLocation())
+                                        
+                                        
+                                    }.padding(.top, 10)
+                                    Divider().padding(.vertical, 5)
+                                    EmptyView()
+                                }
+                            }.frame(width: ConstModel().width, height: ConstModel().height * 0.77)
                             Spacer()
-                        }.frame(height: ConstModel().height * 0.85)
-                    }.frame(height: ConstModel().height * 0.85)
+                        }.frame(height: ConstModel().height * 0.8)
+                    }.frame(height: ConstModel().height * 0.8)
                         
                 }
                 
@@ -75,9 +77,13 @@ struct AnalyticsView: View {
 
 struct AnalyticsView_Previews: PreviewProvider {
     static var previews: some View {
-            AnalyticsView()
+        MainView()
+            .environmentObject(UserModel())
             .environmentObject(AnalyticsModel())
             .environmentObject(BevModel())
+//            AnalyticsView()
+//            .environmentObject(AnalyticsModel())
+//            .environmentObject(BevModel())
     }
 }
 

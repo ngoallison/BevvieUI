@@ -26,7 +26,7 @@ struct AnalyticsBox: View {
 
             ZStack {
                 Rectangle().fill(ColorModel().darkTan)
-                    .frame(width: size!, height: size!)
+                    .frame(width: ConstModel().width * 0.42, height: size!)
                     .cornerRadius(10)
                 VStack {
                     if header != nil {
@@ -54,7 +54,15 @@ struct AnalyticsBox: View {
     }
 }
 
-struct AnalyticsBox_Preview: PreviewProvider {
+//struct AnalyticsBox_Preview: PreviewProvider {
+//    static var previews: some View {
+//            AnalyticsView()
+//            .environmentObject(AnalyticsModel())
+//            .environmentObject(BevModel())
+//    }
+//}
+
+struct AnalyticsBox_Previews: PreviewProvider {
     static var previews: some View {
             AnalyticsView()
             .environmentObject(AnalyticsModel())

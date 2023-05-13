@@ -21,8 +21,8 @@ struct MainView: View {
             SettingsView(isLoggedIn: .constant(true), isPresenting: $isPresenting, isSignedUp: .constant(true))
         } else {
             ZStack {
-                Color(.black).ignoresSafeArea()
-                ZStack {
+                //Color(.black).ignoresSafeArea()
+                VStack {
                     VStack(spacing: 0.0) {
                         ZStack {
                             
@@ -43,7 +43,7 @@ struct MainView: View {
                         }
                     }
                     VStack(spacing: 0.0) {
-                        Spacer()
+                        //Spacer()
                         Divider()
                         HStack(alignment: .center, spacing: 0.0) {
                             ForEach(0..<5, id: \.self) { number in
@@ -105,7 +105,10 @@ struct MainView: View {
 struct MainView_Preview: PreviewProvider {
     static var previews: some View {
         ZStack {
-            MainView().previewDevice(PreviewDevice(rawValue: "iPhone 12")).previewInterfaceOrientation(.portrait)
+            MainView()
+                .environmentObject(UserModel())
+                .environmentObject(AnalyticsModel())
+                .environmentObject(BevModel())
         }
     }
     
