@@ -19,24 +19,35 @@ struct SignUpView: View {
     @State var choosingIcon: Bool
     @State private var isLoading = false
     @State var showError: Bool = false
-    @State var errorText: String = ""
-    
+
     @State var username: String = ""
     @State var email: String = ""
     @State var password: String = ""
     
+    @State var errorText: String = ""
+    
+    func clearFields() {
+        self.username = ""
+        self.email = ""
+        self.password = ""
+    }
+    
+    func findError() {
+        self.isLoading = false
+        self.showError = true
+    }
+    
     func checkInfo() {
         
-        if (email == "") || (password == "") {
+        if (email == "") || (password == "") || (username == "") {
+            findError()
+            self.errorText = ("One or more fields are missing.")
             return
         }
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let e = error {
-                self.isLoading = false
-                self.showError = true
-                self.username = ""
-                self.email = ""
-                self.password = ""
+                findError()
+                clearFields()
                 self.errorText = e.localizedDescription
                 print(e)
             }
@@ -126,8 +137,8 @@ struct SignUpView: View {
                         }.frame(width: ConstModel().width-100, height: ConstModel().height*0.15)
                     }
                 }
-                ErrorView(showError: $showError, errorText: $errorText)
-                
+                ErrorView(showError: $showError, errorText: errorText)
+
             }
         }
         

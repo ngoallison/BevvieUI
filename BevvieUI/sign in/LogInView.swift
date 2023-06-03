@@ -13,41 +13,49 @@ struct LogInView: View {
     // allow to switch between sign up and log in views
     @Binding var isSignedUp: Bool
     @Binding var isLoggedIn: Bool
-        
+    
     @State var email: String = ""
     @State var password: String = ""
     @State var isLoading = false
     @State var showError = false
     
-    @State var forgotPass = ""
-    @State var forgotUser = ""
-    
     @EnvironmentObject var userModel: UserModel
     @EnvironmentObject var anaModel: AnalyticsModel
     @EnvironmentObject var bevModel: BevModel
-
+    
+    @State var errorText: String = ""
+    
+    func clearFields() {
+        self.email = ""
+        self.password = ""
+    }
+    
+    func findError() {
+        self.isLoading = false
+        self.showError = true
+    }
+    
     func checkInfo() {
         
         if (email == "") || (password == "") {
             return
         }
+        
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let e = error {
-                print(e)
-                self.isLoading.toggle()
-                self.showError = true
-                self.email = ""
-                self.password = ""
-                ErrorView(showError: $showError, errorText: .constant("\(e)"))
+                clearFields()
+                findError()
+                self.errorText = "Username or password is incorrect."
                 return
             }
             else {
+                self.isLoading = false
                 self.showError = false
                 self.isLoggedIn.toggle()
+                
                 userModel.getUser()
                 anaModel.getAnalytics()
                 bevModel.getBev()
-                self.isLoading.toggle()
                 return
             }
         }
@@ -95,14 +103,14 @@ struct LogInView: View {
                             CustomSecurefield(placeholder: Text("Password"), icon: "exclamationmark.lock", password: $password)
                             Text("forgot password?").font(Font.custom(ConstModel().textFont, size: 14)).padding(.leading)
                         }
-                        if showError {
-                            VStack (spacing: 0) {
-                                Text("Username or password is incorrect.").font(Font.custom("Cardium A Regular", size: 12)).foregroundColor(Color.red)
-                                    .lineLimit(2)
-                                Text("Please try again.").font(Font.custom("Cardium A Regular", size: 12)).foregroundColor(Color.red)
-                                    .lineLimit(2)
-                            }
-                        }
+                        //                        if showError {
+                        //                            VStack (spacing: 0) {
+                        //                                Text("Username or password is incorrect.").font(Font.custom("Cardium A Regular", size: 12)).foregroundColor(Color.red)
+                        //                                    .lineLimit(2)
+                        //                                Text("Please try again.").font(Font.custom("Cardium A Regular", size: 12)).foregroundColor(Color.red)
+                        //                                    .lineLimit(2)
+                        //                            }
+                        //                        }
                     }.frame(width: ConstModel().width-100, height: ConstModel().height*0.20)
                     
                     // log in button
@@ -117,7 +125,7 @@ struct LogInView: View {
                                     .foregroundColor(.white)
                             } else {
                                 Text("Log In")
-                                    //.padding()
+                                //.padding()
                                     .frame(width: 150, height: 40)
                                     .background(ColorModel().mediumGreen)
                                     .foregroundColor(.white)
@@ -127,7 +135,7 @@ struct LogInView: View {
                         }
                         .disabled(isLoading)
                         
-                        // button to toggle sign up and log in 
+                        // button to toggle sign up and log in
                         HStack {
                             Text("Dont' have an account?")
                                 .font(Font.custom(ConstModel().textFont, size: 13))
@@ -145,8 +153,7 @@ struct LogInView: View {
                     }.frame(width: ConstModel().width-100, height: ConstModel().height*0.15)
                 }
             }
-            
-            
+            ErrorView(showError: $showError, errorText: errorText)
         }
     }
     

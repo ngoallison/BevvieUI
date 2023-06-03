@@ -10,7 +10,7 @@ import SwiftUI
 struct ErrorView: View {
     
     @Binding var showError: Bool
-    @Binding var errorText: String
+    var errorText: String
     
     var body: some View {
         ZStack {
@@ -74,6 +74,6 @@ struct ErrorView: View {
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView(showError: .constant(false), errorText: .constant("Something went wrong :("))
+        ErrorView(showError: .constant(false), errorText: "Something went wrong :(")
     }
 }
