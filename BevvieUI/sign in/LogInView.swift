@@ -17,7 +17,7 @@ struct LogInView: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var isLoading = false
-    @State var isError = false
+    @State var showError = false
     
     @State var forgotPass = ""
     @State var forgotUser = ""
@@ -35,12 +35,14 @@ struct LogInView: View {
             if let e = error {
                 print(e)
                 self.isLoading.toggle()
-                self.isError = true
+                self.showError = true
+                self.email = ""
+                self.password = ""
+                ErrorView(showError: $showError, errorText: .constant("\(e)"))
                 return
             }
             else {
-                print("logged in, now fetching info")
-                self.isError = false
+                self.showError = false
                 self.isLoggedIn.toggle()
                 userModel.getUser()
                 anaModel.getAnalytics()
@@ -93,7 +95,7 @@ struct LogInView: View {
                             CustomSecurefield(placeholder: Text("Password"), icon: "exclamationmark.lock", password: $password)
                             Text("forgot password?").font(Font.custom(ConstModel().textFont, size: 14)).padding(.leading)
                         }
-                        if isError {
+                        if showError {
                             VStack (spacing: 0) {
                                 Text("Username or password is incorrect.").font(Font.custom("Cardium A Regular", size: 12)).foregroundColor(Color.red)
                                     .lineLimit(2)
@@ -106,7 +108,7 @@ struct LogInView: View {
                     // log in button
                     VStack (spacing: 30){
                         Button(action: {
-                            isError = false
+                            showError = false
                             isLoading = true
                             checkInfo()
                         }) {
@@ -127,14 +129,14 @@ struct LogInView: View {
                         
                         // button to toggle sign up and log in 
                         HStack {
-                            Text("Already have an account?")
+                            Text("Dont' have an account?")
                                 .font(Font.custom(ConstModel().textFont, size: 13))
                             
                             Button(action: {
                                 self.isSignedUp.toggle()
                                 print(isSignedUp)
                             }, label: {
-                                Text("Log in here!")
+                                Text("Sign up here!")
                                     .font(Font.custom(ConstModel().textFont, size: 13))
                                     .fontWeight(.medium)
                                     .foregroundColor(.black)

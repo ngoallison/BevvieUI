@@ -18,6 +18,8 @@ struct SignUpView: View {
     // choosing icon page
     @State var choosingIcon: Bool
     @State private var isLoading = false
+    @State var showError: Bool = false
+    @State var errorText: String = ""
     
     @State var username: String = ""
     @State var email: String = ""
@@ -30,9 +32,16 @@ struct SignUpView: View {
         }
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let e = error {
+                self.isLoading = false
+                self.showError = true
+                self.username = ""
+                self.email = ""
+                self.password = ""
+                self.errorText = e.localizedDescription
                 print(e)
             }
             else {
+                self.showError = false
                 choosingIcon = true
             }
         }
@@ -117,6 +126,7 @@ struct SignUpView: View {
                         }.frame(width: ConstModel().width-100, height: ConstModel().height*0.15)
                     }
                 }
+                ErrorView(showError: $showError, errorText: $errorText)
                 
             }
         }
