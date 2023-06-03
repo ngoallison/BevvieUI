@@ -1,9 +1,10 @@
 //
-//  ContentView.swift
+//  SignUpView.swift
 //  BevvieUI
 //
 //  Created by Allison Ngo on 9/18/22.
 //
+//  sign up view 
 
 import SwiftUI
 import FirebaseFirestore
@@ -14,6 +15,7 @@ struct SignUpView: View {
     @Binding var isSignedUp: Bool
     @Binding var isLoggedIn: Bool
     
+    // choosing icon page
     @State var choosingIcon: Bool
     @State private var isLoading = false
     
@@ -45,6 +47,8 @@ struct SignUpView: View {
                 ColorModel().lightTan.edgesIgnoringSafeArea(.all)
                 VStack(alignment: .center, spacing: 0.0) {
                     VStack (spacing: 30){
+                        
+                        // header image
                         ZStack {
                             Image("cup-coffee")
                                 .resizable(resizingMode: .stretch)
@@ -58,6 +62,8 @@ struct SignUpView: View {
                             
                         }
                         Spacer()
+                        
+                        // sign up header
                         HStack {
                             Text("Sign Up").font(Font.custom("Kiona", size: 30))
                             Spacer()
@@ -66,11 +72,14 @@ struct SignUpView: View {
                     Spacer()
                     VStack (spacing: 0){
                         
+                        // text fields for user sign up
                         VStack(spacing: 10) {
                             CustomTextfield(placeholder: Text("Email Address"), icon: "envelope", username: $email)
                             CustomTextfield(placeholder: Text("Username"), icon: "person", username: $username)
                             CustomSecurefield(placeholder: Text("Password"), icon: "exclamationmark.lock", password: $password)
                         }.frame(width: ConstModel().width-100, height: ConstModel().height*0.20)
+                        
+                        // sign up button
                         VStack (spacing: 30){
                             Button(action: {
                                 isLoading = true
@@ -90,6 +99,8 @@ struct SignUpView: View {
                                 }
                             }
                             .disabled(isLoading)
+                            
+                            // toggle to log in view
                             HStack {
                                 Text("Already have an account?")
                                     .font(Font.custom(ConstModel().textFont, size: 13))

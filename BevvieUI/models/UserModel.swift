@@ -15,10 +15,9 @@ class UserModel: ObservableObject {
     @Published var user: User = User()
     private var db = Firestore.firestore()
     
+    
+    // function to access firebase to collect information about user, populate user object
     func getUser () {
-        
-        print("getting user info")
-        print(Auth.auth().currentUser?.uid)
         db.collection("user").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid as Any).addSnapshotListener { (snapshot, error) in
             guard let documents = snapshot?.documents else {
                 print("No Documents")
@@ -38,9 +37,6 @@ class UserModel: ObservableObject {
             let uid = data["uid"]  as! String
             let icon = data["icon"] as! String
             let title = data["title"] as! String
-            
-            print(username)
-            
             self.user = User(username: username, email: email, uid: uid, icon: icon, title: title)
             
             

@@ -4,6 +4,7 @@
 //
 //  Created by Allison Ngo on 12/30/22.
 //
+//  settings view that allows user to change details about their profile
 
 import SwiftUI
 import FirebaseAuth
@@ -12,6 +13,7 @@ import FirebaseFirestore
 struct EditView: View {
     
     @Binding var editPresent: Bool
+    
     @State var username: String = ""
     @State var title: String = ""
     @State var isLoading: Bool = false
@@ -22,44 +24,44 @@ struct EditView: View {
     
     let db = Firestore.firestore()
     
+    // updates firebase with new changes
     func updateProfile() {
         
         db.collection("user").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments() { (snapshot, error) in
             
             if error != nil {
-                        print("there was an error!")
-                        // Some error occured
-                    } else {
-                        let document = snapshot!.documents.first
-                        
-                        
-                        // only update if non-empty
-                        if (username != "") {
-                            document!.reference.updateData([
-                                "username": username
-                            ])
-                            username = ""
-                        }
-                        
-                        if (title != "") {
-                            document!.reference.updateData([
-                                "title": title.lowercased(),
-                            ])
-                            title = ""
-                        }
-                        
-                        if (selectedIndex != -1) {
-                            document!.reference.updateData([
-                                "icon": icons[selectedIndex]
-                            ])
-                            selectedIndex = -1
-                        }
-                        return
-                    }
-
+                print("there was an error!")
+                // Some error occured
+            } else {
+                let document = snapshot!.documents.first
+                
+                // only update if non-empty
+                if (username != "") {
+                    document!.reference.updateData([
+                        "username": username
+                    ])
+                    username = ""
+                }
+                
+                if (title != "") {
+                    document!.reference.updateData([
+                        "title": title.lowercased(),
+                    ])
+                    title = ""
+                }
+                
+                if (selectedIndex != -1) {
+                    document!.reference.updateData([
+                        "icon": icons[selectedIndex]
+                    ])
+                    selectedIndex = -1
+                }
+                return
+            }
+            
         }
     }
-
+    
     var body: some View {
         ZStack {
             ColorModel().lightTan.edgesIgnoringSafeArea(.all)
@@ -70,8 +72,7 @@ struct EditView: View {
                             editPresent = false
                         }, label: {
                             Image(systemName: "arrow.left").font(.title).foregroundColor(.black)
-                        }
-                        )
+                        })
                         Spacer()
                     }
                     .padding(.leading)
@@ -82,6 +83,7 @@ struct EditView: View {
                         .font(Font.custom("Young", size: 27))
                         .frame(width: ConstModel().width-50, alignment: .leading)
                     
+                    // stack to change username and title
                     VStack(alignment: .leading) {
                         VStack(alignment: .leading) {
                             Text("Change Username").font(Font.custom("Cardium A Regular", size: 14))
@@ -91,11 +93,13 @@ struct EditView: View {
                         Text("Change Title").font(Font.custom("Cardium A Regular", size: 14))
                         CustomTextfield(placeholder: Text("coffee connoisseur"), username: $title)
                     }.frame(width: ConstModel().width - 50)
-                        
+                    
                     HStack {
                         Text("Change Icon").font(Font.custom("Cardium A Regular", size: 15))
                         Spacer()
                     }.frame(width:ConstModel().width - 50)
+                    
+                    // stack displaying different icons
                     LazyVGrid(columns: [
                         GridItem(.adaptive(minimum: (ConstModel().width)/4))
                     ]) {
@@ -116,6 +120,8 @@ struct EditView: View {
                         }
                     }
                     Spacer()
+                    
+                    // save changes button, shows confirmation modal
                     Button(action: {
                         isLoading = true
                         updateProfile()
@@ -135,16 +141,18 @@ struct EditView: View {
                                 .font(Font.custom("Cardium A Regular", size: 17))
                         }
                     }.padding()
-                    .disabled(isLoading)
+                        .disabled(isLoading)
                     
                     Spacer()
-                    Text("BEVVIE @ 2022").font(Font.custom("Kiona", size: 20)).foregroundColor(ColorModel().darkGray)
                 }
-                EditModel(show: $show, editPresent: $editPresent)
                 
+                if show {
+                    ZStack {
+                        Color.black.opacity(show ? 0.3 : 0).edgesIgnoringSafeArea(.all)
+                        EditModal(show: $show)
+                    }
+                }
             }
-            
-          
         }
     }
 }

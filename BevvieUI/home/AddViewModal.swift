@@ -4,6 +4,7 @@
 //
 //  Created by Allison Ngo on 5/10/23.
 //
+//  pop up modal to add bevvie to database, opened on click from home page or plus button
 
 import SwiftUI
 import FirebaseFirestore
@@ -13,25 +14,23 @@ struct AddViewModal: View {
     
     let db = Firestore.firestore()
     
-    @Binding var showSheet: Bool
+    @Binding var addPresent: Bool
     
     var temp = ["ICED", "HOT"]
     let options = ["Boba", "Coffee", "Tea", "Smoothie", "Other"]
-    var faces = ["cheery-face", "happy-face", "meh-face", "sad-face"]
     
     @State var name = ""
     @State var location = ""
-    @State var type = ""
     @State var size = ""
+    @State var price: Double = 0
+    
+    // satisfaction, temperature, type
     @State var selectedIndex = 1
     @State var selectedTemp = 0
     @State private var selection = "Boba"
     
-    @State var price: Double = 0
-    
     @State private var bevDate = Date()
     @EnvironmentObject var bevModel: BevModel
-    
     
     func updateBev() {
         
@@ -45,15 +44,16 @@ struct AddViewModal: View {
             
             let result = formatter.string(from: bevDate)
             
-            db.collection("bevs").addDocument(data: ["name": name, "location": location, "type": selection, "size": size, "price": price, "temp": temp[selectedTemp], "date": result, "satisfaction": faces[selectedIndex], "uid": user!.uid])
+            db.collection("bevs").addDocument(data: ["name": name, "location": location, "type": selection, "size": size, "price": price, "temp": temp[selectedTemp], "date": result, "satisfaction": ConstModel().faces[selectedIndex], "uid": user!.uid])
             { (error) in
                 if error != nil {
                     print("there was an error!")
                 } else {
-                    //                    self.showSheet.toggle()
                     withAnimation(.spring()) {
-                        showSheet = false
+                        addPresent = false
                     }
+                    
+                    // update user analytics
                     updateUser()
                     bevModel.getBev()
                 }
@@ -95,12 +95,15 @@ struct AddViewModal: View {
             
         }
     }
+    
     var body: some View {
         ZStack {
-            if showSheet {
-                Color.black.opacity(0.5).edgesIgnoringSafeArea(.all)
+            if addPresent {
+                //Color.black.opacity(0.5).edgesIgnoringSafeArea(.all)
                 VStack {
                     ZStack {
+                        
+                        // rectangle modal card
                         Rectangle()
                             .fill(Color.white)
                             .frame(width: ConstModel().width*0.9, height: ConstModel().height*0.70)
@@ -118,148 +121,159 @@ struct AddViewModal: View {
                                     .multilineTextAlignment(.center)
                             }
                             Spacer()
-                            VStack (spacing: 15) {
-                                VStack (spacing: 25){
-                                    VStack(alignment: .leading, spacing: 4.0) {
-                                        Text("NAME")
+                            
+                            // large stack of smaller stacks
+                            VStack (spacing: 25){
+                                
+                                // name stack
+                                VStack(alignment: .leading, spacing: 4.0) {
+                                    Text("NAME")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(ColorModel().darkGreen)
+                                        .font(Font.custom("Young", size: 18))
+                                    CustomTextfield(placeholder: Text("Wintermelon Milk Tea..."), username: $name)
+                                }
+                                
+                                // location stack
+                                VStack(alignment: .leading, spacing: 4.0) {
+                                    Text("LOCATION")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(ColorModel().darkGreen)
+                                        .font(Font.custom("Young", size: 18))
+                                    CustomTextfield(placeholder: Text("OMOMO..."), username: $location)
+                                }
+                                
+                                // price stack
+                                VStack (spacing: 5){
+                                    HStack {
+                                        Text("PRICE")
                                             .fontWeight(.heavy)
                                             .foregroundColor(ColorModel().darkGreen)
                                             .font(Font.custom("Young", size: 18))
-                                        CustomTextfield(placeholder: Text("Wintermelon Milk Tea..."), username: $name)
-                                    }
-                                    VStack(alignment: .leading, spacing: 4.0) {
-                                        Text("LOCATION")
-                                            .fontWeight(.heavy)
+                                        Spacer()
+                                        Text("$\(price, specifier: "%.2f")")
                                             .foregroundColor(ColorModel().darkGreen)
-                                            .font(Font.custom("Young", size: 18))
-                                        CustomTextfield(placeholder: Text("OMOMO..."), username: $location)
+                                            .font(Font.custom("Young", size: 17))
                                     }
-                                    
-                                    VStack (spacing: 5){
-                                        HStack {
-                                            Text("PRICE")
-                                                .fontWeight(.heavy)
-                                                .foregroundColor(ColorModel().darkGreen)
-                                                .font(Font.custom("Young", size: 18))
-                                            Spacer()
-                                            Text("$\(price, specifier: "%.2f")")
-                                                .foregroundColor(ColorModel().darkGreen)
-                                                .font(Font.custom("Young", size: 17))
-                                        }
-                                        Slider(value: $price, in: 0...10)
-                                            .accentColor(ColorModel().mediumGreen)
-                                    }
-                                    HStack {
-                                        ForEach(0..<2, id: \.self) { number in
-                                            Button(action: {
-                                                self.selectedTemp = number
-                                            }, label: {
-                                                ZStack {
-                                                    Rectangle()
-                                                        .fill(selectedTemp == number ? ColorModel().mediumGreen : ColorModel().mediumGreen.opacity(0.5))
-                                                        .frame(height: 40)
-                                                        .cornerRadius(10)
-                                                    
-                                                    Text(temp[number])
-                                                        .fontWeight(.medium)
-                                                        .foregroundColor(.white)
-                                                        .font(Font.custom("Young", size: 17))
-                                                }
-                                            })
-                                        }
-                                    }
-                                    Group {
-                                        HStack(spacing: 20.0) {
-                                            VStack(alignment: .leading, spacing: 4.0) {
-                                                Text("TYPE")
-                                                    .fontWeight(.heavy)
-                                                    .foregroundColor(ColorModel().darkGreen)
-                                                    .font(Font.custom("Young", size: 18))
+                                    Slider(value: $price, in: 0...10)
+                                        .accentColor(ColorModel().mediumGreen)
+                                }
+                                
+                                // temperature stack
+                                HStack {
+                                    ForEach(0..<2, id: \.self) { number in
+                                        Button(action: {
+                                            self.selectedTemp = number
+                                        }, label: {
+                                            ZStack {
+                                                Rectangle()
+                                                    .fill(selectedTemp == number ? ColorModel().mediumGreen : ColorModel().mediumGreen.opacity(0.5))
+                                                    .frame(height: 40)
+                                                    .cornerRadius(10)
                                                 
-                                                ZStack {
-                                                    Rectangle()
-                                                        .fill(ColorModel().darkTan)
-                                                        .cornerRadius(15)
-                                                        .frame(height: 40)
-                                                    HStack {
-                                                        Menu {
-                                                            Picker(selection: $selection) {
-                                                                ForEach(options, id: \.self) {
-                                                                    Text($0)
-                                                                        .font(Font.custom("Cardium A Regular", size: 17))
-                                                                    
-                                                                }
-                                                            } label: {}
-                                                        } label: {
-                                                            HStack {
-                                                                Text(selection)
-                                                                    .font(Font.custom("Cardium A Regular", size: 17))
-                                                                    .padding(.leading, 5)
-                                                                    .foregroundColor(ColorModel().darkGreen)
-                                                                Spacer()
-                                                                Image(systemName: "arrowtriangle.down.fill"
-                                                                )
-                                                                .resizable()
-                                                                .frame(width: 8, height: 7)
-                                                                .padding(.trailing, 10)
-                                                                .foregroundColor(ColorModel().darkGreen)
-                                                            }
-                                                        }
-                                                        Spacer()
-                                                    }.padding(.leading, 17)
-                                                }
-                                                
-                                                //                                    CustomTextfield(placeholder: Text("Boba..."), username: $type)
+                                                Text(temp[number])
+                                                    .fontWeight(.medium)
+                                                    .foregroundColor(.white)
+                                                    .font(Font.custom("Young", size: 17))
                                             }
-                                            VStack(alignment: .leading, spacing: 4.0) {
-                                                Text("DATE")
-                                                    .fontWeight(.heavy)
-                                                    .foregroundColor(ColorModel().darkGreen)
-                                                    .font(Font.custom("Young", size: 18))
-                                                ZStack {
-                                                    Rectangle()
-                                                        .fill(ColorModel().darkTan)
-                                                        .cornerRadius(15)
-                                                        .frame(height: 40)
-                                                    HStack {
-                                                        
-                                                        DatePicker("", selection: $bevDate, displayedComponents: .date)
-                                                            .fixedSize()
-                                                            .clipped()
-                                                            .labelsHidden()
-                                                            .accentColor(ColorModel().mediumGreen)
-                                                            .datePickerStyle(CompactDatePickerStyle())
-                                                        Spacer()
-                                                    }.padding(.leading, 5)
-                                                }
-                                                
-                                                
-                                            }
-                                        }
-                                    }
-                                    HStack {
-                                        ForEach(0..<4, id: \.self) { number in
-                                            Button(action: {
-                                                self.selectedIndex = number
-                                            }) {
-                                                Image(faces[number]).resizable()
-                                                    .frame(width: 35, height: 35)
-                                                    .opacity(selectedIndex == number ? 1.0 : 0.3)
-                                                    .padding(.horizontal, 5)
-                                            }
-                                        }
-                                        
+                                        })
                                     }
                                 }
                                 
+                                // type and date stack
+                                Group {
+                                    HStack(spacing: 20.0) {
+                                        
+                                        // type
+                                        VStack(alignment: .leading, spacing: 4.0) {
+                                            Text("TYPE")
+                                                .fontWeight(.heavy)
+                                                .foregroundColor(ColorModel().darkGreen)
+                                                .font(Font.custom("Young", size: 18))
+                                            
+                                            ZStack {
+                                                Rectangle()
+                                                    .fill(ColorModel().darkTan)
+                                                    .cornerRadius(15)
+                                                    .frame(height: 40)
+                                                HStack {
+                                                    Menu {
+                                                        Picker(selection: $selection) {
+                                                            ForEach(options, id: \.self) {
+                                                                Text($0)
+                                                                    .font(Font.custom("Cardium A Regular", size: 17))
+                                                                
+                                                            }
+                                                        } label: {}
+                                                    } label: {
+                                                        HStack {
+                                                            Text(selection)
+                                                                .font(Font.custom("Cardium A Regular", size: 17))
+                                                                .padding(.leading, 5)
+                                                                .foregroundColor(ColorModel().darkGreen)
+                                                            Spacer()
+                                                            Image(systemName: "arrowtriangle.down.fill"
+                                                            )
+                                                            .resizable()
+                                                            .frame(width: 8, height: 7)
+                                                            .padding(.trailing, 10)
+                                                            .foregroundColor(ColorModel().darkGreen)
+                                                        }
+                                                    }
+                                                    Spacer()
+                                                }.padding(.leading, 17)
+                                            }
+                                        }
+                                        
+                                        // date
+                                        VStack(alignment: .leading, spacing: 4.0) {
+                                            Text("DATE")
+                                                .fontWeight(.heavy)
+                                                .foregroundColor(ColorModel().darkGreen)
+                                                .font(Font.custom("Young", size: 18))
+                                            ZStack {
+                                                Rectangle()
+                                                    .fill(ColorModel().darkTan)
+                                                    .cornerRadius(15)
+                                                    .frame(height: 40)
+                                                HStack {
+                                                    
+                                                    DatePicker("", selection: $bevDate, displayedComponents: .date)
+                                                        .fixedSize()
+                                                        .clipped()
+                                                        .labelsHidden()
+                                                        .accentColor(ColorModel().mediumGreen)
+                                                        .datePickerStyle(CompactDatePickerStyle())
+                                                    Spacer()
+                                                }.padding(.leading, 5)
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                // satisfaction stack
+                                HStack {
+                                    ForEach(0..<4, id: \.self) { number in
+                                        Button(action: {
+                                            self.selectedIndex = number
+                                        }) {
+                                            Image(ConstModel().faces[number]).resizable()
+                                                .frame(width: 35, height: 35)
+                                                .opacity(selectedIndex == number ? 1.0 : 0.3)
+                                                .padding(.horizontal, 5)
+                                        }
+                                    }
+                                    
+                                }
                             }.padding(.horizontal, 20)
                             Spacer()
+                            
+                            // add and back button stack
                             HStack(spacing: 0.0)  {
                                 Button(action: {
                                     withAnimation(.spring()) {
-                                        showSheet = false
+                                        addPresent = false
                                     }
-                                    //self.showSheet.toggle()
                                 }, label: {
                                     ZStack {
                                         Rectangle()
@@ -291,12 +305,7 @@ struct AddViewModal: View {
                             }
                         }.frame(width: ConstModel().width*0.9, height: ConstModel().height*0.7)
                     }
-                    
-                    
-                    
                 }
-                
-                
             }
         }
     }
@@ -304,7 +313,7 @@ struct AddViewModal: View {
 
 struct AddViewModal_Previews: PreviewProvider {
     static var previews: some View {
-        AddViewModal(showSheet: .constant(true))
+        AddViewModal(addPresent: .constant(true))
         
     }
 }

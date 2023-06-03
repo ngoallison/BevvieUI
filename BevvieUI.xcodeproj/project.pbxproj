@@ -37,10 +37,10 @@
 		9849D25F28DA510600D8A9FA /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9849D25E28DA510600D8A9FA /* MasterView.swift */; };
 		9849D26128DA734700D8A9FA /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9849D26028DA734700D8A9FA /* AddView.swift */; };
 		9850C19B2942831F00F54043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850C19A2942831F00F54043 /* ContentView.swift */; };
-		9850C19D2947D13600F54043 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850C19C2947D13500F54043 /* EmptyView.swift */; };
+		9850C19D2947D13600F54043 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850C19C2947D13500F54043 /* GraphView.swift */; };
 		9859D8EF2A09B7FC004C6878 /* AnalyticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8EE2A09B7FC004C6878 /* AnalyticsModel.swift */; };
 		9859D8F12A0B2927004C6878 /* ScrollCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F02A0B2927004C6878 /* ScrollCalendar.swift */; };
-		9859D8F32A0B423E004C6878 /* EditModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F22A0B423E004C6878 /* EditModel.swift */; };
+		9859D8F32A0B423E004C6878 /* EditModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F22A0B423E004C6878 /* EditModal.swift */; };
 		9859D8F52A0B6778004C6878 /* FirestoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F42A0B6778004C6878 /* FirestoreModel.swift */; };
 		9859D8F72A0B94BA004C6878 /* AnalyticsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859D8F62A0B94BA004C6878 /* AnalyticsBox.swift */; };
 		985EED62295A40BA00868493 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985EED61295A40B900868493 /* NewUserViewModel.swift */; };
@@ -105,11 +105,11 @@
 		9849D25E28DA510600D8A9FA /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		9849D26028DA734700D8A9FA /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		9850C19A2942831F00F54043 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		9850C19C2947D13500F54043 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		9850C19C2947D13500F54043 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		9859D8ED2A09A97E004C6878 /* lastbranch.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = lastbranch.md; sourceTree = "<group>"; };
 		9859D8EE2A09B7FC004C6878 /* AnalyticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsModel.swift; sourceTree = "<group>"; };
 		9859D8F02A0B2927004C6878 /* ScrollCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCalendar.swift; sourceTree = "<group>"; };
-		9859D8F22A0B423E004C6878 /* EditModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModel.swift; sourceTree = "<group>"; };
+		9859D8F22A0B423E004C6878 /* EditModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModal.swift; sourceTree = "<group>"; };
 		9859D8F42A0B6778004C6878 /* FirestoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreModel.swift; sourceTree = "<group>"; };
 		9859D8F62A0B94BA004C6878 /* AnalyticsBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsBox.swift; sourceTree = "<group>"; };
 		985EED61295A40B900868493 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
@@ -176,6 +176,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		98240C222A0F278F003AB316 /* sign in */ = {
+			isa = PBXGroup;
+			children = (
+				9849D23628D83D4D00D8A9FA /* LogInView.swift */,
+				9835EC2228E80CE100CB66A3 /* SignUpView.swift */,
+				98D5EFA5295F8F0200E6D967 /* IconView.swift */,
+			);
+			path = "sign in";
+			sourceTree = "<group>";
+		};
 		9826039528E2A2CC00290E15 /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,10 +218,8 @@
 		9826039828E2A32400290E15 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				9849D26028DA734700D8A9FA /* AddView.swift */,
 				9879709A2A0CAAF500B9E160 /* AddViewModal.swift */,
 				9849D25A28DA506000D8A9FA /* HomeView.swift */,
-				9814594428E6B0A700F66347 /* SettingsView.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -230,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				98DB26F428DBD54000411DD9 /* AnalyticsView.swift */,
+				9850C19C2947D13500F54043 /* GraphView.swift */,
 				9859D8F62A0B94BA004C6878 /* AnalyticsBox.swift */,
 			);
 			path = analytics;
@@ -241,8 +250,6 @@
 				9863C9DB28DB9F3700E951FB /* BreakdownView.swift */,
 				9863C9D528DB89CD00E951FB /* CalendarView.swift */,
 				9859D8F02A0B2927004C6878 /* ScrollCalendar.swift */,
-				9863C9D728DB8A9600E951FB /* CustomDatePicker.swift */,
-				9863C9D928DB8FAC00E951FB /* DateValue.swift */,
 			);
 			path = calendar;
 			sourceTree = "<group>";
@@ -274,18 +281,14 @@
 				9826039928E2A33900290E15 /* achievements */,
 				9826039828E2A32400290E15 /* home */,
 				9826039728E2A31900290E15 /* custom */,
+				98240C222A0F278F003AB316 /* sign in */,
+				9892D8A82A2BB3CC00F7C20D /* unused */,
 				9826039528E2A2CC00290E15 /* models */,
 				9849D24228D83F0500D8A9FA /* Info.plist */,
 				9835EC1328E80B2000CB66A3 /* GoogleService-Info.plist */,
 				9826039328E250F700290E15 /* Launch Screen.storyboard */,
 				9849D23428D83D4D00D8A9FA /* BevvieUIApp.swift */,
-				9849D23628D83D4D00D8A9FA /* LogInView.swift */,
-				9835EC2228E80CE100CB66A3 /* SignUpView.swift */,
-				9850C19A2942831F00F54043 /* ContentView.swift */,
-				98D5EFA5295F8F0200E6D967 /* IconView.swift */,
-				9850C19C2947D13500F54043 /* EmptyView.swift */,
 				9863C9CD28DAB4FC00E951FB /* MainView.swift */,
-				9849D25E28DA510600D8A9FA /* MasterView.swift */,
 				9849D23828D83D4E00D8A9FA /* Assets.xcassets */,
 				9849D24528D83F6600D8A9FA /* fonts */,
 				9849D23A28D83D4E00D8A9FA /* Preview Content */,
@@ -319,12 +322,25 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		9892D8A82A2BB3CC00F7C20D /* unused */ = {
+			isa = PBXGroup;
+			children = (
+				9850C19A2942831F00F54043 /* ContentView.swift */,
+				9849D25E28DA510600D8A9FA /* MasterView.swift */,
+				9849D26028DA734700D8A9FA /* AddView.swift */,
+				9863C9D728DB8A9600E951FB /* CustomDatePicker.swift */,
+				9863C9D928DB8FAC00E951FB /* DateValue.swift */,
+			);
+			path = unused;
+			sourceTree = "<group>";
+		};
 		989A603329669A7800636EA2 /* settings */ = {
 			isa = PBXGroup;
 			children = (
+				9814594428E6B0A700F66347 /* SettingsView.swift */,
 				98D5EFA9295FC57700E6D967 /* PrivacyView.swift */,
 				987D44BF29AE9CE6002067FB /* EditView.swift */,
-				9859D8F22A0B423E004C6878 /* EditModel.swift */,
+				9859D8F22A0B423E004C6878 /* EditModal.swift */,
 				98C1A9682964D3CC00CB82E9 /* TermsView.swift */,
 			);
 			path = settings;
@@ -475,7 +491,7 @@
 				9814594528E6B0A700F66347 /* SettingsView.swift in Sources */,
 				98C1A9692964D3CC00CB82E9 /* TermsView.swift in Sources */,
 				987D44C029AE9CE6002067FB /* EditView.swift in Sources */,
-				9859D8F32A0B423E004C6878 /* EditModel.swift in Sources */,
+				9859D8F32A0B423E004C6878 /* EditModal.swift in Sources */,
 				9849D25F28DA510600D8A9FA /* MasterView.swift in Sources */,
 				98D5EFA8295FBE1600E6D967 /* BevModel.swift in Sources */,
 				9863C9DC28DB9F3700E951FB /* BreakdownView.swift in Sources */,
@@ -498,7 +514,7 @@
 				9859D8EF2A09B7FC004C6878 /* AnalyticsModel.swift in Sources */,
 				9879709B2A0CAAF500B9E160 /* AddViewModal.swift in Sources */,
 				98DB26F528DBD54000411DD9 /* AnalyticsView.swift in Sources */,
-				9850C19D2947D13600F54043 /* EmptyView.swift in Sources */,
+				9850C19D2947D13600F54043 /* GraphView.swift in Sources */,
 				9863C9DE28DBAA6400E951FB /* ColorModel.swift in Sources */,
 				98C5A54629490D7400263CA3 /* Bev.swift in Sources */,
 				9863C9D228DADA4500E951FB /* AchievementDetails.swift in Sources */,

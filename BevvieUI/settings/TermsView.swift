@@ -4,6 +4,7 @@
 //
 //  Created by Allison Ngo on 12/30/22.
 //
+//  settings view that displays mock terms and conditions
 
 import SwiftUI
 
@@ -20,8 +21,7 @@ struct TermsView: View {
                         termsPresent = false
                     }, label: {
                         Image(systemName: "arrow.left").font(.title).foregroundColor(.black)
-                    }
-                    )
+                    })
                     Spacer()
                 }
                 .padding(.leading)
@@ -31,27 +31,25 @@ struct TermsView: View {
                     .foregroundColor(ColorModel().darkGray)
                     .font(Font.custom("Young", size: 27))
                     .frame(width: ConstModel().width, alignment: .leading)
+                
+                // text blocks
                 VStack(spacing: 30) {
                     Text(ConstModel().policy1)
-                    .fontWeight(.bold)
-                    .foregroundColor(ColorModel().darkGray)
-                    .font(Font.custom("Young", size: 16))
-                    .lineSpacing(7)
-
-                    .frame(width: ConstModel().width * 0.90, alignment: .leading)
+                        .fontWeight(.bold)
+                        .foregroundColor(ColorModel().darkGray)
+                        .font(Font.custom("Young", size: 16))
+                        .lineSpacing(7)
+                    
+                        .frame(width: ConstModel().width * 0.90, alignment: .leading)
                     Text(ConstModel().policy2)
-                    .fontWeight(.bold)
-                    .foregroundColor(ColorModel().darkGray)
-                    .font(Font.custom("Young", size: 16))
-                    .lineSpacing(7)
-                    .frame(width: ConstModel().width * 0.90, alignment: .leading)
+                        .fontWeight(.bold)
+                        .foregroundColor(ColorModel().darkGray)
+                        .font(Font.custom("Young", size: 16))
+                        .lineSpacing(7)
+                        .frame(width: ConstModel().width * 0.90, alignment: .leading)
                 }
                 Spacer()
-                Text("BEVVIE @ 2022").font(Font.custom("Kiona", size: 20)).foregroundColor(ColorModel().darkGray)
-                
             }.padding(20)
-            
-          
         }
     }
 }

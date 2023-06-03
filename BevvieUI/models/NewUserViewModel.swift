@@ -4,6 +4,7 @@
 //
 //  Created by Allison Ngo on 12/15/22.
 //
+//  model used to create new user
 
 import Foundation
 import SwiftUI
@@ -13,9 +14,7 @@ import FirebaseAuth
 class NewUserViewModel: ObservableObject {
     
     static func createNewUserAnalytics() {
-        
-        print("creating new users analytics!")
-        
+                
         let db = Firestore.firestore()
     
         let uid: String = Auth.auth().currentUser!.uid
@@ -26,6 +25,7 @@ class NewUserViewModel: ObservableObject {
         let numbevs: Int? = 0
         let money: Double? = 0.0
 
+        // create new user analytics with default values
         db.collection("analytics").addDocument(data: ["uid": uid, "level": level, "exp": exp, "achievements": achievements, "numbevs": numbevs, "money": money])
         { (error) in
             if error != nil {
@@ -37,6 +37,7 @@ class NewUserViewModel: ObservableObject {
         }        
     }
     
+    // function to create new user in firebase
     static func createNewUser(username: String, email: String, user_icon: String) {
         
         print("creating new users!")

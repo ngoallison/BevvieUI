@@ -4,6 +4,7 @@
 //
 //  Created by Allison Ngo on 9/19/22.
 //
+//  custom buttons for settings, takes button name, color, and a function
 
 import SwiftUI
 import FirebaseAuth

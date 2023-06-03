@@ -4,6 +4,7 @@
 //
 //  Created by Allison Ngo on 9/19/22.
 //
+//  custom text field
 
 import SwiftUI
 
@@ -24,6 +25,7 @@ struct CustomTextfield: View {
     var body: some View {
         ZStack(alignment: .leading) {
             HStack {
+                
                 if icon != nil {
                     Image(systemName: icon!)
                         .resizable()

@@ -16,18 +16,19 @@ struct AddView: View {
     
     @Binding var showSheet: Bool
     
-    var faces = ["cheery-face", "happy-face", "meh-face", "sad-face"]
     var temp = ["ICED", "HOT"]
     let options = ["Boba", "Coffee", "Tea", "Smoothie", "Other"]
+    
+    // various changing options, default values
     @State var name = ""
     @State var location = ""
+    @State var price: Double = 0
+    @State var selectedTemp = 0
     @State var type = ""
     @State var size = ""
     @State var selectedIndex = 1
-    @State var selectedTemp = 0
     @State private var selection = "Boba"
     
-    @State var price: Double = 0
     
     @State private var bevDate = Date()
     @EnvironmentObject var bevModel: BevModel
@@ -45,7 +46,7 @@ struct AddView: View {
             
             let result = formatter.string(from: bevDate)
             
-            db.collection("bevs").addDocument(data: ["name": name, "location": location, "type": type, "size": size, "price": price, "temp": temp[selectedTemp], "date": result, "satisfaction": faces[selectedIndex], "uid": user!.uid])
+            db.collection("bevs").addDocument(data: ["name": name, "location": location, "type": type, "size": size, "price": price, "temp": temp[selectedTemp], "date": result, "satisfaction": ConstModel().faces[selectedIndex], "uid": user!.uid])
             { (error) in
                 if error != nil {
                     print("there was an error!")
@@ -189,8 +190,6 @@ struct AddView: View {
                                             Spacer()
                                         }.padding(.leading, 5)
                                     }
-                                    
-                                    //                                    CustomTextfield(placeholder: Text("Boba..."), username: $type)
                                 }
                                 VStack(alignment: .leading, spacing: 5.0) {
                                     Text("DATE")
@@ -225,11 +224,9 @@ struct AddView: View {
                                 Button(action: {
                                     self.selectedIndex = number
                                 }) {
-                                    Image(faces[number]).resizable()
+                                    Image(ConstModel().faces[number]).resizable()
                                         .frame(width: 50, height: 50)
                                         .opacity(selectedIndex == number ? 1.0 : 0.3)
-                                    //.foregroundColor(selectedIndex == number ? .black.opacity(0.9) : Color(UIColor.lightGray))
-                                    
                                 }
                                 Spacer()
                             }

@@ -4,14 +4,7 @@
 //
 //  Created by Allison Ngo on 9/20/22.
 //
-
-import Foundation
-//
-//  HomeView.swift
-//  BevvieUI
-//
-//  Created by Allison Ngo on 9/20/22.
-//
+//  overarching achievements view with scrolling icons and pop up views on click
 
 import Foundation
 import SwiftUI
@@ -38,12 +31,16 @@ struct AchievementView: View {
                             .frame(maxWidth: .infinity)
                         Spacer()
                         ZStack {
+                            
+                            // rectangle card
                             Rectangle().fill(ColorModel().lightTan)
                                 .cornerRadius2(25, corners: [.topLeft, .topRight])
                                 .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.80)
                             VStack {
                                 Spacer()
                                 VStack {
+                                    
+                                    // stack for unlocked and locked labels
                                     HStack {
                                         ForEach(0..<2, id: \.self) { number in
                                             Spacer()
@@ -57,11 +54,12 @@ struct AchievementView: View {
                                         }
                                         
                                     }.padding(10)
-                                    AchievementIcons(achievementName: "", achievementIcon: "", achievementGoal: "")
+                                    
+                                    // achivement icons view
+                                    AchievementIcons()
                                     Spacer()
-                                    // she was here before
                                 }.edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.80)
-                                
+                    
                             }
                             
                         }
@@ -79,11 +77,7 @@ struct AchievementView: View {
 
 struct AchievementView_Preview: PreviewProvider {
     static var previews: some View {
-        MainView()
-            .environmentObject(UserModel())
-            .environmentObject(AnalyticsModel())
-            .environmentObject(BevModel())
-//        AchievementView().previewDevice(PreviewDevice(rawValue: "iPhone 12")).previewInterfaceOrientation(.portrait)
+        AchievementView().previewDevice(PreviewDevice(rawValue: "iPhone 12")).previewInterfaceOrientation(.portrait)
     }
 }
 

@@ -4,15 +4,7 @@
 //
 //  Created by Allison Ngo on 1/3/23.
 //
-/*
-     var uid: String? = "0"
-     var spent: Double = 0.00
-     var level: Int? = 0
-     var exp: Int? = 0
-     var achievements: [String]? = []
-     var numbevs: Int? = 0
-     var money: Double? = 0
-*/
+//  analytics model that performs functions on firebase to gather data
 
 import Foundation
 import SwiftUI

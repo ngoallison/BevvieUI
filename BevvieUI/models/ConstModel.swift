@@ -4,6 +4,7 @@
 //
 //  Created by Allison Ngo on 9/21/22.
 //
+//  constants file to store various reused variables
 
 import Foundation
 import SwiftUI
@@ -16,6 +17,9 @@ struct ConstModel {
     
     // analytics
     var analyticNames: [String] = ["Total Purchases", "Satisfaction", "Types of Bevvies", "Total Money Spent", "Achievements Unlocked", "Favorite Bevvie Types", "Go To Order", "Most Visited Location", "Longest Bevvie Streak"]
+    
+    // icons
+    var faces: [String] = ["cheery-face", "happy-face", "meh-face", "sad-face"]
     
     // terms and conditions
     var policy1: String =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices convallis leo. Suspendisse aliquam, odio eget euismod iaculis, orci tellus sagittis est, id tempus nisi purus ut ipsum. Donec aliquet fermentum fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec ultricies dolor vel neque faucibus viverra. Praesent in vulputate erat. Proin congue mi eu dolor facilisis mattis."

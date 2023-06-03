@@ -4,6 +4,7 @@
 //
 //  Created by Allison Ngo on 9/21/22.
 //
+//  overarching calendar view that contains scroll calendar and days as columns
 
 import Foundation
 import SwiftUI
@@ -12,19 +13,18 @@ import SwiftUI
 struct CalendarView: View {
     
     let days: [String] = ["S", "M", "T", "W", "TH", "F", "SA"]
+    
     @State var breakdown: Bool = false
     @State var hadBev: Bool = false
     @State var selectedDate: Date = Date()
     
     @EnvironmentObject var bevModel: BevModel
-
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
         return formatter
     }()
-    
     
     var body: some View {
         
@@ -44,12 +44,16 @@ struct CalendarView: View {
                         
                         Spacer()
                         ZStack {
+                            
+                            // rectangle card
                             Rectangle().fill(ColorModel().lightTan)
                                 .cornerRadius2(25, corners: [.topLeft, .topRight])
                                 .edgesIgnoringSafeArea(.all).frame(height: ConstModel().height * 0.8)
                             VStack {
                                 VStack (spacing: 0) {
                                     let cols = Array(repeating: GridItem(.flexible()), count: 7)
+                                    
+                                    // grid with day labels and scroll calendar view
                                     LazyVGrid(columns: cols, spacing: 0) {
                                             ForEach(days, id: \.self) { day in
                                                 Text(day)
@@ -70,6 +74,8 @@ struct CalendarView: View {
                     
                 }
             }.blur(radius: breakdown ? 5 : 0)
+            
+            // breakdown view, show breakdown, if had bev, current date, and bev from that date
             BreakdownView(breakdown: $breakdown, hadBev: $hadBev, bevDate: selectedDate, bev: bevModel.getBevFromDate(bevDate: dateFormatter.string(from: selectedDate)))
         
         }

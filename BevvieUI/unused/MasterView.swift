@@ -13,11 +13,9 @@ struct MasterView: View {
     
     @State var isSignedUp: Bool = false
     @State var isLoggedIn: Bool = false
-    @State var loggedOut: Bool = false
     
     @Binding var username: String
     @Binding var email: String
-    
     
     var body: some View {
         if !isSignedUp {
@@ -28,7 +26,7 @@ struct MasterView: View {
         }
         
         else {
-            MainView()
+            MainView(isLoggedIn: $isLoggedIn, isSignedUp: $isSignedUp, addPresent: false)
         }
     }
 }

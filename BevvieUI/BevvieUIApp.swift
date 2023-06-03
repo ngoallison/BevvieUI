@@ -44,14 +44,30 @@ struct BevvieUIApp: App {
     @StateObject var userModel = UserModel()
     @StateObject var anaModel = AnalyticsModel()
     @StateObject var bevModel = BevModel()
-
+    
+    @State var isSignedUp: Bool = false
+    @State var isLoggedIn: Bool = false
 
     var body: some Scene {
         WindowGroup {
-            MasterView(username: .constant(""), email: .constant(""))
-                .environmentObject(userModel)
-                .environmentObject(anaModel)
-                .environmentObject(bevModel)
+            if !isSignedUp {
+                SignUpView(isSignedUp: $isSignedUp, isLoggedIn: $isLoggedIn, choosingIcon: false)
+                    .environmentObject(userModel)
+                      .environmentObject(anaModel)
+                      .environmentObject(bevModel)
+            }
+            else if !isLoggedIn {
+                LogInView(isSignedUp: $isSignedUp, isLoggedIn: $isLoggedIn)
+                    .environmentObject(userModel)
+                      .environmentObject(anaModel)
+                      .environmentObject(bevModel)
+            }
+            else {
+                MainView(isLoggedIn: $isLoggedIn, isSignedUp: $isSignedUp, addPresent: false)
+                    .environmentObject(userModel)
+                      .environmentObject(anaModel)
+                      .environmentObject(bevModel)
+            }
         }
     }
 }
