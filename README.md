@@ -20,5 +20,5 @@ Upcoming features:
 ![Home Page](/screenshots/1b.png)
 ![Calendar Page](/screenshots/1c.png) -->
 
-<img src="https://github.com/ngoallison/BevvieUI/blob/%2C/screenshots/1a.png" height="300"> <img src="https://github.com/ngoallison/BevvieUI/blob/%2C/screenshots/1b.png" height="300"> <img src="https://github.com/ngoallison/BevvieUI/blob/%2C/screenshots/1c.png" height="300">
+![Bevvie Desings](https://d1p3lk0dk2gfrv.cloudfront.net/bevvie.png)
 
